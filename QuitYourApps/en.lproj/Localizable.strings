@@ -5,4 +5,4 @@
 */
 
 "button-quit" = "Quit Running Apps";
-"text-list-running-apps" = "List of running applications";
+"text-list-running-apps" = "List of running applications:";
