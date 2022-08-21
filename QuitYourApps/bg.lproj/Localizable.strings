@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  QuitYourApps
+  Bulgarian
+*/
+
+"button-quit" = "Спри работещите програми";
+"text-list-running-apps" = "Списък с работещите програми";
