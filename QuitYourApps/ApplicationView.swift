@@ -5,9 +5,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ApplicationView: View {
     
-    @StateObject fileprivate var viewModel = ApplicationViewModel()
+    // List of running applications
+    @State private var applications: [Application] = []
     
     var body: some View {
         
@@ -16,11 +17,15 @@ struct ContentView: View {
             Text("text-list-running-apps")
                 .padding()
             
-            List(viewModel.applications) { application in
+            List(applications) { application in
                 HStack {
                     Image(nsImage: application.appIcon)
                     Text(application.appName)
                 }
+            }
+            .task
+            {
+                applications = await Application.LoadRunningApplications()
             }
             
             HStack {
@@ -37,20 +42,16 @@ struct ContentView: View {
         .frame(width: 400.0, height: 400.0)
         
     }
-    
-    // On button Quit clicked
-    func OnButtonQuitClicked() {
-        
-    }
+
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ApplicationView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            ApplicationView()
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
-            ContentView()
+            ApplicationView()
                 .preferredColorScheme(.light)
                 .environment(\.locale, .init(identifier: "bg"))
         }

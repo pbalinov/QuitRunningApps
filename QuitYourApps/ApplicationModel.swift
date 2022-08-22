@@ -21,7 +21,8 @@ struct Application: Identifiable {
 }
 
 extension Application {
-    static func LoadRunningApplications() -> [Application] {
+    static func LoadRunningApplications() async -> [Application] {
+        // Get the list of running applications on the local machine
         let ws = NSWorkspace.shared
         let allRunningApps = ws.runningApplications
         var appsWithWindow: [Application] = []
@@ -32,6 +33,8 @@ extension Application {
 
             if(runningApp.activationPolicy == .regular)
             {
+                // The application is an ordinary app that appears
+                // in the Dock and may have a user interface.
                 appsWithWindow.append(Application(application: runningApp))
             }
         }
