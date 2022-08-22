@@ -7,6 +7,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject fileprivate var viewModel = ApplicationViewModel()
+    
     var body: some View {
         
         VStack {
@@ -14,7 +16,7 @@ struct ContentView: View {
             Text("text-list-running-apps")
                 .padding()
             
-            List(applications) { application in
+            List(viewModel.applications) { application in
                 HStack {
                     Image(nsImage: application.appIcon)
                     Text(application.appName)
