@@ -11,7 +11,8 @@ import Cocoa
 // let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
 let appsToFilter: [String] = ["com.pbalinov.QuitRunningApps"]
 
-struct Application: Identifiable {
+struct Application: Identifiable
+{
     let id: Int32           // Process ID
     let appName: String     // Localized App Name
     let appBundle: String   // App Bundle
@@ -26,8 +27,10 @@ struct Application: Identifiable {
     }
 }
 
-extension Application {
-    static func loadRunningApplications()  -> [Application] {
+extension Application
+{
+    static func loadRunningApplications()  -> [Application]
+    {
         // Get the list of running applications on the local machine
         let ws = NSWorkspace.shared
         let allRunningApps = ws.runningApplications

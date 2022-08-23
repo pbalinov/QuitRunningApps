@@ -5,7 +5,11 @@
 
 import SwiftUI
 
-struct ApplicationView: View {
+struct ApplicationView: View
+{
+    // Main windows dimensions
+    let windowWidth = CGFloat(400)
+    let windowHeight = CGFloat(400)
     
     // List modifiers
     private let listBorderColor = Color(NSColor.separatorColor)
@@ -14,10 +18,10 @@ struct ApplicationView: View {
     // List of running applications
     @State private var applications: [Application] = []
     
-    var body: some View {
-        
-        VStack {
-            
+    var body: some View
+    {
+        VStack
+        {
             Text("text-list-running-apps")
                 .padding()
             
@@ -33,25 +37,26 @@ struct ApplicationView: View {
             }
             .border(listBorderColor, width: listBorderWidth)
             
-            HStack {
+            HStack
+            {
                 Spacer()
                 Button("button-quit", action: {
                     return;
                 })
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             }
-            
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
-        .frame(width: 400.0, height: 400.0)
-                
+        .frame(minWidth: windowWidth, idealWidth: windowWidth, maxWidth: .infinity, minHeight: windowHeight, idealHeight: windowHeight, maxHeight: .infinity, alignment: Alignment.center)
     }
-
 }
 
-struct ApplicationView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
+struct ApplicationView_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
+        Group
+        {
             ApplicationView()
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
