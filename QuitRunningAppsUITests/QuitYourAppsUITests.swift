@@ -1,13 +1,13 @@
 //
-//  QuitYourAppsUITests.swift
-//  QuitYourAppsUITests
+//  QuitRunningAppsUITests.swift
+//  QuitRunningAppsUITests
 //
 //  Created by Plamen Balinov on 15.08.22.
 //
 
 import XCTest
 
-class QuitYourAppsUITests: XCTestCase {
+class QuitRunningAppsUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

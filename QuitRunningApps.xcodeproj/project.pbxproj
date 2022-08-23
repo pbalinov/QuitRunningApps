@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		1B24E61C28B28007004C0B71 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E61B28B28007004C0B71 /* ApplicationModel.swift */; };
 		1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B3731BC28B267E3009BEC55 /* Localizable.strings */; };
-		1B868FFE28AABD7F00A3BB13 /* QuitYourAppsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFD28AABD7F00A3BB13 /* QuitYourAppsApp.swift */; };
+		1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */; };
 		1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */; };
 		1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900128AABD8000A3BB13 /* Assets.xcassets */; };
 		1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */; };
-		1B86901028AABD8000A3BB13 /* QuitYourAppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86900F28AABD8000A3BB13 /* QuitYourAppsTests.swift */; };
+		1B86901028AABD8000A3BB13 /* QuitRunningAppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86900F28AABD8000A3BB13 /* QuitRunningAppsTests.swift */; };
 		1B86901A28AABD8000A3BB13 /* QuitYourAppsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */; };
 		1B86901C28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -39,15 +39,15 @@
 		1B24E61B28B28007004C0B71 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1B868FFA28AABD7F00A3BB13 /* QuitYourApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitYourApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B868FFD28AABD7F00A3BB13 /* QuitYourAppsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsApp.swift; sourceTree = "<group>"; };
+		1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitRunningApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitRunningApps.swift; sourceTree = "<group>"; };
 		1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
 		1B86900128AABD8000A3BB13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1B86900628AABD8000A3BB13 /* QuitYourApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitYourApps.entitlements; sourceTree = "<group>"; };
-		1B86900B28AABD8000A3BB13 /* QuitYourAppsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitYourAppsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B86900F28AABD8000A3BB13 /* QuitYourAppsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsTests.swift; sourceTree = "<group>"; };
-		1B86901528AABD8000A3BB13 /* QuitYourAppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitYourAppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitRunningApps.entitlements; sourceTree = "<group>"; };
+		1B86900B28AABD8000A3BB13 /* QuitRunningAppsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitRunningAppsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B86900F28AABD8000A3BB13 /* QuitRunningAppsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitRunningAppsTests.swift; sourceTree = "<group>"; };
+		1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitRunningAppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITests.swift; sourceTree = "<group>"; };
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,9 +80,9 @@
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
-				1B868FFC28AABD7F00A3BB13 /* QuitYourApps */,
-				1B86900E28AABD8000A3BB13 /* QuitYourAppsTests */,
-				1B86901828AABD8000A3BB13 /* QuitYourAppsUITests */,
+				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
+				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
+				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
 				1B868FFB28AABD7F00A3BB13 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,25 +90,25 @@
 		1B868FFB28AABD7F00A3BB13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B868FFA28AABD7F00A3BB13 /* QuitYourApps.app */,
-				1B86900B28AABD8000A3BB13 /* QuitYourAppsTests.xctest */,
-				1B86901528AABD8000A3BB13 /* QuitYourAppsUITests.xctest */,
+				1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */,
+				1B86900B28AABD8000A3BB13 /* QuitRunningAppsTests.xctest */,
+				1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B868FFC28AABD7F00A3BB13 /* QuitYourApps */ = {
+		1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */ = {
 			isa = PBXGroup;
 			children = (
 				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
-				1B868FFD28AABD7F00A3BB13 /* QuitYourAppsApp.swift */,
+				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
-				1B86900628AABD8000A3BB13 /* QuitYourApps.entitlements */,
+				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
 				1B86900328AABD8000A3BB13 /* Preview Content */,
 			);
-			path = QuitYourApps;
+			path = QuitRunningApps;
 			sourceTree = "<group>";
 		};
 		1B86900328AABD8000A3BB13 /* Preview Content */ = {
@@ -119,29 +119,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1B86900E28AABD8000A3BB13 /* QuitYourAppsTests */ = {
+		1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B86900F28AABD8000A3BB13 /* QuitYourAppsTests.swift */,
+				1B86900F28AABD8000A3BB13 /* QuitRunningAppsTests.swift */,
 			);
-			path = QuitYourAppsTests;
+			path = QuitRunningAppsTests;
 			sourceTree = "<group>";
 		};
-		1B86901828AABD8000A3BB13 /* QuitYourAppsUITests */ = {
+		1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */ = {
 			isa = PBXGroup;
 			children = (
 				1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */,
 				1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */,
 			);
-			path = QuitYourAppsUITests;
+			path = QuitRunningAppsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B868FF928AABD7F00A3BB13 /* QuitYourApps */ = {
+		1B868FF928AABD7F00A3BB13 /* QuitRunningApps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B86901F28AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourApps" */;
+			buildConfigurationList = 1B86901F28AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningApps" */;
 			buildPhases = (
 				1B868FF628AABD7F00A3BB13 /* Sources */,
 				1B868FF728AABD7F00A3BB13 /* Frameworks */,
@@ -151,14 +151,14 @@
 			);
 			dependencies = (
 			);
-			name = QuitYourApps;
+			name = QuitRunningApps;
 			productName = QuitYourApps;
-			productReference = 1B868FFA28AABD7F00A3BB13 /* QuitYourApps.app */;
+			productReference = 1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1B86900A28AABD8000A3BB13 /* QuitYourAppsTests */ = {
+		1B86900A28AABD8000A3BB13 /* QuitRunningAppsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B86902228AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourAppsTests" */;
+			buildConfigurationList = 1B86902228AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningAppsTests" */;
 			buildPhases = (
 				1B86900728AABD8000A3BB13 /* Sources */,
 				1B86900828AABD8000A3BB13 /* Frameworks */,
@@ -169,14 +169,14 @@
 			dependencies = (
 				1B86900D28AABD8000A3BB13 /* PBXTargetDependency */,
 			);
-			name = QuitYourAppsTests;
+			name = QuitRunningAppsTests;
 			productName = QuitYourAppsTests;
-			productReference = 1B86900B28AABD8000A3BB13 /* QuitYourAppsTests.xctest */;
+			productReference = 1B86900B28AABD8000A3BB13 /* QuitRunningAppsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1B86901428AABD8000A3BB13 /* QuitYourAppsUITests */ = {
+		1B86901428AABD8000A3BB13 /* QuitRunningAppsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B86902528AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourAppsUITests" */;
+			buildConfigurationList = 1B86902528AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningAppsUITests" */;
 			buildPhases = (
 				1B86901128AABD8000A3BB13 /* Sources */,
 				1B86901228AABD8000A3BB13 /* Frameworks */,
@@ -187,9 +187,9 @@
 			dependencies = (
 				1B86901728AABD8000A3BB13 /* PBXTargetDependency */,
 			);
-			name = QuitYourAppsUITests;
+			name = QuitRunningAppsUITests;
 			productName = QuitYourAppsUITests;
-			productReference = 1B86901528AABD8000A3BB13 /* QuitYourAppsUITests.xctest */;
+			productReference = 1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -229,9 +229,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B868FF928AABD7F00A3BB13 /* QuitYourApps */,
-				1B86900A28AABD8000A3BB13 /* QuitYourAppsTests */,
-				1B86901428AABD8000A3BB13 /* QuitYourAppsUITests */,
+				1B868FF928AABD7F00A3BB13 /* QuitRunningApps */,
+				1B86900A28AABD8000A3BB13 /* QuitRunningAppsTests */,
+				1B86901428AABD8000A3BB13 /* QuitRunningAppsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,7 +270,7 @@
 			files = (
 				1B24E61C28B28007004C0B71 /* ApplicationModel.swift in Sources */,
 				1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */,
-				1B868FFE28AABD7F00A3BB13 /* QuitYourAppsApp.swift in Sources */,
+				1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B86901028AABD8000A3BB13 /* QuitYourAppsTests.swift in Sources */,
+				1B86901028AABD8000A3BB13 /* QuitRunningAppsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,12 +296,12 @@
 /* Begin PBXTargetDependency section */
 		1B86900D28AABD8000A3BB13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B868FF928AABD7F00A3BB13 /* QuitYourApps */;
+			target = 1B868FF928AABD7F00A3BB13 /* QuitRunningApps */;
 			targetProxy = 1B86900C28AABD8000A3BB13 /* PBXContainerItemProxy */;
 		};
 		1B86901728AABD8000A3BB13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B868FF928AABD7F00A3BB13 /* QuitYourApps */;
+			target = 1B868FF928AABD7F00A3BB13 /* QuitRunningApps */;
 			targetProxy = 1B86901628AABD8000A3BB13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -440,11 +440,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = QuitYourApps/QuitYourApps.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QuitYourApps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -456,7 +456,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pbalinov.QuitYourApps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pbalinov.QuitRunningApps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -469,11 +469,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = QuitYourApps/QuitYourApps.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QuitYourApps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -485,7 +485,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pbalinov.QuitYourApps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pbalinov.QuitRunningApps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -576,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B86901F28AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourApps" */ = {
+		1B86901F28AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningApps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B86902028AABD8000A3BB13 /* Debug */,
@@ -585,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B86902228AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourAppsTests" */ = {
+		1B86902228AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningAppsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B86902328AABD8000A3BB13 /* Debug */,
@@ -594,7 +594,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B86902528AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitYourAppsUITests" */ = {
+		1B86902528AABD8000A3BB13 /* Build configuration list for PBXNativeTarget "QuitRunningAppsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B86902628AABD8000A3BB13 /* Debug */,

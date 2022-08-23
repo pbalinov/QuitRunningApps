@@ -1,6 +1,6 @@
 //
 //  ApplicationModel.swift
-//  QuitYourApps
+//  QuitRunningApps
 //
 
 import Foundation
@@ -8,8 +8,8 @@ import SwiftUI
 import Cocoa
 
 // Filter per app bundle identifier
-// let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitYourApps"]
-let appsToFilter: [String] = ["com.pbalinov.QuitYourApps"]
+// let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+let appsToFilter: [String] = ["com.pbalinov.QuitRunningApps"]
 
 struct Application: Identifiable {
     let id: Int32           // Process ID

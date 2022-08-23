@@ -1,6 +1,6 @@
 //
-//  ContentView.swift
-//  QuitYourApps
+//  ApplicationView.swift
+//  QuitRunningApps
 //
 
 import SwiftUI

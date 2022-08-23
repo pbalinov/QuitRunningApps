@@ -1,12 +1,12 @@
 //
-//  QuitYourAppsApp.swift
-//  QuitYourApps
+//  QuitRunningApps.swift
+//  QuitRunningApps
 //
 
 import SwiftUI
 
 @main
-struct QuitYourAppsApp: App {
+struct QuitRunningApps: App {
     var body: some Scene {
         WindowGroup {
             ApplicationView()

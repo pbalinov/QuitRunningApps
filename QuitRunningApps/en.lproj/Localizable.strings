@@ -1,7 +1,7 @@
 /* 
-  Localizable.strings
-  QuitYourApps
-  English
+ Localizable.strings
+ QuitRunningApps
+ English
 */
 
 "button-quit" = "Quit Running Apps";
