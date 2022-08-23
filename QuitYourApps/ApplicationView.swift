@@ -7,6 +7,10 @@ import SwiftUI
 
 struct ApplicationView: View {
     
+    // List modifiers
+    private let listBorderColor = Color(NSColor.separatorColor)
+    private let listBorderWidth = CGFloat(1)
+    
     // List of running applications
     @State private var applications: [Application] = []
     
@@ -25,8 +29,9 @@ struct ApplicationView: View {
             }
             .task
             {
-                applications = await Application.LoadRunningApplications()
+                applications = Application.LoadRunningApplications()
             }
+            .border(listBorderColor, width: listBorderWidth)
             
             HStack {
                 Spacer()
@@ -37,10 +42,9 @@ struct ApplicationView: View {
             }
             
         }
-            
-        //.frame(minWidth: 400.0, maxWidth: .infinity, minHeight: 400.0, maxHeight: .infinity)
+        .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
         .frame(width: 400.0, height: 400.0)
-        
+                
     }
 
 }
