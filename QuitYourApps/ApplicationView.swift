@@ -29,7 +29,7 @@ struct ApplicationView: View {
             }
             .task
             {
-                applications = Application.LoadRunningApplications()
+                applications = Application.loadRunningApplications()
             }
             .border(listBorderColor, width: listBorderWidth)
             

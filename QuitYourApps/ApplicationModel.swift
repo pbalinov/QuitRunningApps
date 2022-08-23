@@ -27,11 +27,11 @@ struct Application: Identifiable {
 }
 
 extension Application {
-    static func LoadRunningApplications()  -> [Application] {
+    static func loadRunningApplications()  -> [Application] {
         // Get the list of running applications on the local machine
         let ws = NSWorkspace.shared
         let allRunningApps = ws.runningApplications
-        var appsWithWindow: [Application] = []
+        var applications: [Application] = []
 
         for currentApp in allRunningApps.enumerated()
         {
@@ -44,10 +44,10 @@ extension Application {
                 // in the Dock and may have a user interface.
                 // The application does not belong to the list of
                 // apps to be filtered.
-                appsWithWindow.append(Application(application: runningApp))
+                applications.append(Application(application: runningApp))
             }
         }
         
-        return appsWithWindow
+        return applications
     }
 }
