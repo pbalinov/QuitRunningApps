@@ -8,8 +8,8 @@ import SwiftUI
 import Cocoa
 
 // Filter per app bundle identifier
-// let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
-let appsToFilter: [String] = ["com.pbalinov.QuitRunningApps"]
+let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+//let appsToFilter: [String] = ["com.pbalinov.QuitRunningApps"]
 
 struct Application: Identifiable
 {

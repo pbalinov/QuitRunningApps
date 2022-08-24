@@ -28,3 +28,4 @@ struct QuitRunningApps: App
         }
     }
 }
+

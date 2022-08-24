@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import Cocoa
 
 struct ApplicationView: View
 {
@@ -17,6 +18,8 @@ struct ApplicationView: View
     
     // List of running applications
     @State private var applications: [Application] = []
+    // Observer for change in running applications
+    @State private var observers = [NSKeyValueObservation]()
     
     var body: some View
     {
@@ -43,11 +46,24 @@ struct ApplicationView: View
                 Button("button-quit", action: {
                     return;
                 })
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .buttonStyle(.borderedProminent)
+                .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
             }
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
         .frame(minWidth: windowWidth, idealWidth: windowWidth, maxWidth: .infinity, minHeight: windowHeight, idealHeight: windowHeight, maxHeight: .infinity, alignment: Alignment.center)
+        .onAppear()
+        {
+            self.observers =
+            [
+                NSWorkspace.shared.observe(\.runningApplications, options: [.initial])
+                {
+                    (model, change) in
+                    // runningApplications changed and the list is updated
+                    applications = Application.loadRunningApplications()
+                }
+            ]
+        }
     }
 }
 
