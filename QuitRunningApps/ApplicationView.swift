@@ -34,10 +34,6 @@ struct ApplicationView: View
                     Text(application.appName)
                 }
             }
-            .task
-            {
-                applications = Application.loadRunningApplications()
-            }
             .border(listBorderColor, width: listBorderWidth)
             
             HStack
