@@ -8,18 +8,15 @@ import Cocoa
 
 struct ApplicationView: View
 {
-    // Main windows dimensions
-    let windowWidth = CGFloat(400)
-    let windowHeight = CGFloat(400)
-    
+    // ApplicationView dimensions
+    static let windowWidth = CGFloat(400)
+    static let windowHeight = CGFloat(400)
     // List modifiers
-    private let listBorderColor = Color(NSColor.separatorColor)
-    private let listBorderWidth = CGFloat(1)
+    static let listBorderColor = Color(NSColor.separatorColor)
+    static let listBorderWidth = CGFloat(1)
     
-    // List of running applications
-    @State private var applications: [Application] = []
-    // Observer for change in running applications
-    @State private var observers = [NSKeyValueObservation]()
+    // List of running applications model
+    @StateObject private var appModel = ApplicationModel()
     
     var body: some View
     {
@@ -28,13 +25,25 @@ struct ApplicationView: View
             Text("text-list-running-apps")
                 .padding()
             
-            List(applications) { application in
-                HStack {
+            List(appModel.applications)
+            {
+                application in
+                HStack
+                {
                     Image(nsImage: application.appIcon)
                     Text(application.appName)
+                    Spacer()
                 }
             }
-            .border(listBorderColor, width: listBorderWidth)
+            .border(ApplicationView.listBorderColor, width: ApplicationView.listBorderWidth)
+            .task
+            {
+                appModel.loadRunningApplications()
+            }
+            .onAppear()
+            {
+                appModel.registerObservers()
+            }
             
             HStack
             {
@@ -47,19 +56,6 @@ struct ApplicationView: View
             }
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
-        .frame(minWidth: windowWidth, idealWidth: windowWidth, maxWidth: .infinity, minHeight: windowHeight, idealHeight: windowHeight, maxHeight: .infinity, alignment: Alignment.center)
-        .onAppear()
-        {
-            self.observers =
-            [
-                NSWorkspace.shared.observe(\.runningApplications, options: [.initial])
-                {
-                    (model, change) in
-                    // runningApplications changed and the list is updated
-                    applications = Application.loadRunningApplications()
-                }
-            ]
-        }
     }
 }
 
@@ -72,9 +68,10 @@ struct ApplicationView_Previews: PreviewProvider
             ApplicationView()
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
+            
             ApplicationView()
                 .preferredColorScheme(.light)
-                .environment(\.locale, .init(identifier: "bg"))
+                .environment(\.locale, .init(identifier: "bg"))            
         }
     }
 }
