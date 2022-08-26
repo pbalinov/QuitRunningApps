@@ -15,7 +15,7 @@ struct ApplicationView: View
     static let listBorderColor = Color(NSColor.separatorColor)
     static let listBorderWidth = CGFloat(1)
     
-    // List of running applications model
+    // Аpplications model 
     @StateObject private var appModel = ApplicationModel()
     
     var body: some View
@@ -49,6 +49,7 @@ struct ApplicationView: View
             {
                 Spacer()
                 Button("button-quit", action: {
+                    // TODO: Quit the applications
                     return;
                 })
                 .buttonStyle(.borderedProminent)
@@ -71,7 +72,7 @@ struct ApplicationView_Previews: PreviewProvider
             
             ApplicationView()
                 .preferredColorScheme(.light)
-                .environment(\.locale, .init(identifier: "bg"))            
+                .environment(\.locale, .init(identifier: "bg"))
         }
     }
 }

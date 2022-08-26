@@ -37,6 +37,8 @@ class ApplicationModel: ObservableObject
     @Published var applications: [Application]
     // Observers for changes in running applications
     var observers: [NSKeyValueObservation]
+    // Filter per app bundle identifier
+    let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
     
     init()
     {
@@ -66,7 +68,7 @@ class ApplicationModel: ObservableObject
             }
         }
         
-        // Sort the apps by names
+        // Sort the apps by name
         applications.sort { $0.appName < $1.appName }
 #if DEBUG
         print("Applications are reloaded and sorted.")
@@ -109,35 +111,34 @@ class ApplicationModel: ObservableObject
         }
         else
         {
-            // String is nil, missing name
+            // String is nil, missing bundle
             emptyBundle = true
         }
-        
-        // Empty properties
+                
         if((emptyName) || (emptyBundle))
         {
+            // Any of the properties is empty
             // Do not allow the app in list
             return false
         }
-        
-        // Filter per app bundle identifier
-        let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
-        //let appsToFilter: [String] = ["com.pbalinov.QuitRunningApps"]
-        
+                
         // Check if the application belong to the list of apps to be filtered
+        // Filter per app bundle identifier
         let foundInFilter = appsToFilter.contains(app.bundleIdentifier!)
 
-        return !foundInFilter // Allow in list if not found in filter
+        // Allow in list if not found in filter
+        return !foundInFilter
     }
     
     func registerObservers()
     {
+        // Monitor for changes in the running applications
         self.observers =
         [
             NSWorkspace.shared.observe(\.runningApplications, options: [.new])
             {
                 (model, change) in
-                // runningApplications changed
+                // runningApplications changed - reload the list
 #if DEBUG
                 print("Changes! Inform model to reload applications...")
 #endif

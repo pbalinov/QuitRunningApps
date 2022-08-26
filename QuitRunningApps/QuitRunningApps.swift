@@ -26,9 +26,21 @@ struct QuitRunningApps: App
             {
                 // Disable new window menu
             }
+            CommandGroup(replacing: .systemServices)
+            {
+                // Disable system services menu
+            }
+            CommandGroup(replacing: .pasteboard)
+            {
+                // Disable items in Edit menu
+            }
+            CommandGroup(replacing: .undoRedo)
+            {
+                // Disable items in Edit menu
+            }
             CommandGroup(replacing: .help)
             {
-                Button(action: { /* Add help action here */ })
+                Button(action: { /* TODO: Add help action here */ })
                 {
                     Text("help-menu")
                 }
