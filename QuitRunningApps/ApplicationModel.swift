@@ -36,18 +36,27 @@ class ApplicationModel: ObservableObject
     // Main list of running applications
     @Published var applications: [Application]
     // Observers for changes in running applications
-    var observers: [NSKeyValueObservation]
+    private var observers: [NSKeyValueObservation]
     // Filter per app bundle identifier
     let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+    // Status updates
+    @Published var statusUpdates: String
+    // Is closing process running
+    private var isClosingRunning: Bool = false
+    // Is refresh process running
+    private var isRefreshRunning: Bool = false
     
     init()
     {
         self.applications = []
         self.observers = []
+        self.statusUpdates = ""
     }
     
     func loadRunningApplications()
     {
+        isRefreshRunning = true
+        
         // Always load from scratch
         applications.removeAll()
         
@@ -63,16 +72,21 @@ class ApplicationModel: ObservableObject
             {
                 applications.append(Application(runningApp))
 #if DEBUG
-                print("App name: " + runningApp.localizedName!)
+                //print("App name: " + runningApp.localizedName!)
 #endif
             }
         }
         
         // Sort the apps by name
         applications.sort { $0.appName < $1.appName }
+        
+        // Show status
 #if DEBUG
         print("Applications are reloaded and sorted.")
 #endif
+        statusUpdates = "\(applications.count)" + NSLocalizedString("running-apps", comment: "")
+        
+        isRefreshRunning = false
     }
     
     func allowAppInList(_ app: NSRunningApplication) -> Bool
@@ -130,6 +144,39 @@ class ApplicationModel: ObservableObject
         return !foundInFilter
     }
     
+    func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool
+    {
+        // Filter only apps that are valid for the list
+        
+        let runningApp: NSRunningApplication? = change.newValue?.first
+        
+        if(runningApp == nil)
+        {
+            // No running app in the array, nil
+            return false
+        }
+        
+        // nil when closing?
+        if(runningApp?.activationPolicy != .regular)
+        {
+            return false
+        }
+        
+        // Refresh applications only when the closing
+        // or refresh is not running
+        if(self.isClosingRunning || self.isRefreshRunning)
+        {
+            return false
+        }
+        else
+        {
+#if DEBUG
+            print("Changes! Inform model to reload applications...")
+#endif
+            return true
+        }
+    }
+    
     func registerObservers()
     {
         // Monitor for changes in the running applications
@@ -138,12 +185,70 @@ class ApplicationModel: ObservableObject
             NSWorkspace.shared.observe(\.runningApplications, options: [.new])
             {
                 (model, change) in
-                // runningApplications changed - reload the list
-#if DEBUG
-                print("Changes! Inform model to reload applications...")
-#endif
-                self.loadRunningApplications()
+                if(self.validateObserverNotification(change))
+                {
+                    // Change is valid - reload the applications
+                    self.loadRunningApplications()
+                }
             }
         ]
+    }
+    
+    func closeRunningApplications()
+    {
+        // Starting to close the applications
+        isClosingRunning = true
+        
+        // Create a local copy of the list to process
+        let allAppsToClose = self.applications
+        
+#if DEBUG
+        print("Start closing the runnign applications.")
+#endif
+        // Close the list of running applications
+        for currentApp in allAppsToClose.enumerated()
+        {
+            let appFromList: Application = allAppsToClose[currentApp.offset]
+            if let appToClose = NSRunningApplication.init(processIdentifier: appFromList.id)
+            {
+                // App has a valid process ID
+#if DEBUG
+                if(appFromList.appName != "Finder")
+                {
+                    // Close only Word in debug session
+                    continue
+                }
+#endif
+                // Close the application
+                let isAppClosed = appToClose.terminate()
+                if(isAppClosed)
+                {
+                    // Success
+#if DEBUG
+                    print("Closing: \(appFromList.appName) was successful.")
+#endif
+
+                }
+                else
+                {
+                    // Failed to close it
+#if DEBUG
+                    print("Closing: \(appFromList.appName) failed.")
+#endif
+                }
+            }
+            else
+            {
+                // App has no valid process ID
+                // Proceed with the next in list
+                continue;
+            }
+        }
+        
+        // Finished closing the applications
+        isClosingRunning = false
+#if DEBUG
+        print("Closed all running applications.")
+#endif
     }
 }
