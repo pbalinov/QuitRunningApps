@@ -156,7 +156,7 @@ class ApplicationModel: ObservableObject
             return false
         }
         
-        // nil when closing?
+        // TODO nil when closing?
         if(runningApp?.activationPolicy != .regular)
         {
             return false

@@ -100,9 +100,9 @@
 		1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */ = {
 			isa = PBXGroup;
 			children = (
-				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
+				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
