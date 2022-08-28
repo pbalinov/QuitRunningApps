@@ -51,6 +51,7 @@
 		1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITests.swift; sourceTree = "<group>"; };
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B93D49228BB6264001F9725 /* AppIcon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
+		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +142,7 @@
 		1B93D49128BB6212001F9725 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */,
 				1B93D49228BB6264001F9725 /* AppIcon.svg */,
 			);
 			path = "External Resources";
