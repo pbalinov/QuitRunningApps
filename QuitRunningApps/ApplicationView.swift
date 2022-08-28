@@ -39,6 +39,9 @@ struct ApplicationView: View
             .task
             {
                 appModel.loadRunningApplications()
+            }
+            .onAppear()
+            {
                 appModel.registerObservers()
             }
             
