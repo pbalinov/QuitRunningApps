@@ -31,6 +31,12 @@ struct Application: Identifiable
     }
 }
 
+enum statusUpdateTypes
+{
+    // Status update types
+    case updating, closing
+}
+
 class ApplicationModel: ObservableObject
 {
     // Main list of running applications
@@ -84,8 +90,8 @@ class ApplicationModel: ObservableObject
 #if DEBUG
         print("Applications are reloaded and sorted.")
 #endif
-        statusUpdates = "\(applications.count)" + NSLocalizedString("running-apps", comment: "")
-        
+        //formatStatusText(statusUpdateTypes.updating, applications.count)
+                
         isRefreshRunning = false
     }
     
@@ -148,33 +154,42 @@ class ApplicationModel: ObservableObject
     {
         // Filter only apps that are valid for the list
         
-        let runningApp: NSRunningApplication? = change.newValue?.first
-        
-        if(runningApp == nil)
-        {
-            // No running app in the array, nil
-            return false
-        }
-        
-        // TODO nil when closing?
-        if(runningApp?.activationPolicy != .regular)
-        {
-            return false
-        }
-        
         // Refresh applications only when the closing
         // or refresh is not running
         if(self.isClosingRunning || self.isRefreshRunning)
         {
             return false
         }
-        else
+        
+        // Check for valid new or old value.
+        // Observer is subscribed for old and new value changes.
+        let runningAppNew: NSRunningApplication? = change.newValue?.first
+        let runningAppOld: NSRunningApplication? = change.oldValue?.first
+        
+        if(runningAppNew != nil)
         {
+            // Handle changes for regular apps only
+            if(runningAppNew?.activationPolicy == .regular)
+            {
 #if DEBUG
-            print("Changes! Inform model to reload applications...")
+                print("Changes! Inform model to reload applications...")
 #endif
-            return true
+                return true
+            }
         }
+        else if (runningAppOld != nil)
+        {
+            // Handle changes for regular apps only
+            if(runningAppOld?.activationPolicy == .regular)
+            {
+#if DEBUG
+                print("Changes! Inform model to reload applications...")
+#endif
+                return true
+            }
+        }
+        
+        return false
     }
     
     func registerObservers()
@@ -182,7 +197,8 @@ class ApplicationModel: ObservableObject
         // Monitor for changes in the running applications
         self.observers =
         [
-            NSWorkspace.shared.observe(\.runningApplications, options: [.new])
+            // New values handle launched apps and old values closed
+            NSWorkspace.shared.observe(\.runningApplications, options: [.new, .old])
             {
                 (model, change) in
                 if(self.validateObserverNotification(change))
@@ -199,11 +215,14 @@ class ApplicationModel: ObservableObject
         // Starting to close the applications
         isClosingRunning = true
         
+        // How many apps we informed to close
+        var appsBeingClosed: Int = 0
+        
         // Create a local copy of the list to process
         let allAppsToClose = self.applications
         
 #if DEBUG
-        print("Start closing the runnign applications.")
+        print("Start closing the running applications.")
 #endif
         // Close the list of running applications
         for currentApp in allAppsToClose.enumerated()
@@ -213,7 +232,7 @@ class ApplicationModel: ObservableObject
             {
                 // App has a valid process ID
 #if DEBUG
-                if(appFromList.appName != "Finder")
+                if(appFromList.appName != "Microsoft Word")
                 {
                     // Close only Word in debug session
                     continue
@@ -224,8 +243,9 @@ class ApplicationModel: ObservableObject
                 if(isAppClosed)
                 {
                     // Success
+                    appsBeingClosed += 1
 #if DEBUG
-                    print("Closing: \(appFromList.appName) was successful.")
+                    print("Inform \(appFromList.appName) to close was successful.")
 #endif
 
                 }
@@ -233,7 +253,7 @@ class ApplicationModel: ObservableObject
                 {
                     // Failed to close it
 #if DEBUG
-                    print("Closing: \(appFromList.appName) failed.")
+                    print("Inform \(appFromList.appName) to close failed.")
 #endif
                 }
             }
@@ -246,9 +266,39 @@ class ApplicationModel: ObservableObject
         }
         
         // Finished closing the applications
+        // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
 #if DEBUG
-        print("Closed all running applications.")
+        print("Informed all running applications to close.")
 #endif
+    }
+    
+    func formatStatusText (_ type: statusUpdateTypes, _ apps: Int)
+    {
+        switch type
+        {
+        case .updating:
+            switch apps
+            {
+            case 0:
+                statusUpdates = NSLocalizedString("no", comment: "") + " " + NSLocalizedString("running-apps", comment: "")
+                return
+            case 1:
+                statusUpdates = String(apps) + " " + NSLocalizedString("running-app", comment: "")
+                return
+            default:
+                statusUpdates = String(apps) + " " + NSLocalizedString("running-apps", comment: "")
+            }
+        case .closing:
+            switch apps
+            {
+            case 0:
+                statusUpdates = NSLocalizedString("no", comment: "") + " " + NSLocalizedString("closing-apps", comment: "")
+            case 1:
+                statusUpdates = String(apps) + " " + NSLocalizedString("closing-app", comment: "")
+            default:
+                statusUpdates = String(apps) + " " + NSLocalizedString("closing-apps", comment: "")
+            }
+        }
     }
 }

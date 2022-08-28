@@ -17,8 +17,6 @@ struct ApplicationView: View
     
     // Аpplications model 
     @StateObject private var appModel = ApplicationModel()
-    // Disable quit apps button when closing runs
-    @State private var isClosingRunning: Bool = false
     
     var body: some View
     {
@@ -41,9 +39,6 @@ struct ApplicationView: View
             .task
             {
                 appModel.loadRunningApplications()
-            }
-            .onAppear()
-            {
                 appModel.registerObservers()
             }
             
@@ -53,18 +48,17 @@ struct ApplicationView: View
                     .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("button-quit", action: {
-                    isClosingRunning = true
                     appModel.closeRunningApplications()
-                    isClosingRunning = false
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
-                .disabled(isClosingRunning)
             }
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
     }
 }
+
+
 
 struct ApplicationView_Previews: PreviewProvider
 {

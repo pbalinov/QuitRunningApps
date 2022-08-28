@@ -7,4 +7,8 @@
 "button-quit" = "Quit Running Apps";
 "text-list-running-apps" = "List of running applications:";
 "help-menu" = "Contact Us";
-"running-apps" = " running apps to close.";
+"running-apps" = "running apps to close.";
+"running-app" = "running app to close.";
+"no" = "No";
+"closing-apps" = "apps were being closed.";
+"closing-app" = "app is being closed.";
