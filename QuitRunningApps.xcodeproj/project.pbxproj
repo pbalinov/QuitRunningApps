@@ -50,6 +50,7 @@
 		1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitRunningAppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITests.swift; sourceTree = "<group>"; };
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1B93D49228BB6264001F9725 /* AppIcon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
+				1B93D49128BB6212001F9725 /* External Resources */,
 				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
 				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
 				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
@@ -134,6 +136,14 @@
 				1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */,
 			);
 			path = QuitRunningAppsUITests;
+			sourceTree = "<group>";
+		};
+		1B93D49128BB6212001F9725 /* External Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B93D49228BB6264001F9725 /* AppIcon.svg */,
+			);
+			path = "External Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
