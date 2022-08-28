@@ -67,8 +67,8 @@ class ApplicationModel: ObservableObject
         applications.removeAll()
         
         // Get the list of running applications on the local machine
-        let ws = NSWorkspace.shared
-        let allRunningApps = ws.runningApplications
+        let workspace = NSWorkspace.shared
+        let allRunningApps = workspace.runningApplications
         
         for currentApp in allRunningApps.enumerated()
         {
@@ -221,9 +221,6 @@ class ApplicationModel: ObservableObject
         // Create a local copy of the list to process
         let allAppsToClose = self.applications
         
-#if DEBUG
-        print("Start closing the running applications.")
-#endif
         // Close the list of running applications
         for currentApp in allAppsToClose.enumerated()
         {
@@ -265,12 +262,13 @@ class ApplicationModel: ObservableObject
             }
         }
         
-        // Finished closing the applications
-        // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
-        isClosingRunning = false
 #if DEBUG
         print("Informed all running applications to close.")
 #endif
+        
+        // Finished closing the applications
+        // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
+        isClosingRunning = false
     }
     
     func formatStatusText (_ type: statusUpdateTypes, _ apps: Int)
