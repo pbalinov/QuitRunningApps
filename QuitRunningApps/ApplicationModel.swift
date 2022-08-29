@@ -40,13 +40,13 @@ enum statusUpdateTypes
 class ApplicationModel: ObservableObject
 {
     // Main list of running applications
-    @Published var applications: [Application]
+    @Published var applications: [Application] = []
     // Observers for changes in running applications
-    private var observers: [NSKeyValueObservation]
+    private var observers: [NSKeyValueObservation] = []
     // Filter per app bundle identifier
     let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
     // Status updates
-    @Published var statusUpdates: String
+    @Published var statusUpdates: String = ""
     // Is closing process running
     private var isClosingRunning: Bool = false
     // Is refresh process running
@@ -57,6 +57,8 @@ class ApplicationModel: ObservableObject
         self.applications = []
         self.observers = []
         self.statusUpdates = ""
+        self.isRefreshRunning = false
+        self.isClosingRunning = false
     }
     
     func loadRunningApplications()
@@ -280,10 +282,8 @@ class ApplicationModel: ObservableObject
             {
             case 0:
                 statusUpdates = NSLocalizedString("no", comment: "") + " " + NSLocalizedString("running-apps", comment: "")
-                return
             case 1:
                 statusUpdates = String(apps) + " " + NSLocalizedString("running-app", comment: "")
-                return
             default:
                 statusUpdates = String(apps) + " " + NSLocalizedString("running-apps", comment: "")
             }

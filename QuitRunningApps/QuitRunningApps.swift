@@ -18,7 +18,7 @@ struct QuitRunningApps: App
                     // Disable tab bar menu
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
-                .frame(minWidth: ApplicationView.windowWidth, idealWidth: ApplicationView.windowWidth, maxWidth: .infinity, minHeight: ApplicationView.windowHeight, idealHeight: ApplicationView.windowHeight, maxHeight: .infinity, alignment: .center)
+                .frame(minWidth: ApplicationView.windowWidth, idealWidth: ApplicationView.windowWidth, maxWidth: .infinity, minHeight: ApplicationView.windowHeight, idealHeight: ApplicationView.windowHeight, maxHeight: .infinity, alignment: .center)                
         }
         .commands
         {
