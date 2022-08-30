@@ -41,7 +41,7 @@
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B4795A328BE7BC5007E4BF9 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
-		1B789EC128BE18E500956971 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1B789EC128BE18E500956971 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; lineEnding = 2; path = README.md; sourceTree = "<group>"; };
 		1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitRunningApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitRunningApps.swift; sourceTree = "<group>"; };
 		1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
@@ -53,7 +53,6 @@
 		1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitRunningAppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITests.swift; sourceTree = "<group>"; };
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1B93D49228BB6264001F9725 /* AppIcon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
 		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +147,6 @@
 			children = (
 				1B4795A328BE7BC5007E4BF9 /* App.vectornator */,
 				1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */,
-				1B93D49228BB6264001F9725 /* AppIcon.svg */,
 			);
 			path = "External Resources";
 			sourceTree = "<group>";
