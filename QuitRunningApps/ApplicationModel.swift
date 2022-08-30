@@ -17,9 +17,9 @@ struct Application: Identifiable
     init(_ app: NSRunningApplication)
     {
         self.id = app.processIdentifier
-        self.appName = app.localizedName!
-        self.appIcon = app.icon!
-        self.appBundle = app.bundleIdentifier!
+        self.appName = app.localizedName ?? ""
+        self.appIcon = app.icon ?? NSImage(imageLiteralResourceName: "App")
+        self.appBundle = app.bundleIdentifier ?? ""
     }
     
     init(_ app: Application)
@@ -124,6 +124,13 @@ class ApplicationModel: ObservableObject
             emptyName = true
         }
         
+        if(emptyName)
+        {
+            // Name is empty
+            // Do not allow the app in list
+            return false
+        }
+        
         // Check the app bundle
         var emptyBundle = false
         if let appBundle = app.bundleIdentifier
@@ -137,9 +144,9 @@ class ApplicationModel: ObservableObject
             emptyBundle = true
         }
                 
-        if((emptyName) || (emptyBundle))
+        if(emptyBundle)
         {
-            // Any of the properties is empty
+            // Bundle is empty
             // Do not allow the app in list
             return false
         }
