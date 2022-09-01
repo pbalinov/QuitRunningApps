@@ -71,11 +71,9 @@ class ApplicationModel: ObservableObject
         // Get the list of running applications on the local machine
         let workspace = NSWorkspace.shared
         let allRunningApps = workspace.runningApplications
-        
-        for currentApp in allRunningApps.enumerated()
-        {
-            let runningApp = allRunningApps[currentApp.offset]
 
+        for runningApp in allRunningApps
+        {
             if(allowAppInList(runningApp))
             {
                 applications.append(Application(runningApp))
@@ -112,45 +110,20 @@ class ApplicationModel: ObservableObject
         }
         
         // Check the app name
-        var emptyName = false
-        if let appName = app.localizedName
-        {
-            // String is not nil, check is empty
-            emptyName = appName.isEmpty
-        }
-        else
-        {
-            // String is nil, missing name
-            emptyName = true
-        }
-        
-        if(emptyName)
+        if(!validateString(app.localizedName))
         {
             // Name is empty
             // Do not allow the app in list
             return false
         }
         
-        // Check the app bundle
-        var emptyBundle = false
-        if let appBundle = app.bundleIdentifier
-        {
-            // String is not nil, check is empty
-            emptyBundle = appBundle.isEmpty
-        }
-        else
-        {
-            // String is nil, missing bundle
-            emptyBundle = true
-        }
-                
-        if(emptyBundle)
+        if(!validateString(app.bundleIdentifier))
         {
             // Bundle is empty
             // Do not allow the app in list
             return false
         }
-                
+        
         // Check if the application belong to the list of apps to be filtered
         // Filter per app bundle identifier
         let foundInFilter = appsToFilter.contains(app.bundleIdentifier!)
@@ -231,43 +204,39 @@ class ApplicationModel: ObservableObject
         let allAppsToClose = self.applications
         
         // Close the list of running applications
-        for currentApp in allAppsToClose.enumerated()
+        for appFromList in allAppsToClose
         {
-            let appFromList: Application = allAppsToClose[currentApp.offset]
-            if let appToClose = NSRunningApplication.init(processIdentifier: appFromList.id)
-            {
-                // App has a valid process ID
-#if DEBUG
-                if(appFromList.appName != "Microsoft Word")
-                {
-                    // Close only Word in debug session
-                    continue
-                }
-#endif
-                // Close the application
-                let isAppClosed = appToClose.terminate()
-                if(isAppClosed)
-                {
-                    // Success
-                    appsBeingClosed += 1
-#if DEBUG
-                    print("Inform \(appFromList.appName) to close was successful.")
-#endif
-
-                }
-                else
-                {
-                    // Failed to close it
-#if DEBUG
-                    print("Inform \(appFromList.appName) to close failed.")
-#endif
-                }
-            }
-            else
+            guard let appToClose = NSRunningApplication.init(processIdentifier: appFromList.id) else
             {
                 // App has no valid process ID
                 // Proceed with the next in list
                 continue;
+            }
+            
+            // App has a valid process ID
+#if DEBUG
+            if(appFromList.appName != "Microsoft Word")
+            {
+                // Close only Word in debug session
+                continue
+            }
+#endif
+            // Close the application
+            if(appToClose.terminate())
+            {
+                // Success
+                appsBeingClosed += 1
+#if DEBUG
+                print("Inform \(appFromList.appName) to close was successful.")
+#endif
+
+            }
+            else
+            {
+                // Failed to close it
+#if DEBUG
+                print("Inform \(appFromList.appName) to close failed.")
+#endif
             }
         }
         

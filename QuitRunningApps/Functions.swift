@@ -15,3 +15,19 @@ func openURL(_ link: String)
         NSWorkspace.shared.open(url)
     }
 }
+
+func validateString(_ str: String?) -> Bool
+{
+    // Return true if string is not null
+    // or empty otherwise return false
+    
+    // Check if the string is nil
+    guard let validateString = str else
+    {
+        // String is nil
+        return false
+    }
+        
+    // String is not nil, check if empty
+    return !validateString.isEmpty
+}
