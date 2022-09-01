@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import Cocoa
 
 struct ApplicationView: View
 {

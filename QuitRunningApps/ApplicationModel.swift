@@ -44,7 +44,7 @@ class ApplicationModel: ObservableObject
     // Observers for changes in running applications
     private var observers: [NSKeyValueObservation] = []
     // Filter per app bundle identifier
-    let appsToFilter: [String] = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
     // Status updates
     @Published var statusUpdates: String = ""
     // Is closing process running

@@ -17,6 +17,8 @@
 		1B86901028AABD8000A3BB13 /* QuitRunningAppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86900F28AABD8000A3BB13 /* QuitRunningAppsTests.swift */; };
 		1B86901A28AABD8000A3BB13 /* QuitYourAppsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */; };
 		1B86901C28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */; };
+		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
+		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1B86901528AABD8000A3BB13 /* QuitRunningAppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitRunningAppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86901928AABD8000A3BB13 /* QuitYourAppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITests.swift; sourceTree = "<group>"; };
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,8 @@
 				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
 				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
+				1BACAFD828C13CFE003F889D /* Functions.swift */,
+				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
 				1B86900328AABD8000A3BB13 /* Preview Content */,
@@ -287,6 +293,8 @@
 				1B24E61C28B28007004C0B71 /* ApplicationModel.swift in Sources */,
 				1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */,
 				1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */,
+				1BACAFD928C13CFE003F889D /* Functions.swift in Sources */,
+				1BACAFD728C13B8D003F889D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

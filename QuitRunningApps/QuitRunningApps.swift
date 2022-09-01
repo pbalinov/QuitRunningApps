@@ -51,7 +51,10 @@ struct QuitRunningApps: App
             }
             CommandGroup(replacing: .help)
             {
-                Button(action: { /* TODO: Add help action here */ })
+                Button(action:
+                {
+                    openURL(helpURL)
+                })
                 {
                     Text("help-menu")
                 }
@@ -61,4 +64,3 @@ struct QuitRunningApps: App
         //.defaultSize(CGSize(width: ApplicationView.windowWidth, height: ApplicationView.windowHeight))
     }
 }
-
