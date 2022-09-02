@@ -7,7 +7,7 @@ import Foundation
 import SwiftUI
 import Cocoa
 
-struct Application: Identifiable
+struct Application: Identifiable, Hashable
 {
     let id: Int32           // Process ID
     let appName: String     // Localized App Name

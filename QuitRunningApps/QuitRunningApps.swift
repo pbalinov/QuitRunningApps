@@ -60,7 +60,7 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    openURL(helpURL)
+                    openURL(helpURL)                                       
                 })
                 {
                     Text("help-menu")

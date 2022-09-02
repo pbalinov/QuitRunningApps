@@ -19,6 +19,8 @@
 		1B86901C28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */; };
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
+		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
+		1BEE6C2C28C283F400322C07 /* Help.docx in Resources */ = {isa = PBXBuildFile; fileRef = 1BEE6C2B28C283F400322C07 /* Help.docx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +59,9 @@
 		1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitYourAppsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
+		1BEE6C2B28C283F400322C07 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
 				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
+				1BB5136F28C268DA00A11AD4 /* SettingsView.swift */,
 				1BACAFD828C13CFE003F889D /* Functions.swift */,
 				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
@@ -151,6 +156,7 @@
 		1B93D49128BB6212001F9725 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BEE6C2B28C283F400322C07 /* Help.docx */,
 				1B4795A328BE7BC5007E4BF9 /* App.vectornator */,
 				1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */,
 			);
@@ -266,6 +272,7 @@
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
 				1B789EC228BE18E600956971 /* README.md in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
+				1BEE6C2C28C283F400322C07 /* Help.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +300,7 @@
 				1B24E61C28B28007004C0B71 /* ApplicationModel.swift in Sources */,
 				1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */,
 				1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */,
+				1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */,
 				1BACAFD928C13CFE003F889D /* Functions.swift in Sources */,
 				1BACAFD728C13B8D003F889D /* Constants.swift in Sources */,
 			);
