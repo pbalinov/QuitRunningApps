@@ -12,13 +12,20 @@ class AppDelegate: NSObject, NSApplicationDelegate
     {
         return true
     }
+    
+    // Workaround for the window minimize and restore issue
+    func applicationWillBecomeActive(_ notification: Notification)
+    {
+        (notification.object as? NSApplication)?.windows.first?.makeKeyAndOrderFront(self)
+    }
 }
 
 @main
+
 struct QuitRunningApps: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     var body: some Scene
     {
         WindowGroup
