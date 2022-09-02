@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import QuickLook
 
 class AppDelegate: NSObject, NSApplicationDelegate
 {
@@ -64,13 +63,11 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    userGuideUrl = Bundle.main.url(forResource: "Help.pdf", withExtension: "pdf")
-                    
+                    openBundlePDF("UserGuide")                    
                 })
                 {
                     Text("help-menu")
                 }
-                .quickLookPreview($userGuideUrl)
             }
         }
         // macOS 13.0+ Beta

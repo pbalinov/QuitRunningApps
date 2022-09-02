@@ -17,8 +17,6 @@ struct ApplicationView: View
     // Аpplications model 
     @StateObject private var appModel = ApplicationModel()
     
-    @State private var selection = Set<Application>()
-    
     var body: some View
     {
         VStack
@@ -26,7 +24,7 @@ struct ApplicationView: View
             Text("text-list-running-apps")
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            List(appModel.applications, id: \.self, selection: $selection)
+            List(appModel.applications, id: \.self, selection: $appModel.selection)
             {
                 application in
                 HStack

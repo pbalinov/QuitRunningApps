@@ -41,6 +41,8 @@ class ApplicationModel: ObservableObject
 {
     // Main list of running applications
     @Published var applications: [Application] = []
+    // Selected items in the list
+    @Published var selection = Set<Application>()
     // Observers for changes in running applications
     private var observers: [NSKeyValueObservation] = []
     // Filter per app bundle identifier

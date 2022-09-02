@@ -20,7 +20,7 @@
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
-		1BEE6C2E28C2843200322C07 /* Help.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1BEE6C2D28C2843200322C07 /* Help.pdf */; };
+		1BEE6C3028C28A4000322C07 /* UserGuide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 		1BEE6C2B28C283F400322C07 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
-		1BEE6C2D28C2843200322C07 /* Help.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Help.pdf; sourceTree = "<group>"; };
+		1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = UserGuide.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 		1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */ = {
 			isa = PBXGroup;
 			children = (
-				1BEE6C2D28C2843200322C07 /* Help.pdf */,
+				1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
 				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
@@ -270,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BEE6C3028C28A4000322C07 /* UserGuide.pdf in Resources */,
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
 				1B789EC228BE18E600956971 /* README.md in Resources */,
-				1BEE6C2E28C2843200322C07 /* Help.pdf in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

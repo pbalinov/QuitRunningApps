@@ -7,3 +7,4 @@ To Do:
 - Check if you can fix that initial windows size to 400 x 400.
 - Add setting to close app after all other apps are closed.
 - Minimize and restore window fix.
+- Create User Guide.
