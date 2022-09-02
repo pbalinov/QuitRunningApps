@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import QuickLook
 
 class AppDelegate: NSObject, NSApplicationDelegate
 {
@@ -24,7 +25,10 @@ class AppDelegate: NSObject, NSApplicationDelegate
 
 struct QuitRunningApps: App
 {
+    // Apply workarounds via app delegate
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    // Link to embedded help PDF file
+    @State var userGuideUrl: URL?
 
     var body: some Scene
     {
@@ -60,11 +64,13 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    openURL(helpURL)                                       
+                    userGuideUrl = Bundle.main.url(forResource: "Help.pdf", withExtension: "pdf")
+                    
                 })
                 {
                     Text("help-menu")
                 }
+                .quickLookPreview($userGuideUrl)
             }
         }
         // macOS 13.0+ Beta

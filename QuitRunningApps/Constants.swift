@@ -7,5 +7,4 @@
 
 import Foundation
 
-// Help page
-let helpURL = "https://quitrunningapps.noavis-dev.eu"
+
