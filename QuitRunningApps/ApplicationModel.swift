@@ -45,8 +45,13 @@ class ApplicationModel: ObservableObject
     @Published var selection = Set<Application>()
     // Observers for changes in running applications
     private var observers: [NSKeyValueObservation] = []
+#if DEBUG
+    // Filter per app bundle identifier
+    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
+#else
     // Filter per app bundle identifier
     let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+#endif
     // Status updates
     @Published var statusUpdates: String = ""
     // Is closing process running
@@ -81,6 +86,7 @@ class ApplicationModel: ObservableObject
                 applications.append(Application(runningApp))
 #if DEBUG
                 //print("App name: " + runningApp.localizedName!)
+                //print("App bundle: " + runningApp.bundleIdentifier!)
 #endif
             }
         }
@@ -194,7 +200,7 @@ class ApplicationModel: ObservableObject
         ]
     }
     
-    func closeRunningApplications(_ closeApp: Bool)
+    func closeRunningApplications(_ closeOurApp: Bool)
     {
         // Starting to close the applications
         isClosingRunning = true
@@ -217,13 +223,6 @@ class ApplicationModel: ObservableObject
             }
             
             // App has a valid process ID
-#if DEBUG
-            if(appFromList.appName != "Microsoft Word")
-            {
-                // Close only Word in debug session
-                continue
-            }
-#endif
             // Close the application
             if(appToClose.terminate())
             {
@@ -232,7 +231,6 @@ class ApplicationModel: ObservableObject
 #if DEBUG
                 print("Inform \(appFromList.appName) to close was successful.")
 #endif
-
             }
             else
             {
@@ -251,10 +249,13 @@ class ApplicationModel: ObservableObject
         // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
         
-        if(closeApp && (appsBeingClosed == appsToClose))
+        if(closeOurApp && (appsBeingClosed == appsToClose))
         {
-            // Close our app is on and all apps are informed
-            // to be closed
+            // Close our app is on
+            // and all apps are informed to be closed
+#if DEBUG
+        print("Closing our own application also.")
+#endif
             NSApplication.shared.terminate(nil)
         }
             

@@ -11,8 +11,8 @@ struct ApplicationView: View
     static let windowWidth = CGFloat(400)
     static let windowHeight = CGFloat(400)
     // List modifiers
-    static let listBorderColor = Color(NSColor.separatorColor)
-    static let listBorderWidth = CGFloat(1)
+    private let listBorderColor = Color(NSColor.separatorColor)
+    private let listBorderWidth = CGFloat(1)
     
     @StateObject private var appModel = ApplicationModel()
     @EnvironmentObject var settingsModel: SettingsModel
@@ -35,7 +35,7 @@ struct ApplicationView: View
                     Spacer()
                 }
             }
-            .border(ApplicationView.listBorderColor, width: ApplicationView.listBorderWidth)
+            .border(listBorderColor, width: listBorderWidth)
             .task
             {
                 appModel.loadRunningApplications()
@@ -51,7 +51,7 @@ struct ApplicationView: View
                     .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("button-quit", action: {
-                    appModel.closeRunningApplications(settingsModel.closeApp)
+                    appModel.closeRunningApplications(settingsModel.closeOurApp)
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
@@ -70,10 +70,12 @@ struct ApplicationView_Previews: PreviewProvider
             ApplicationView()
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
+                .environmentObject(SettingsModel())
             
             ApplicationView()
                 .preferredColorScheme(.light)
                 .environment(\.locale, .init(identifier: "bg"))
+                .environmentObject(SettingsModel())
         }
     }
 }
