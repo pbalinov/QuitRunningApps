@@ -2,24 +2,30 @@
 //  SettingsView.swift
 //  QuitRunningApps
 //
-//  Created by Plamen Balinov on 2.09.22.
-//
 
 import SwiftUI
 
 struct SettingsView: View
 {
+    @EnvironmentObject var settingsModel: SettingsModel
+    
     var body: some View
     {
-        VStack
+        VStack(alignment: .leading)
         {
-            Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
-                Text("Quit this app when all others are closed.")
+            Text("settings-general")
+                .font(.headline)
+                .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
+            
+            Toggle(isOn: $settingsModel.closeApp)
+            {
+                Text("settings-closeapp")
             }
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            .padding(.all)
             
-            
+            Text("")
         }
+        .padding(.all)
     }
 }
 

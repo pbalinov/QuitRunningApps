@@ -194,13 +194,14 @@ class ApplicationModel: ObservableObject
         ]
     }
     
-    func closeRunningApplications()
+    func closeRunningApplications(_ closeApp: Bool)
     {
         // Starting to close the applications
         isClosingRunning = true
         
         // How many apps we informed to close
-        var appsBeingClosed: Int = 0
+        var appsBeingClosed = 0
+        let appsToClose = applications.count;
         
         // Create a local copy of the list to process
         let allAppsToClose = self.applications
@@ -243,12 +244,20 @@ class ApplicationModel: ObservableObject
         }
         
 #if DEBUG
-        print("Informed all running applications to close.")
+        print("Informed \(appsBeingClosed) from \(appsToClose) running applications to close.")
 #endif
         
         // Finished closing the applications
         // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
+        
+        if(closeApp && (appsBeingClosed == appsToClose))
+        {
+            // Close our app is on and all apps are informed
+            // to be closed
+            NSApplication.shared.terminate(nil)
+        }
+            
     }
     
     func formatStatusText (_ type: statusUpdateTypes, _ apps: Int)

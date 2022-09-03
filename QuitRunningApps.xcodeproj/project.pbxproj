@@ -20,6 +20,7 @@
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
+		1BE51F9A28C3362F001167D5 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE51F9928C3362F001167D5 /* SettingsModel.swift */; };
 		1BEE6C3028C28A4000322C07 /* UserGuide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
+		1BE51F9928C3362F001167D5 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		1BEE6C2B28C283F400322C07 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
 		1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = UserGuide.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
 				1BB5136F28C268DA00A11AD4 /* SettingsView.swift */,
+				1BE51F9928C3362F001167D5 /* SettingsModel.swift */,
 				1BACAFD828C13CFE003F889D /* Functions.swift */,
 				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
@@ -304,6 +307,7 @@
 				1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */,
 				1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */,
 				1BACAFD928C13CFE003F889D /* Functions.swift in Sources */,
+				1BE51F9A28C3362F001167D5 /* SettingsModel.swift in Sources */,
 				1BACAFD728C13B8D003F889D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

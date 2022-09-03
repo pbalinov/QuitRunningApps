@@ -14,14 +14,15 @@ struct ApplicationView: View
     static let listBorderColor = Color(NSColor.separatorColor)
     static let listBorderWidth = CGFloat(1)
     
-    // Аpplications model 
     @StateObject private var appModel = ApplicationModel()
+    @EnvironmentObject var settingsModel: SettingsModel
     
     var body: some View
     {
         VStack
         {
             Text("text-list-running-apps")
+                .font(.headline)
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             List(appModel.applications, id: \.self, selection: $appModel.selection)
@@ -50,7 +51,7 @@ struct ApplicationView: View
                     .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("button-quit", action: {
-                    appModel.closeRunningApplications()
+                    appModel.closeRunningApplications(settingsModel.closeApp)
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
@@ -59,8 +60,6 @@ struct ApplicationView: View
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
     }
 }
-
-
 
 struct ApplicationView_Previews: PreviewProvider
 {
