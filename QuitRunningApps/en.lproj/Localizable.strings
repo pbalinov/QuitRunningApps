@@ -14,3 +14,4 @@
 "closing-app" = "app is being closed.";
 "settings-general" = "General:";
 "settings-closeapp" = "Quit this app after all others are closed.";
+"settings-finder" = "Quit macOS Finder app also.";

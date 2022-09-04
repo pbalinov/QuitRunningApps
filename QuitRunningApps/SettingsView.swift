@@ -16,25 +16,28 @@ struct SettingsView: View
     {
         HStack
         {
-            // Todo
-            Image(systemName: "gearshape")
-                .font(.system(size: imageSize))
-            
+            Image("Settings")
+        
             VStack(alignment: .leading)
             {
                 Text("settings-general")
                     .font(.headline)
-                
+                                
                 Toggle(isOn: $settingsModel.closeOurApp)
                 {
                     Text("settings-closeapp")
                 }
+                
+                Toggle(isOn: $settingsModel.closeFinder)
+                {
+                    Text("settings-finder")
+                }
             }
             .padding(.all)
-            
+        
+        
         }
-        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .frame(width: windowWidth)
+        .padding(.all)
     }
 }
 

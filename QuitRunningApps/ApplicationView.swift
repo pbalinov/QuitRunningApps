@@ -42,6 +42,11 @@ struct ApplicationView: View
             }
             .onAppear()
             {
+                // Todo
+                /*
+                settingsModel.closeOurApp = appModel._closeOurApp
+                settingsModel.closeFinder = appModel._closeFinder
+                */
                 appModel.registerObservers()
             }
             
@@ -51,7 +56,7 @@ struct ApplicationView: View
                     .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("button-quit", action: {
-                    appModel.closeRunningApplications(settingsModel.closeOurApp)
+                    appModel.closeRunningApplications()
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)

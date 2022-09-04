@@ -45,9 +45,13 @@ class ApplicationModel: ObservableObject
     @Published var selection = Set<Application>()
     // Observers for changes in running applications
     private var observers: [NSKeyValueObservation] = []
+    // Settings
+    var closeOurApp = false
+    var closeFinder = false
 #if DEBUG
     // Filter per app bundle identifier
-    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
+//    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
+    let appsToFilter: Set<String> = ["com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
 #else
     // Filter per app bundle identifier
     let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
@@ -66,6 +70,8 @@ class ApplicationModel: ObservableObject
         self.statusUpdates = ""
         self.isRefreshRunning = false
         self.isClosingRunning = false
+        self.closeOurApp = false
+        self.closeFinder = false
     }
     
     func loadRunningApplications()
@@ -200,7 +206,7 @@ class ApplicationModel: ObservableObject
         ]
     }
     
-    func closeRunningApplications(_ closeOurApp: Bool)
+    func closeRunningApplications()
     {
         // Starting to close the applications
         isClosingRunning = true
@@ -249,7 +255,8 @@ class ApplicationModel: ObservableObject
         // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
         
-        if(closeOurApp && (appsBeingClosed == appsToClose))
+        // Todo
+        if(/*closeOurApp &&*/ (appsBeingClosed == appsToClose))
         {
             // Close our app is on
             // and all apps are informed to be closed

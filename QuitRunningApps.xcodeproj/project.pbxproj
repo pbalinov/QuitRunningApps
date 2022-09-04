@@ -45,6 +45,7 @@
 		1B24E61B28B28007004C0B71 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1B3ECD7728C5250F00F572AF /* Settings.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.vectornator; sourceTree = "<group>"; };
 		1B4795A328BE7BC5007E4BF9 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B789EC128BE18E500956971 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = README.md; sourceTree = "<group>"; };
 		1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitRunningApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +162,7 @@
 		1B93D49128BB6212001F9725 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B3ECD7728C5250F00F572AF /* Settings.vectornator */,
 				1BEE6C2B28C283F400322C07 /* Help.docx */,
 				1B4795A328BE7BC5007E4BF9 /* App.vectornator */,
 				1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */,

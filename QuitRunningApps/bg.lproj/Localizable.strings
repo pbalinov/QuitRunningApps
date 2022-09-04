@@ -14,3 +14,4 @@
 "closing-app" = "приложение да бъде затворено.";
 "settings-general" = "Основни:";
 "settings-closeapp" = "Затвори приложението след останалите.";
+"settings-finder" = "Затвори macOS Finder също.";
