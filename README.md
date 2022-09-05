@@ -5,8 +5,8 @@ An application built on Swift for macOS. It will detect running applications and
 Web page: https://quitrunningapps.noavis-dev.eu
 
 To Do:
-+ Add settings to ignore selected apps from being closed.
-+ Minimize and restore window fix.
++ done Add settings to ignore selected apps from being closed.
++ done Minimize and restore window fix.
 - Wait for apps to qiut before closing our own app.
 
 Later:
@@ -14,6 +14,6 @@ Later:
 - Xcode 14: Minimize and restore window fix.
 
 Distribution:
-wip Create User Guide.
-wip Create Web Page.
-
++ done Create DMG installer.
+- wip Create User Guide.
+- wip Create Web Page.

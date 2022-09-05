@@ -45,6 +45,7 @@
 		1B0A9F8528C6668D0044F991 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
 		1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 		1B0A9F8728C6668D0044F991 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
+		1B0A9F8928C667940044F991 /* create_dmg_command.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = create_dmg_command.txt; sourceTree = "<group>"; };
 		1B24E61B28B28007004C0B71 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -103,12 +104,29 @@
 			path = "External Resources";
 			sourceTree = "<group>";
 		};
+		1B0A9F8828C667210044F991 /* Installation Package */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A9F8A28C667940044F991 /* source_folder */,
+				1B0A9F8928C667940044F991 /* create_dmg_command.txt */,
+			);
+			path = "Installation Package";
+			sourceTree = "<group>";
+		};
+		1B0A9F8A28C667940044F991 /* source_folder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = source_folder;
+			sourceTree = "<group>";
+		};
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
-				1B0A9F8328C6665F0044F991 /* External Resources */,
 				1B789EC128BE18E500956971 /* README.md */,
 				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
+				1B0A9F8828C667210044F991 /* Installation Package */,
+				1B0A9F8328C6665F0044F991 /* External Resources */,
 				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
 				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
 				1B868FFB28AABD7F00A3BB13 /* Products */,
@@ -128,16 +146,16 @@
 		1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */ = {
 			isa = PBXGroup;
 			children = (
-				1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */,
-				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */,
-				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
+				1B24E61B28B28007004C0B71 /* ApplicationModel.swift */,
 				1BB5136F28C268DA00A11AD4 /* SettingsView.swift */,
 				1BE51F9928C3362F001167D5 /* SettingsModel.swift */,
 				1BACAFD828C13CFE003F889D /* Functions.swift */,
 				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
+				1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */,
+				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
 				1B86900328AABD8000A3BB13 /* Preview Content */,
 			);
