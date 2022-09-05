@@ -7,9 +7,6 @@ import SwiftUI
 
 struct ApplicationView: View
 {
-    // ApplicationView dimensions
-    static let windowWidth = CGFloat(400)
-    static let windowHeight = CGFloat(400)
     // List modifiers
     private let listBorderColor = Color(NSColor.separatorColor)
     private let listBorderWidth = CGFloat(1)
@@ -42,18 +39,20 @@ struct ApplicationView: View
             }
             .onAppear()
             {
-                // Todo
-                /*
-                settingsModel.closeOurApp = appModel._closeOurApp
-                settingsModel.closeFinder = appModel._closeFinder
-                */
+                appModel.ourAppClosing(settingsModel.closeOurApp)
+                appModel.finderAppClosing(settingsModel.closeFinder)
                 appModel.registerObservers()
+            }
+            .onChange(of: settingsModel.closeOurApp) { newValue in
+                appModel.ourAppClosing(newValue)
+            }
+            .onChange(of: settingsModel.closeFinder) { newValue in
+                appModel.finderAppClosing(newValue)
+                appModel.loadRunningApplications()
             }
             
             HStack()
             {
-                Text(appModel.statusUpdates)
-                    .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("button-quit", action: {
                     appModel.closeRunningApplications()

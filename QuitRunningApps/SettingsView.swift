@@ -7,9 +7,6 @@ import SwiftUI
 
 struct SettingsView: View
 {
-    private let imageSize = 32.0
-    private let windowWidth = CGFloat(400)
-    
     @EnvironmentObject var settingsModel: SettingsModel
     
     var body: some View
@@ -34,8 +31,6 @@ struct SettingsView: View
                 }
             }
             .padding(.all)
-        
-        
         }
         .padding(.all)
     }

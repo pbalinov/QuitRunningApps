@@ -27,7 +27,7 @@ struct QuitRunningApps: App
     // Apply workarounds via app delegate
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     // Link to embedded help PDF file
-    @State var userGuideUrl: URL?
+    private var userGuideUrl: URL?
     // Environment object for app settings, accessible to all views
     @StateObject var settingsModel = SettingsModel()
 
@@ -41,7 +41,7 @@ struct QuitRunningApps: App
                     // Disable tab bar menu
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
-                .frame(minWidth: ApplicationView.windowWidth, idealWidth: ApplicationView.windowWidth, maxWidth: .infinity, minHeight: ApplicationView.windowHeight, idealHeight: ApplicationView.windowHeight, maxHeight: .infinity, alignment: .center)
+                .frame(minWidth: windowWidth, idealWidth: windowWidth, maxWidth: .infinity, minHeight: windowHeight, idealHeight: windowHeight, maxHeight: .infinity, alignment: .center)
                 .environmentObject(settingsModel)
         }
         .commands

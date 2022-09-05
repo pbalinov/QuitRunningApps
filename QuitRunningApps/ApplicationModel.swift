@@ -31,47 +31,41 @@ struct Application: Identifiable, Hashable
     }
 }
 
-enum statusUpdateTypes
-{
-    // Status update types
-    case updating, closing
-}
-
 class ApplicationModel: ObservableObject
 {
     // Main list of running applications
-    @Published var applications: [Application] = []
+    @Published var applications: [Application]
     // Selected items in the list
     @Published var selection = Set<Application>()
     // Observers for changes in running applications
-    private var observers: [NSKeyValueObservation] = []
+    private var observers: [NSKeyValueObservation]
     // Settings
-    var closeOurApp = false
-    var closeFinder = false
-#if DEBUG
+    private var closeOurApp: Bool
+    private var closeFinder: Bool
     // Filter per app bundle identifier
-//    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
-    let appsToFilter: Set<String> = ["com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
-#else
-    // Filter per app bundle identifier
-    let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
-#endif
-    // Status updates
-    @Published var statusUpdates: String = ""
+    private var appsToFilter: Set<String>
+    private let finderBundle: String
     // Is closing process running
-    private var isClosingRunning: Bool = false
+    private var isClosingRunning: Bool
     // Is refresh process running
-    private var isRefreshRunning: Bool = false
+    private var isRefreshRunning: Bool
     
     init()
     {
         self.applications = []
         self.observers = []
-        self.statusUpdates = ""
         self.isRefreshRunning = false
         self.isClosingRunning = false
         self.closeOurApp = false
         self.closeFinder = false
+#if DEBUG
+//      let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
+        appsToFilter = ["com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
+#else
+    // Filter per app bundle identifier
+        appsToFilter = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+#endif
+        self.finderBundle = "com.apple.finder"
     }
     
     func loadRunningApplications()
@@ -255,43 +249,43 @@ class ApplicationModel: ObservableObject
         // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
         
-        // Todo
-        if(/*closeOurApp &&*/ (appsBeingClosed == appsToClose))
+        // Check if we have to close our app as well
+        if(closeOurApp && (appsBeingClosed == appsToClose))
         {
             // Close our app is on
             // and all apps are informed to be closed
 #if DEBUG
-        print("Closing our own application also.")
+            print("Closing our own application also.")
 #endif
             NSApplication.shared.terminate(nil)
         }
-            
     }
     
-    func formatStatusText (_ type: statusUpdateTypes, _ apps: Int)
+    func finderAppClosing(_ close: Bool)
     {
-        switch type
+        if(!close)
         {
-        case .updating:
-            switch apps
-            {
-            case 0:
-                statusUpdates = NSLocalizedString("no", comment: "") + " " + NSLocalizedString("running-apps", comment: "")
-            case 1:
-                statusUpdates = String(apps) + " " + NSLocalizedString("running-app", comment: "")
-            default:
-                statusUpdates = String(apps) + " " + NSLocalizedString("running-apps", comment: "")
-            }
-        case .closing:
-            switch apps
-            {
-            case 0:
-                statusUpdates = NSLocalizedString("no", comment: "") + " " + NSLocalizedString("closing-apps", comment: "")
-            case 1:
-                statusUpdates = String(apps) + " " + NSLocalizedString("closing-app", comment: "")
-            default:
-                statusUpdates = String(apps) + " " + NSLocalizedString("closing-apps", comment: "")
-            }
+            // Do not close Finder - add it to the filter
+            appsToFilter.update(with: finderBundle)
         }
+        else
+        {
+            // Close Finder - remove it from the filter
+            appsToFilter.remove(finderBundle)            
+        }
+        
+        closeFinder = close
+        
+#if DEBUG
+        print("Closing macOS Finder app setting is updated to \(closeFinder).")
+#endif
+    }
+    
+    func ourAppClosing(_ close: Bool)
+    {
+        closeOurApp = close
+#if DEBUG
+        print("Closing our own application setting is updated to \(closeOurApp).")
+#endif
     }
 }
