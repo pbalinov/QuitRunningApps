@@ -41,11 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0A9F8428C6668D0044F991 /* Settings.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.vectornator; sourceTree = "<group>"; };
+		1B0A9F8528C6668D0044F991 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
+		1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
+		1B0A9F8728C6668D0044F991 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B24E61B28B28007004C0B71 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1B3ECD7728C5250F00F572AF /* Settings.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.vectornator; sourceTree = "<group>"; };
-		1B4795A328BE7BC5007E4BF9 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B789EC128BE18E500956971 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = README.md; sourceTree = "<group>"; };
 		1B868FFA28AABD7F00A3BB13 /* QuitRunningApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitRunningApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitRunningApps.swift; sourceTree = "<group>"; };
@@ -61,9 +63,7 @@
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		1BEE6C2B28C283F400322C07 /* Help.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Help.docx; sourceTree = "<group>"; };
 		1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = UserGuide.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,11 +92,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B0A9F8328C6665F0044F991 /* External Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A9F8728C6668D0044F991 /* App.vectornator */,
+				1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */,
+				1B0A9F8528C6668D0044F991 /* Help.docx */,
+				1B0A9F8428C6668D0044F991 /* Settings.vectornator */,
+			);
+			path = "External Resources";
+			sourceTree = "<group>";
+		};
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
+				1B0A9F8328C6665F0044F991 /* External Resources */,
 				1B789EC128BE18E500956971 /* README.md */,
-				1B93D49128BB6212001F9725 /* External Resources */,
 				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
 				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
 				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
@@ -156,17 +167,6 @@
 				1B86901B28AABD8000A3BB13 /* QuitYourAppsUITestsLaunchTests.swift */,
 			);
 			path = QuitRunningAppsUITests;
-			sourceTree = "<group>";
-		};
-		1B93D49128BB6212001F9725 /* External Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1B3ECD7728C5250F00F572AF /* Settings.vectornator */,
-				1BEE6C2B28C283F400322C07 /* Help.docx */,
-				1B4795A328BE7BC5007E4BF9 /* App.vectornator */,
-				1BD3D8C028BB767F0038DC93 /* AppIcon.vectornator */,
-			);
-			path = "External Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
