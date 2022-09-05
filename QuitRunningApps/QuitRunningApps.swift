@@ -75,7 +75,7 @@ struct QuitRunningApps: App
             
         }
         // macOS 13.0+ Beta
-        //.defaultSize(CGSize(width: ApplicationView.windowWidth, height: ApplicationView.windowHeight))
+        //.defaultSize(CGSize(width: windowWidth, height: windowHeight))
         
         Settings
         {

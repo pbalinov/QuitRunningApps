@@ -59,11 +59,9 @@ class ApplicationModel: ObservableObject
         self.closeOurApp = false
         self.closeFinder = false
 #if DEBUG
-//      let appsToFilter: Set<String> = ["com.apple.finder", "com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
         appsToFilter = ["com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
 #else
-    // Filter per app bundle identifier
-        appsToFilter = ["com.apple.finder", "com.pbalinov.QuitRunningApps"]
+        appsToFilter = ["com.pbalinov.QuitRunningApps"]
 #endif
         self.finderBundle = "com.apple.finder"
     }
@@ -200,18 +198,46 @@ class ApplicationModel: ObservableObject
         ]
     }
     
+    func filterAppsToClose(_ sourceListOfApps: [Application], _ filter: Set<Application>) -> [Application]
+    {
+        // Selected apps from the list will not be closed
+        
+        var filteredApps: [Application] = []
+                
+        if(filter.count == 0)
+        {
+            // Nothing to filter
+            // Return the original list
+            filteredApps = sourceListOfApps
+            return filteredApps
+        }
+                
+        for app in sourceListOfApps
+        {
+            if(!filter.contains(app))
+            {
+                // The app is not selected
+                // Add the app in the list for closing
+                filteredApps.append(app)
+            }
+        }
+        
+        return filteredApps
+    }
+    
     func closeRunningApplications()
     {
         // Starting to close the applications
         isClosingRunning = true
         
+        // Create a local copy of the list to process
+        // Filter the list and remove the selected items from the list
+        let allAppsToClose = filterAppsToClose(self.applications, self.selection)
+        
         // How many apps we informed to close
         var appsBeingClosed = 0
-        let appsToClose = applications.count;
-        
-        // Create a local copy of the list to process
-        let allAppsToClose = self.applications
-        
+        let appsToClose = allAppsToClose.count;
+                
         // Close the list of running applications
         for appFromList in allAppsToClose
         {
@@ -242,7 +268,14 @@ class ApplicationModel: ObservableObject
         }
         
 #if DEBUG
-        print("Informed \(appsBeingClosed) from \(appsToClose) running applications to close.")
+        if(appsToClose > 0)
+        {
+            print("Informed \(appsBeingClosed) from \(appsToClose) running applications to close.")
+        }
+        else
+        {
+            print("There were no apps to close.")
+        }
 #endif
         
         // Finished closing the applications
@@ -250,10 +283,11 @@ class ApplicationModel: ObservableObject
         isClosingRunning = false
         
         // Check if we have to close our app as well
-        if(closeOurApp && (appsBeingClosed == appsToClose))
+        if(closeOurApp && (appsBeingClosed == appsToClose) && (appsToClose > 0))
         {
             // Close our app is on
             // and all apps are informed to be closed
+            // and we actually closed at least one app
 #if DEBUG
             print("Closing our own application also.")
 #endif
