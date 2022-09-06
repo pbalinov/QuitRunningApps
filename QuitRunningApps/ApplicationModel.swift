@@ -49,6 +49,9 @@ class ApplicationModel: ObservableObject
     private var isClosingRunning: Bool
     // Is refresh process running
     private var isRefreshRunning: Bool
+    // How many apps we closed
+    private var appsBeingClosed: Int
+    private var appsToClose: Int
     
     init()
     {
@@ -64,6 +67,8 @@ class ApplicationModel: ObservableObject
         appsToFilter = ["com.pbalinov.QuitRunningApps"]
 #endif
         self.finderBundle = "com.apple.finder"
+        self.appsBeingClosed = 0
+        self.appsToClose = 0
     }
     
     func loadRunningApplications()
@@ -235,8 +240,8 @@ class ApplicationModel: ObservableObject
         let allAppsToClose = filterAppsToClose(self.applications, self.selection)
         
         // How many apps we informed to close
-        var appsBeingClosed = 0
-        let appsToClose = allAppsToClose.count;
+        appsBeingClosed = 0
+        appsToClose = allAppsToClose.count;
                 
         // Close the list of running applications
         for appFromList in allAppsToClose
@@ -265,6 +270,9 @@ class ApplicationModel: ObservableObject
                 print("Inform \(appFromList.appName) to close failed.")
 #endif
             }
+            
+            // ToDo: Close our app here - later check if we can wait
+            checkAndCloseOurApp()
         }
         
 #if DEBUG
@@ -281,18 +289,6 @@ class ApplicationModel: ObservableObject
         // Finished closing the applications
         // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
-        
-        // Check if we have to close our app as well
-        if(closeOurApp && (appsBeingClosed == appsToClose) && (appsToClose > 0))
-        {
-            // Close our app is on
-            // and all apps are informed to be closed
-            // and we actually closed at least one app
-#if DEBUG
-            print("Closing our own application also.")
-#endif
-            NSApplication.shared.terminate(nil)
-        }
     }
     
     func finderAppClosing(_ close: Bool)
@@ -309,7 +305,6 @@ class ApplicationModel: ObservableObject
         }
         
         closeFinder = close
-        
 #if DEBUG
         print("Closing macOS Finder app setting is updated to \(closeFinder).")
 #endif
@@ -321,5 +316,33 @@ class ApplicationModel: ObservableObject
 #if DEBUG
         print("Closing our own application setting is updated to \(closeOurApp).")
 #endif
+    }
+    
+    func checkAndCloseOurApp ()
+    {
+        if(!closeOurApp)
+        {
+            // Close our app setting is off
+            return
+        }
+        
+        if(appsToClose == 0)
+        {
+            // Nothing closed - do not quit
+            return
+        }
+        
+        if(appsBeingClosed < appsToClose)
+        {
+            // Not all apps are closed - do not quit
+            return
+        }
+        
+        // and all apps are informed to be closed
+        // and we actually closed at least one app
+#if DEBUG
+        print("Closing our own application also.")
+#endif
+        NSApplication.shared.terminate(nil)
     }
 }

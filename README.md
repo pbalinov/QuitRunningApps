@@ -16,4 +16,5 @@ Later:
 Distribution:
 + done Create DMG installer.
 - wip Create User Guide.
-- wip Create Web Page.
+- done Create Web Page.
+- Update app functionality.
