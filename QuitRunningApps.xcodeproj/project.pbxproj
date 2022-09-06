@@ -125,10 +125,10 @@
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
-				1B789EC128BE18E500956971 /* README.md */,
 				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
 				1B0A9F8828C667210044F991 /* Installation Package */,
 				1B0A9F8328C6665F0044F991 /* External Resources */,
+				1B789EC128BE18E500956971 /* README.md */,
 				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
 				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
 				1B868FFB28AABD7F00A3BB13 /* Products */,
@@ -157,8 +157,8 @@
 				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
 				1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */,
-				1B670CF728C73E1600BC4921 /* Credits.rtf */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
+				1B670CF728C73E1600BC4921 /* Credits.rtf */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
 				1B86900328AABD8000A3BB13 /* Preview Content */,
 			);

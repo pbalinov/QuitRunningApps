@@ -6,12 +6,8 @@
 
 "button-quit" = "Quit Running Apps";
 "text-list-running-apps" = "List of running applications:";
-"help-menu" = "User Guide";
-"running-apps" = "running apps to close.";
-"running-app" = "running app to close.";
-"no" = "No";
-"closing-apps" = "apps were being closed.";
-"closing-app" = "app is being closed.";
+"help-user-guide" = "User Guide";
+"help-web-page" = "Web Page";
 "settings-general" = "General:";
 "settings-closeapp" = "Quit this app after all others.";
 "settings-finder" = "Quit macOS Finder app also.";

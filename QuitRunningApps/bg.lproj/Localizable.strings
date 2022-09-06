@@ -6,12 +6,8 @@
 
 "button-quit" = "Спри работещите програми";
 "text-list-running-apps" = "Списък с работещите програми:";
-"help-menu" = "Ръководство";
-"running-apps" = "работещи приложения за затваряне.";
-"running-app" = "работещо приложение за затваряне.";
-"no" = "Няма";
-"closing-apps" = "приложения да бъдат затворени.";
-"closing-app" = "приложение да бъде затворено.";
+"help-user-guide" = "Ръководство";
+"help-web-page" = "Web страница";
 "settings-general" = "Основни:";
 "settings-closeapp" = "Затвори приложението след останалите.";
 "settings-finder" = "Затвори macOS Finder също.";

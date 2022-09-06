@@ -26,8 +26,7 @@ struct QuitRunningApps: App
 {
     // Apply workarounds via app delegate
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    // Link to embedded help PDF file
-    private var userGuideUrl: URL?
+    
     // Environment object for app settings, accessible to all views
     @StateObject var settingsModel = SettingsModel()
 
@@ -66,10 +65,18 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    openBundlePDF("UserGuide")                    
+                    openBundlePDF(userGuide)                    
                 })
                 {
-                    Text("help-menu")
+                    Text("help-user-guide")
+                }
+                
+                Button(action:
+                {
+                    openURL(webSite)
+                })
+                {
+                    Text("help-web-page")
                 }
             }
             
