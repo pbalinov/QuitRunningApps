@@ -13,4 +13,4 @@ let windowHeight = CGFloat(400)
 let webSite = "https://quitrunningapps.noavis-dev.eu"
 
 // User Guide
-let userGuide = "UserGuide"
+let userGuide = "https://quitrunningapps.noavis-dev.eu/user-guide/"

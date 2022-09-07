@@ -65,7 +65,7 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    openBundlePDF(userGuide)                    
+                    openURL(userGuide)                    
                 })
                 {
                     Text("help-user-guide")

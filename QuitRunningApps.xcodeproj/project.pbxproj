@@ -21,7 +21,6 @@
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
 		1BE51F9A28C3362F001167D5 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE51F9928C3362F001167D5 /* SettingsModel.swift */; };
-		1BEE6C3028C28A4000322C07 /* UserGuide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		1B0A9F8428C6668D0044F991 /* Settings.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.vectornator; sourceTree = "<group>"; };
-		1B0A9F8528C6668D0044F991 /* UserGuide.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserGuide.docx; sourceTree = "<group>"; };
 		1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
 		1B0A9F8728C6668D0044F991 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B0A9F8928C667940044F991 /* create_dmg_command.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = create_dmg_command.txt; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = UserGuide.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +97,6 @@
 			children = (
 				1B0A9F8728C6668D0044F991 /* App.vectornator */,
 				1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */,
-				1B0A9F8528C6668D0044F991 /* UserGuide.docx */,
 				1B0A9F8428C6668D0044F991 /* Settings.vectornator */,
 			);
 			path = "External Resources";
@@ -156,7 +152,6 @@
 				1BACAFD828C13CFE003F889D /* Functions.swift */,
 				1BACAFD628C13B8D003F889D /* Constants.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
-				1BEE6C2F28C28A4000322C07 /* UserGuide.pdf */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1B670CF728C73E1600BC4921 /* Credits.rtf */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
@@ -295,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEE6C3028C28A4000322C07 /* UserGuide.pdf in Resources */,
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1B670CF828C73E1600BC4921 /* Credits.rtf in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
@@ -503,7 +497,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -532,7 +526,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
