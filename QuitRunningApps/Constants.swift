@@ -14,3 +14,7 @@ let webSite = "https://quitrunningapps.noavis-dev.eu"
 
 // User Guide
 let userGuide = "https://quitrunningapps.noavis-dev.eu/user-guide/"
+
+// JSON File with the Latest Version
+let jsonAppVersion = "https://quitrunningapps.noavis-dev.eu/app-updates/version.json"
+

@@ -12,6 +12,7 @@ struct ApplicationView: View
     private let listBorderWidth = CGFloat(1)
     
     @StateObject private var appModel = ApplicationModel()
+    @StateObject private var appUpdate = AppUpdateModel()
     @EnvironmentObject var settingsModel: SettingsModel
     
     var body: some View
@@ -37,6 +38,10 @@ struct ApplicationView: View
             {
                 appModel.loadRunningApplications()
             }
+            .task
+            {
+                await appUpdate.loadVersionData()
+            }
             .onAppear()
             {
                 appModel.ourAppClosing(settingsModel.closeOurApp)
@@ -53,6 +58,7 @@ struct ApplicationView: View
             
             HStack()
             {
+                Text(appUpdate.status)
                 Spacer()
                 Button("button-quit", action: {
                     appModel.closeRunningApplications()
