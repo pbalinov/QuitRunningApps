@@ -58,7 +58,7 @@ class AppUpdateModel: ObservableObject
     
     func loadVersionDataAndCheckForUpdate() async
     {
-        // Load the JSON from web site
+        // Location of the version information JSON file
         guard let url = URL(string: appVersionURL) else
         {
             return
@@ -69,7 +69,7 @@ class AppUpdateModel: ObservableObject
         
         do
         {
-            // Read the version info from web
+            // Read the version info
             let (data, _) = try await URLSession.shared.data(from: url)
 
             // Decode the response
@@ -95,7 +95,7 @@ class AppUpdateModel: ObservableObject
         }
         catch
         {
-            // Failed to get the version info JSON
+            // Failed to get the version info
             checkResult = NSLocalizedString("update-version-failed", comment: "")
 #if DEBUG
             print("Update check failed. Error:")
