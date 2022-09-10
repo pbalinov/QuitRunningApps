@@ -7,39 +7,149 @@ import Foundation
 
 class AppUpdateModel: ObservableObject
 {
+    // Status text on main screen
     @Published var status: String
+    // Setting for update checks
+    private var checkForUpdates: Bool
+    private var lastUpdateCheckDate: Date
+    // Application version information JSON data
     private var results: [Result]
     
     init()
     {
-        status = ""
-        results = [Result]()
+        self.status = ""
+        self.results = [Result]()
+        self.checkForUpdates = false
+        self.lastUpdateCheckDate = Date.distantPast
+    }
+    
+    // Check if the update settings are enabled
+    // and compare last checked date with the current date
+    func checkForNewApplicationVersion() -> Bool
+    {
+        // Check is globaly enabled
+        if(!checkForUpdates)
+        {
+            return false
+        }
+        
+        // Compare current date against last checked date
+        let cal = Calendar.current
+#if DEBUG
+        // Always check by adding 14 days in the past
+        // to last update check date
+        var dayComponent = DateComponents()
+        dayComponent.day = { -2 * appUpdatesPeriod }()
+        lastUpdateCheckDate = cal.date(byAdding: dayComponent, to: lastUpdateCheckDate)!
+#endif
+        let daysBetween = cal.numberOfDaysBetween(lastUpdateCheckDate, Date.now)
+        
+        // Check the period between last check and now
+        if(daysBetween <= appUpdatesPeriod)
+        {
+            return false
+        }
+        
+        // Perform the update check
+        return true
     }
     
     func loadVersionData() async
     {
-        guard let url = URL(string: jsonAppVersion) else
+        // Load the JSON from web site
+        guard let url = URL(string: appVersionURL) else
         {
-            print("Invalid URL")
             return
         }
         
         do
         {
+            // Read the version info from web
             let (data, _) = try await URLSession.shared.data(from: url)
 
+            // Decode the response
             if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data)
             {
-                await MainActor.run {
-                    results = decodedResponse.results
-                    print(results as Any)
-                    status = "Update available."
+                // Results
+                results = decodedResponse.results
+                // Compare results against current app version
+                if(compareVersionData(results))
+                {
+                    // Update is available
+                    await MainActor.run
+                    {
+                        // Show the update on the main screen
+                        status = NSLocalizedString("update-new-version", comment: "")
+                    }
                 }
             }
         }
         catch
         {
-            print("Invalid data")
+            // Failed to get the version info JSON
+#if DEBUG
+            print("Update check failed. Error:")
+            print(error)
+#endif
         }
+    }
+    
+    func appIsCheckingForUpdates(_ check: Bool, _ checkedDate: Date)
+    {
+        checkForUpdates = check
+        lastUpdateCheckDate = checkedDate
+    }
+    
+    // Compare app bundle version and build against
+    // the version information in the JSON file
+    func compareVersionData(_ results: [Result]) -> Bool
+    {
+        if(results.count == 0)
+        {
+            // No data in JSON
+            return false
+        }
+        
+        guard let appVersionFromBundle = Bundle.main.releaseVersionNumber else
+        {
+            // Failed to get the version
+            return false
+        }
+        
+        guard let appBuildFromBundle = Bundle.main.buildVersionNumber else
+        {
+            // Failed to get the build version
+            return false
+        }
+        
+        guard let appVersion = Decimal(string: appVersionFromBundle) else
+        {
+            // Failed to get the version
+            return false
+        }
+        
+        guard let appBuild = Int(appBuildFromBundle) else
+        {
+            // Failed to get the build version
+            return false
+        }
+        
+        // Check the first available record in results array
+        
+        if(appVersion < results[0].version)
+        {
+            // Current app version is lower
+            // Update available
+            return true
+        }
+        
+        if(appBuild < results[0].build)
+        {
+            // Current app build is lower
+            // Update available
+            return true
+        }
+        
+        return false
     }
 }

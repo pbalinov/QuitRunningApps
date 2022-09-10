@@ -11,3 +11,5 @@
 "settings-general" = "Основни:";
 "settings-closeapp" = "Затвори приложението след останалите.";
 "settings-finder" = "Затвори macOS Finder също.";
+"menu-updates" = "Провери за нова версия";
+"update-new-version" = "Налична е нова версия!";

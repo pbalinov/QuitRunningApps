@@ -36,31 +36,49 @@ struct ApplicationView: View
             .border(listBorderColor, width: listBorderWidth)
             .task
             {
+                // Initial load of the applications
                 appModel.loadRunningApplications()
             }
             .task
             {
-                await appUpdate.loadVersionData()
-            }
+                // Check for update
+                if(appUpdate.checkForNewApplicationVersion())
+                {
+                    await appUpdate.loadVersionData()
+                    settingsModel.setLastUpdateCheckDate()
+                }
+            }            
             .onAppear()
             {
+                // Load settings
                 appModel.ourAppClosing(settingsModel.closeOurApp)
                 appModel.finderAppClosing(settingsModel.closeFinder)
+                appUpdate.appIsCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
+                
+                // Start monitoring for app changes
                 appModel.registerObservers()
             }
-            .onChange(of: settingsModel.closeOurApp) { newValue in
-                appModel.ourAppClosing(newValue)
+            // Send settings changes to models
+            .onChange(of: settingsModel.closeOurApp)
+            {
+                newValue in appModel.ourAppClosing(newValue)
             }
-            .onChange(of: settingsModel.closeFinder) { newValue in
-                appModel.finderAppClosing(newValue)
+            .onChange(of: settingsModel.closeFinder)
+            {
+                newValue in appModel.finderAppClosing(newValue)
                 appModel.loadRunningApplications()
+            }
+            .onChange(of: settingsModel.checkForUpdates)
+            {
+                newValue in appUpdate.appIsCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
             }
             
             HStack()
             {
                 Text(appUpdate.status)
                 Spacer()
-                Button("button-quit", action: {
+                Button("button-quit", action:
+                {
                     appModel.closeRunningApplications()
                 })
                 .buttonStyle(.borderedProminent)

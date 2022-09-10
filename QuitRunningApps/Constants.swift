@@ -10,11 +10,13 @@ let windowWidth = CGFloat(400)
 let windowHeight = CGFloat(400)
 
 // Web Site address
-let webSite = "https://quitrunningapps.noavis-dev.eu"
+let webSiteURL = "https://quitrunningapps.noavis-dev.eu"
 
 // User Guide
-let userGuide = "https://quitrunningapps.noavis-dev.eu/user-guide/"
+let userGuideURL = "https://quitrunningapps.noavis-dev.eu/user-guide/"
 
-// JSON File with the Latest Version
-let jsonAppVersion = "https://quitrunningapps.noavis-dev.eu/app-updates/version.json"
+// JSON File with the latest app version
+let appVersionURL = "https://quitrunningapps.noavis-dev.eu/app-updates/version.json"
 
+// Period between update checks in days
+let appUpdatesPeriod = 7

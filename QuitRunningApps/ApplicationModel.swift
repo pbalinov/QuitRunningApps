@@ -246,7 +246,7 @@ class ApplicationModel: ObservableObject
 #endif
             }
             
-            // ToDo: Close our app here - later check if we can wait
+            // Close our app here - later check if we can wait
             checkAndCloseOurApp()
         }
         

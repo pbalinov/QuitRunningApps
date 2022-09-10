@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
     func applicationWillBecomeActive(_ notification: Notification)
     {
         (notification.object as? NSApplication)?.windows.first?.makeKeyAndOrderFront(self)
-    }
+    }    
 }
 
 @main
@@ -65,7 +65,7 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    openURL(userGuide)                    
+                    openURL(userGuideURL)
                 })
                 {
                     Text("help-user-guide")
@@ -73,10 +73,20 @@ struct QuitRunningApps: App
                 
                 Button(action:
                 {
-                    openURL(webSite)
+                    openURL(webSiteURL)
                 })
                 {
                     Text("help-web-page")
+                }
+            }
+            CommandGroup(after: .systemServices)
+            {
+                Button(action:
+                {
+                    // ToDo: Check for new version
+                })
+                {
+                    Text("menu-updates")
                 }
             }
             

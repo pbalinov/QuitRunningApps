@@ -29,6 +29,17 @@ struct SettingsView: View
                 {
                     Text("settings-finder")
                 }
+                
+                Text("")
+                
+                Text("Updates")
+                    .font(.headline)
+                
+                Toggle(isOn: $settingsModel.checkForUpdates)
+                {
+                    Text("Check for updates weekly.")
+                }
+                
             }
             .padding(.all)
         }

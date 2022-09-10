@@ -11,3 +11,5 @@
 "settings-general" = "General:";
 "settings-closeapp" = "Quit this app after all others.";
 "settings-finder" = "Quit macOS Finder app also.";
+"menu-updates" = "Check for Updates";
+"update-new-version" = "New version is available!";

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B13007028CA437F00B0DD75 /* version.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B13006E28CA437F00B0DD75 /* version.json */; };
-		1B13007128CA437F00B0DD75 /* version.php in Resources */ = {isa = PBXBuildFile; fileRef = 1B13006F28CA437F00B0DD75 /* version.php */; };
 		1B13007428CA444B00B0DD75 /* AppUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B13007328CA444B00B0DD75 /* AppUpdateModel.swift */; };
 		1B24E61C28B28007004C0B71 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E61B28B28007004C0B71 /* ApplicationModel.swift */; };
 		1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B3731BC28B267E3009BEC55 /* Localizable.strings */; };
@@ -50,7 +49,6 @@
 		1B0A9F8728C6668D0044F991 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B0A9F8928C667940044F991 /* create_dmg_command.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = create_dmg_command.txt; sourceTree = "<group>"; };
 		1B13006E28CA437F00B0DD75 /* version.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = version.json; sourceTree = "<group>"; };
-		1B13006F28CA437F00B0DD75 /* version.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = version.php; sourceTree = "<group>"; };
 		1B13007328CA444B00B0DD75 /* AppUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateModel.swift; sourceTree = "<group>"; };
 		1B24E61B28B28007004C0B71 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		1B13007228CA438400B0DD75 /* App Updates */ = {
 			isa = PBXGroup;
 			children = (
-				1B13006F28CA437F00B0DD75 /* version.php */,
 				1B13006E28CA437F00B0DD75 /* version.json */,
 			);
 			path = "App Updates";
@@ -313,7 +310,6 @@
 				1B13007028CA437F00B0DD75 /* version.json in Resources */,
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
-				1B13007128CA437F00B0DD75 /* version.php in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 				1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */,
 			);
