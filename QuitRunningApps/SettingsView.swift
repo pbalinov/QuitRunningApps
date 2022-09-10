@@ -5,28 +5,26 @@
 
 import SwiftUI
 
-struct SettingsView: View
-{
-    @EnvironmentObject var settingsModel: SettingsModel
+struct SettingsView: View {
     
-    var body: some View
-    {
-        HStack
-        {
+    @EnvironmentObject var settingsModel: SettingsViewModel
+    
+    var body: some View {
+        
+        HStack {
+            
             Image("Settings")
         
-            VStack(alignment: .leading)
-            {
+            VStack(alignment: .leading) {
+                
                 Text("settings-general")
                     .font(.headline)
                                 
-                Toggle(isOn: $settingsModel.closeOurApp)
-                {
+                Toggle(isOn: $settingsModel.closeOurApp) {
                     Text("settings-closeapp")
                 }
                 
-                Toggle(isOn: $settingsModel.closeFinder)
-                {
+                Toggle(isOn: $settingsModel.closeFinder) {
                     Text("settings-finder")
                 }
                 
@@ -35,11 +33,9 @@ struct SettingsView: View
                 Text("Updates")
                     .font(.headline)
                 
-                Toggle(isOn: $settingsModel.checkForUpdates)
-                {
+                Toggle(isOn: $settingsModel.checkForUpdates) {
                     Text("Check for updates weekly.")
                 }
-                
             }
             .padding(.all)
         }
@@ -52,6 +48,6 @@ struct SettingsView_Previews: PreviewProvider
     static var previews: some View
     {
         SettingsView()
-            .environmentObject(SettingsModel())
+            .environmentObject(SettingsViewModel())
     }
 }

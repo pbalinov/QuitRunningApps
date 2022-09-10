@@ -1,25 +1,22 @@
 //
-//  ApplicationModel.swift
+//  ApplicationViewModel.swift
 //  QuitRunningApps
 //
 
 import Foundation
 import Cocoa
 
-class ApplicationModel: ObservableObject
-{
+class ApplicationViewModel: ObservableObject {
+    
     // Main list of running applications
     @Published var applications: [Application]
     // Selected items in the list
-    @Published var selection = Set<Application>()
+    @Published var selection: Set<Application>
     // Observers for changes in running applications
     private var observers: [NSKeyValueObservation]
     // Settings
     private var closeOurApp: Bool
-    private var closeFinder: Bool
-    // Filter per app bundle identifier
-    private var appsToFilter: Set<String>
-    private let finderBundle: String
+    private var closeFinderApp: Bool
     // Is closing process running
     private var isClosingRunning: Bool
     // Is refresh process running
@@ -27,27 +24,29 @@ class ApplicationModel: ObservableObject
     // How many apps we closed
     private var appsBeingClosed: Int
     private var appsToClose: Int
+    // Filter per app bundle identifier
+    private var appsToFilter: Set<String>
     
-    init()
-    {
+    init() {
         self.applications = []
+        self.selection = []
         self.observers = []
-        self.isRefreshRunning = false
-        self.isClosingRunning = false
         self.closeOurApp = false
-        self.closeFinder = false
-#if DEBUG
-        appsToFilter = ["com.pbalinov.QuitRunningApps", "com.apple.dt.Xcode"]
-#else
-        appsToFilter = ["com.pbalinov.QuitRunningApps"]
-#endif
-        self.finderBundle = "com.apple.finder"
+        self.closeFinderApp = false
+        self.isClosingRunning = false
+        self.isRefreshRunning = false
         self.appsBeingClosed = 0
         self.appsToClose = 0
+#if DEBUG
+        appsToFilter = [Constants.Bundles.ourApp, Constants.Bundles.xcodeApp]
+#else
+        appsToFilter = [Constants.Bundles.ourApp]
+#endif
     }
     
-    func loadRunningApplications()
-    {
+    /*
+    func loadRunningApplications() {
+        
         isRefreshRunning = true
         
         // Always load from scratch
@@ -57,10 +56,8 @@ class ApplicationModel: ObservableObject
         let workspace = NSWorkspace.shared
         let allRunningApps = workspace.runningApplications
 
-        for runningApp in allRunningApps
-        {
-            if(allowAppInList(runningApp))
-            {
+        for runningApp in allRunningApps {
+            if(allowAppInList(runningApp)) {
                 applications.append(Application(runningApp))
 #if DEBUG
                 //print("App name: " + runningApp.localizedName!)
@@ -72,39 +69,35 @@ class ApplicationModel: ObservableObject
         // Sort the apps by name
         applications.sort { $0.appName < $1.appName }
         
-        // Show status
 #if DEBUG
         print("Applications are reloaded and sorted.")
 #endif
-        //formatStatusText(statusUpdateTypes.updating, applications.count)
                 
         isRefreshRunning = false
     }
+    */
     
-    func allowAppInList(_ app: NSRunningApplication) -> Bool
-    {
+    func allowAppInList(_ app: NSRunningApplication) -> Bool {
+        
         // The application is an ordinary app that appears
         // in the Dock and may have a user interface.
         // The application does not belong to the list of
         // apps to be filtered.
         // The application has a valid properies.
         
-        if(app.activationPolicy != .regular)
-        {
+        if(app.activationPolicy != .regular) {
             // The app is not an ordinary app
             return false
         }
         
         // Check the app name
-        if(!validateString(app.localizedName))
-        {
+        if(!validateString(app.localizedName)) {
             // Name is empty
             // Do not allow the app in list
             return false
         }
         
-        if(!validateString(app.bundleIdentifier))
-        {
+        if(!validateString(app.bundleIdentifier)) {
             // Bundle is empty
             // Do not allow the app in list
             return false
@@ -118,14 +111,13 @@ class ApplicationModel: ObservableObject
         return !foundInFilter
     }
     
-    func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool
-    {
+    func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool {
+        
         // Filter only apps that are valid for the list
         
         // Refresh applications only when the closing
         // or refresh is not running
-        if(self.isClosingRunning || self.isRefreshRunning)
-        {
+        if(self.isClosingRunning || self.isRefreshRunning) {
             return false
         }
         
@@ -134,22 +126,17 @@ class ApplicationModel: ObservableObject
         let runningAppNew: NSRunningApplication? = change.newValue?.first
         let runningAppOld: NSRunningApplication? = change.oldValue?.first
         
-        if(runningAppNew != nil)
-        {
+        if(runningAppNew != nil) {
             // Handle changes for regular apps only
-            if(runningAppNew?.activationPolicy == .regular)
-            {
+            if(runningAppNew?.activationPolicy == .regular) {
 #if DEBUG
                 print("Changes! Inform model to reload applications...")
 #endif
                 return true
             }
-        }
-        else if (runningAppOld != nil)
-        {
+        } else if (runningAppOld != nil) {
             // Handle changes for regular apps only
-            if(runningAppOld?.activationPolicy == .regular)
-            {
+            if(runningAppOld?.activationPolicy == .regular) {
 #if DEBUG
                 print("Changes! Inform model to reload applications...")
 #endif
@@ -160,42 +147,36 @@ class ApplicationModel: ObservableObject
         return false
     }
     
-    func registerObservers()
-    {
+    func registerObservers() {
         // Monitor for changes in the running applications
         self.observers =
         [
             // New values handle launched apps and old values closed
-            NSWorkspace.shared.observe(\.runningApplications, options: [.new, .old])
-            {
+            NSWorkspace.shared.observe(\.runningApplications, options: [.new, .old]) {
                 (model, change) in
-                if(self.validateObserverNotification(change))
-                {
+                if(self.validateObserverNotification(change)) {
                     // Change is valid - reload the applications
-                    self.loadRunningApplications()
+                    self.applications = self.loadRunningApplications()
                 }
             }
         ]
     }
     
-    func filterAppsToClose(_ sourceListOfApps: [Application], _ filter: Set<Application>) -> [Application]
-    {
+    func filterAppsToClose(_ sourceListOfApps: [Application], _ filter: Set<Application>) -> [Application] {
+        
         // Selected apps from the list will not be closed
         
         var filteredApps: [Application] = []
                 
-        if(filter.count == 0)
-        {
+        if(filter.count == 0) {
             // Nothing to filter
             // Return the original list
             filteredApps = sourceListOfApps
             return filteredApps
         }
                 
-        for app in sourceListOfApps
-        {
-            if(!filter.contains(app))
-            {
+        for app in sourceListOfApps {
+            if(!filter.contains(app)) {
                 // The app is not selected
                 // Add the app in the list for closing
                 filteredApps.append(app)
@@ -205,8 +186,8 @@ class ApplicationModel: ObservableObject
         return filteredApps
     }
     
-    func closeRunningApplications()
-    {
+    func closeRunningApplications() {
+        
         // Starting to close the applications
         isClosingRunning = true
         
@@ -219,10 +200,8 @@ class ApplicationModel: ObservableObject
         appsToClose = allAppsToClose.count;
                 
         // Close the list of running applications
-        for appFromList in allAppsToClose
-        {
-            guard let appToClose = NSRunningApplication.init(processIdentifier: appFromList.id) else
-            {
+        for appFromList in allAppsToClose {
+            guard let appToClose = NSRunningApplication.init(processIdentifier: appFromList.id) else {
                 // App has no valid process ID
                 // Proceed with the next in list
                 continue;
@@ -230,85 +209,75 @@ class ApplicationModel: ObservableObject
             
             // App has a valid process ID
             // Close the application
-            if(appToClose.terminate())
-            {
+            if(appToClose.terminate()) {
                 // Success
                 appsBeingClosed += 1
 #if DEBUG
                 print("Inform \(appFromList.appName) to close was successful.")
 #endif
-            }
-            else
-            {
+            } else {
                 // Failed to close it
 #if DEBUG
                 print("Inform \(appFromList.appName) to close failed.")
 #endif
             }
             
-            // Close our app here - later check if we can wait
+            // Close our app here without waiting for the others
             checkAndCloseOurApp()
         }
         
 #if DEBUG
-        if(appsToClose > 0)
-        {
+        if(appsToClose > 0) {
             print("Informed \(appsBeingClosed) from \(appsToClose) running applications to close.")
-        }
-        else
-        {
+        } else {
             print("There were no apps to close.")
         }
 #endif
         
         // Finished closing the applications
-        // formatStatusText(statusUpdateTypes.closing, appsBeingClosed)
         isClosingRunning = false
     }
     
-    func finderAppClosing(_ close: Bool)
-    {
-        if(!close)
-        {
+    func shouldCloseFinderApp(_ closeFinderApp: Bool) {
+        
+        if(!closeFinderApp) {
             // Do not close Finder - add it to the filter
-            appsToFilter.update(with: finderBundle)
-        }
-        else
-        {
+            appsToFilter.update(with: Constants.Bundles.finderApp)
+        } else {
             // Close Finder - remove it from the filter
-            appsToFilter.remove(finderBundle)            
+            appsToFilter.remove(Constants.Bundles.finderApp)
         }
         
-        closeFinder = close
+        self.closeFinderApp = closeFinderApp
+        
 #if DEBUG
-        print("Closing macOS Finder app setting is updated to \(closeFinder).")
+        print("Closing macOS Finder app setting is set to \(closeFinderApp).")
 #endif
     }
     
-    func ourAppClosing(_ close: Bool)
-    {
-        closeOurApp = close
+    func shouldCloseOurApp(_ closeOurApp: Bool) {
+        
+        self.closeOurApp = closeOurApp
 #if DEBUG
-        print("Closing our own application setting is updated to \(closeOurApp).")
+        print("Closing our own application setting is set to \(closeOurApp).")
 #endif
     }
     
-    func checkAndCloseOurApp ()
-    {
-        if(!closeOurApp)
-        {
+    func checkAndCloseOurApp () {
+        
+        // Check if enabled and close our app
+        
+        if(!closeOurApp) {
             // Close our app setting is off
             return
         }
         
-        if(appsToClose == 0)
-        {
+        if(appsToClose == 0) {
             // Nothing closed - do not quit
             return
         }
         
-        if(appsBeingClosed < appsToClose)
-        {
+        if(appsBeingClosed < appsToClose) {
             // Not all apps are closed - do not quit
             return
         }
@@ -319,5 +288,35 @@ class ApplicationModel: ObservableObject
         print("Closing our own application also.")
 #endif
         NSApplication.shared.terminate(nil)
+    }
+    
+    func loadRunningApplications() -> [Application] {
+        
+        // List of app to load
+        // Start with empty list
+        var applications: [Application] = []
+        
+        // Get the list of running applications on the local machine
+        let workspace = NSWorkspace.shared
+        let allRunningApps = workspace.runningApplications
+
+        for runningApp in allRunningApps {
+            if(allowAppInList(runningApp)) {
+                applications.append(Application(runningApp))
+#if DEBUG
+                //print("App name: " + runningApp.localizedName!)
+                //print("App bundle: " + runningApp.bundleIdentifier!)
+#endif
+            }
+        }
+        
+        // Sort the apps by name
+        applications.sort { $0.appName < $1.appName }
+        
+#if DEBUG
+        print("Applications are reloaded and sorted.")
+#endif
+        
+        return applications
     }
 }

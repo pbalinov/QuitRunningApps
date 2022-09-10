@@ -5,107 +5,94 @@
 
 import SwiftUI
 
-struct ApplicationView: View
-{
-    // List modifiers
-    private let listBorderColor = Color(NSColor.separatorColor)
-    private let listBorderWidth = CGFloat(1)
+struct ApplicationView: View {
     
-    @StateObject private var appModel = ApplicationModel()
-    @EnvironmentObject var appUpdate: AppUpdateModel
-    @EnvironmentObject var settingsModel: SettingsModel
+    @StateObject private var appViewModel = ApplicationViewModel()
+    @EnvironmentObject var appUpdateModel: AppUpdateViewModel
+    @EnvironmentObject var settingsModel: SettingsViewModel
     
-    var body: some View
-    {
-        VStack
-        {
+    var body: some View {
+        
+        VStack {
             Text("text-list-running-apps")
                 .font(.headline)
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            List(appModel.applications, id: \.self, selection: $appModel.selection)
-            {
-                application in
-                HStack
-                {
+            List(appViewModel.applications, id: \.self, selection: $appViewModel.selection) {
+                application in HStack {
                     Image(nsImage: application.appIcon)
                     Text(application.appName)
                     Spacer()
                 }
             }
-            .border(listBorderColor, width: listBorderWidth)
-            .task
-            {
-                // Initial load of the applications
-                appModel.loadRunningApplications()
-            }
-            .task
-            {
-                // Check for update
-                if(appUpdate.shouldCheckForNewApplicationVersion())
-                {
-                    await appUpdate.loadVersionDataAndCheckForUpdate()
-                    settingsModel.setLastUpdateCheckDate()
-                }
-            }            
-            .onAppear()
-            {
+            .border(Constants.List.borderColor, width: Constants.List.borderWidth)
+            .onAppear() {
                 // Load settings
-                appModel.ourAppClosing(settingsModel.closeOurApp)
-                appModel.finderAppClosing(settingsModel.closeFinder)
-                appUpdate.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
+                appViewModel.shouldCloseOurApp(settingsModel.closeOurApp)
+                appViewModel.shouldCloseFinderApp(settingsModel.closeFinder)
                 
                 // Start monitoring for app changes
-                appModel.registerObservers()
+                appViewModel.registerObservers()
             }
-            // Send settings changes to models
-            .onChange(of: settingsModel.closeOurApp)
-            {
-                newValue in appModel.ourAppClosing(newValue)
+            // Set settings changes in view models
+            .onChange(of: settingsModel.closeOurApp) {
+                newValue in appViewModel.shouldCloseOurApp(newValue)
             }
-            .onChange(of: settingsModel.closeFinder)
-            {
-                newValue in appModel.finderAppClosing(newValue)
-                appModel.loadRunningApplications()
+            .onChange(of: settingsModel.closeFinder) {
+                newValue in appViewModel.shouldCloseFinderApp(newValue)
             }
-            .onChange(of: settingsModel.checkForUpdates)
-            {
-                newValue in appUpdate.isAppCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
+            .task(id: settingsModel.closeFinder) {
+                // Load running applications
+                appViewModel.applications = appViewModel.loadRunningApplications()
             }
             
             HStack()
             {
-                Text(appUpdate.status)
+                Text(appUpdateModel.status)
                 Spacer()
-                Button("button-quit", action:
-                {
-                    appModel.closeRunningApplications()
+                Button("button-quit", action: {
+                    appViewModel.closeRunningApplications()
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
             }
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
+        .task {
+            // Check for update
+            if(appUpdateModel.shouldCheckForNewApplicationVersion()) {
+                await appUpdateModel.loadVersionDataAndCheckForUpdate()
+                settingsModel.setLastUpdateCheckDate(Date.now)
+            }
+        }
+        .onAppear() {
+            // Load settings
+            appUpdateModel.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
+        }
+        .onChange(of: settingsModel.checkForUpdates) {
+            newValue in appUpdateModel.isAppCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
+        }
     }
+    
 }
 
-struct ApplicationView_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
-        Group
-        {
+struct ApplicationView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        
+        Group {
             ApplicationView()
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
-                .environmentObject(SettingsModel())
-                .environmentObject(AppUpdateModel())
+                .environmentObject(SettingsViewModel())
+                .environmentObject(AppUpdateViewModel())
             
             ApplicationView()
                 .preferredColorScheme(.light)
                 .environment(\.locale, .init(identifier: "bg"))
-                .environmentObject(SettingsModel())
-                .environmentObject(AppUpdateModel())
+                .environmentObject(SettingsViewModel())
+                .environmentObject(AppUpdateViewModel())
         }
     }
+    
 }

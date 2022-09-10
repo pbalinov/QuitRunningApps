@@ -1,35 +1,34 @@
 //
-//  AppUpdateModel.swift
+//  AppUpdateViewModel.swift
 //  QuitRunningApps
 //
 
 import Foundation
 
-class AppUpdateModel: ObservableObject
-{
+@MainActor
+class AppUpdateViewModel: ObservableObject {
+    
     // Status text on main screen
     @Published var status: String
     // Setting for update checks
-    private var checkForUpdates: Bool
+    private var checkForUpdate: Bool
     private var lastUpdateCheckDate: Date
     // Application version information JSON data
-    private var results: [Result]
+    private var versions: [Version]
     
-    init()
-    {
+    init() {
         self.status = ""
-        self.results = [Result]()
-        self.checkForUpdates = false
+        self.checkForUpdate = false
         self.lastUpdateCheckDate = Date.distantPast
+        self.versions = [Version] ()
     }
     
     // Check if the update settings are enabled
     // and compare last checked date with the current date
-    func shouldCheckForNewApplicationVersion() -> Bool
-    {
+    func shouldCheckForNewApplicationVersion() -> Bool {
+        
         // Check is globaly enabled
-        if(!checkForUpdates)
-        {
+        if(!checkForUpdate) {
             return false
         }
         
@@ -47,8 +46,7 @@ class AppUpdateModel: ObservableObject
         let daysBetween = cal.numberOfDaysBetween(lastUpdateCheckDate, Date.now)
         
         // Check the period between last check and now
-        if(daysBetween <= appUpdatesPeriod)
-        {
+        if(daysBetween <= Constants.Update.periodBetweenChecks) {
             return false
         }
         
@@ -56,45 +54,15 @@ class AppUpdateModel: ObservableObject
         return true
     }
     
-    func loadVersionDataAndCheckForUpdate() async
-    {
-        // Location of the version information JSON file
-        guard let url = URL(string: appVersionURL) else
-        {
-            return
-        }
+    func loadVersionDataAndCheckForUpdate() async {
         
         // Status after checks
         var checkResult = ""
         
-        do
-        {
-            // Read the version info
-            let (data, _) = try await URLSession.shared.data(from: url)
-
-            // Decode the response
-            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data)
-            {
-                // Results
-                results = decodedResponse.results
-                
-                // Compare results against current app version
-                if(compareVersionData(results))
-                {
-                    // Update is available
-                    checkResult = NSLocalizedString("update-new-version", comment: "")
-                }
-                else
-                {
-                    // No new version
-                    checkResult = NSLocalizedString("update-no-new-version", comment: "")
-                }
-                
-                
-            }
-        }
-        catch
-        {
+        do {
+            // Connect to web site and load the JSON
+            versions = try await WebService().loadVersionDataFromWeb(Constants.URLs.appVersion)
+        } catch {
             // Failed to get the version info
             checkResult = NSLocalizedString("update-version-failed", comment: "")
 #if DEBUG
@@ -103,67 +71,64 @@ class AppUpdateModel: ObservableObject
 #endif
         }
         
-        // Status after checks
-        let checkStatus = checkResult
-        
-        await MainActor.run
-        {
-            // Update the main screen
-            status = checkStatus
+        // Compare results against current app version
+        if(compareVersionData(versions)) {
+            // Update is available
+            checkResult = NSLocalizedString("update-new-version", comment: "")
+        } else {
+            // No new version
+            checkResult = NSLocalizedString("update-no-new-version", comment: "")
         }
+        
+        // Update the main screen
+        status = checkResult
     }
     
-    func isAppCheckingForUpdates(_ check: Bool, _ checkedDate: Date)
-    {
-        checkForUpdates = check
-        lastUpdateCheckDate = checkedDate
+    func isAppCheckingForUpdates(_ checkForUpdate: Bool, _ lastUpdateCheckDate: Date) {
+        
+        // Application settings
+        self.checkForUpdate = checkForUpdate
+        self.lastUpdateCheckDate = lastUpdateCheckDate
     }
     
     // Compare app bundle version and build against
     // the version information in the JSON file
-    func compareVersionData(_ results: [Result]) -> Bool
-    {
-        if(results.count == 0)
-        {
+    func compareVersionData(_ versions: [Version]) -> Bool {
+        
+        if(versions.count == 0) {
             // No data in JSON
             return false
         }
         
-        guard let appVersionFromBundle = Bundle.main.releaseVersionNumber else
-        {
+        guard let appVersionFromBundle = Bundle.main.releaseVersionNumber else {
             // Failed to get the version
             return false
         }
         
-        guard let appBuildFromBundle = Bundle.main.buildVersionNumber else
-        {
+        guard let appBuildFromBundle = Bundle.main.buildVersionNumber else {
             // Failed to get the build version
             return false
         }
         
-        guard let appVersion = Decimal(string: appVersionFromBundle) else
-        {
+        guard let appVersion = Decimal(string: appVersionFromBundle) else {
             // Failed to get the version
             return false
         }
         
-        guard let appBuild = Int(appBuildFromBundle) else
-        {
+        guard let appBuild = Int(appBuildFromBundle) else {
             // Failed to get the build version
             return false
         }
         
         // Check the first available record in results array
         
-        if(appVersion < results[0].version)
-        {
+        if(appVersion < versions[0].version) {
             // Current app version is lower
             // Update available
             return true
         }
 
-        if(appBuild < results[0].build)
-        {
+        if(appBuild < versions[0].build) {
             // Current app build is lower
             // Update available
             return true
@@ -171,4 +136,5 @@ class AppUpdateModel: ObservableObject
         
         return false
     }
+    
 }
