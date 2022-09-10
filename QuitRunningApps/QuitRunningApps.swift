@@ -33,6 +33,11 @@ struct QuitRunningApps: App {
 
     var body: some Scene {
         
+        Settings {
+            SettingsView()
+                .environmentObject(settingsModel)
+        }
+        
         WindowGroup {
             ApplicationView()
                 .onAppear {
@@ -42,6 +47,8 @@ struct QuitRunningApps: App {
                 .frame(minWidth: Constants.Window.width, idealWidth: Constants.Window.width, maxWidth: .infinity, minHeight: Constants.Window.height, idealHeight: Constants.Window.height, maxHeight: .infinity, alignment: .center)
                 .environmentObject(settingsModel)
                 .environmentObject(appUpdateModel)
+            
+            
         }
         .commands {
             CommandGroup(replacing: .newItem) {
@@ -81,13 +88,8 @@ struct QuitRunningApps: App {
                 }
             }
         }
-        // macOS 13.0+ Beta
-        //.defaultSize(CGSize(width: windowWidth, height: windowHeight))
-        
-        Settings {
-            SettingsView()
-                .environmentObject(settingsModel)
-        }
     }
+    // macOS 13.0+ Beta
+    //.defaultSize(CGSize(width: windowWidth, height: windowHeight))
     
 }

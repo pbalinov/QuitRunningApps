@@ -89,6 +89,10 @@ class AppUpdateViewModel: ObservableObject {
         // Application settings
         self.checkForUpdate = checkForUpdate
         self.lastUpdateCheckDate = lastUpdateCheckDate
+        
+#if DEBUG
+        print("Automatic weekly check for updates is set to \(checkForUpdate).")
+#endif
     }
     
     // Compare app bundle version and build against

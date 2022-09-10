@@ -43,40 +43,7 @@ class ApplicationViewModel: ObservableObject {
         appsToFilter = [Constants.Bundles.ourApp]
 #endif
     }
-    
-    /*
-    func loadRunningApplications() {
         
-        isRefreshRunning = true
-        
-        // Always load from scratch
-        applications.removeAll()
-        
-        // Get the list of running applications on the local machine
-        let workspace = NSWorkspace.shared
-        let allRunningApps = workspace.runningApplications
-
-        for runningApp in allRunningApps {
-            if(allowAppInList(runningApp)) {
-                applications.append(Application(runningApp))
-#if DEBUG
-                //print("App name: " + runningApp.localizedName!)
-                //print("App bundle: " + runningApp.bundleIdentifier!)
-#endif
-            }
-        }
-        
-        // Sort the apps by name
-        applications.sort { $0.appName < $1.appName }
-        
-#if DEBUG
-        print("Applications are reloaded and sorted.")
-#endif
-                
-        isRefreshRunning = false
-    }
-    */
-    
     func allowAppInList(_ app: NSRunningApplication) -> Bool {
         
         // The application is an ordinary app that appears
