@@ -25,7 +25,7 @@ class AppUpdateModel: ObservableObject
     
     // Check if the update settings are enabled
     // and compare last checked date with the current date
-    func checkForNewApplicationVersion() -> Bool
+    func shouldCheckForNewApplicationVersion() -> Bool
     {
         // Check is globaly enabled
         if(!checkForUpdates)
@@ -36,11 +36,13 @@ class AppUpdateModel: ObservableObject
         // Compare current date against last checked date
         let cal = Calendar.current
 #if DEBUG
-        // Always check by adding 14 days in the past
+        // Always check in debug by adding 14 days in the past
         // to last update check date
+        /*
         var dayComponent = DateComponents()
         dayComponent.day = { -2 * appUpdatesPeriod }()
         lastUpdateCheckDate = cal.date(byAdding: dayComponent, to: lastUpdateCheckDate)!
+        */
 #endif
         let daysBetween = cal.numberOfDaysBetween(lastUpdateCheckDate, Date.now)
         
@@ -54,13 +56,16 @@ class AppUpdateModel: ObservableObject
         return true
     }
     
-    func loadVersionData() async
+    func loadVersionDataAndCheckForUpdate() async
     {
         // Load the JSON from web site
         guard let url = URL(string: appVersionURL) else
         {
             return
         }
+        
+        // Status after checks
+        var checkResult = ""
         
         do
         {
@@ -72,29 +77,43 @@ class AppUpdateModel: ObservableObject
             {
                 // Results
                 results = decodedResponse.results
+                
                 // Compare results against current app version
                 if(compareVersionData(results))
                 {
                     // Update is available
-                    await MainActor.run
-                    {
-                        // Show the update on the main screen
-                        status = NSLocalizedString("update-new-version", comment: "")
-                    }
+                    checkResult = NSLocalizedString("update-new-version", comment: "")
                 }
+                else
+                {
+                    // No new version
+                    checkResult = NSLocalizedString("update-no-new-version", comment: "")
+                }
+                
+                
             }
         }
         catch
         {
             // Failed to get the version info JSON
+            checkResult = NSLocalizedString("update-version-failed", comment: "")
 #if DEBUG
             print("Update check failed. Error:")
             print(error)
 #endif
         }
+        
+        // Status after checks
+        let checkStatus = checkResult
+        
+        await MainActor.run
+        {
+            // Update the main screen
+            status = checkStatus
+        }
     }
     
-    func appIsCheckingForUpdates(_ check: Bool, _ checkedDate: Date)
+    func isAppCheckingForUpdates(_ check: Bool, _ checkedDate: Date)
     {
         checkForUpdates = check
         lastUpdateCheckDate = checkedDate
@@ -142,7 +161,7 @@ class AppUpdateModel: ObservableObject
             // Update available
             return true
         }
-        
+
         if(appBuild < results[0].build)
         {
             // Current app build is lower

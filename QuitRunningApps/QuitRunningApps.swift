@@ -29,6 +29,9 @@ struct QuitRunningApps: App
     
     // Environment object for app settings, accessible to all views
     @StateObject var settingsModel = SettingsModel()
+    
+    // Environment object for app updates
+    @StateObject private var appUpdate = AppUpdateModel()
 
     var body: some Scene
     {
@@ -42,6 +45,7 @@ struct QuitRunningApps: App
                 }
                 .frame(minWidth: windowWidth, idealWidth: windowWidth, maxWidth: .infinity, minHeight: windowHeight, idealHeight: windowHeight, maxHeight: .infinity, alignment: .center)
                 .environmentObject(settingsModel)
+                .environmentObject(appUpdate)
         }
         .commands
         {
@@ -83,7 +87,13 @@ struct QuitRunningApps: App
             {
                 Button(action:
                 {
-                    // ToDo: Check for new version
+                    // Check for update
+                    Task
+                    {
+                        await appUpdate.loadVersionDataAndCheckForUpdate()
+                    }
+                    
+                    settingsModel.setLastUpdateCheckDate()
                 })
                 {
                     Text("menu-updates")

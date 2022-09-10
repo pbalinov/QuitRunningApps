@@ -12,7 +12,7 @@ struct ApplicationView: View
     private let listBorderWidth = CGFloat(1)
     
     @StateObject private var appModel = ApplicationModel()
-    @StateObject private var appUpdate = AppUpdateModel()
+    @EnvironmentObject var appUpdate: AppUpdateModel
     @EnvironmentObject var settingsModel: SettingsModel
     
     var body: some View
@@ -42,9 +42,9 @@ struct ApplicationView: View
             .task
             {
                 // Check for update
-                if(appUpdate.checkForNewApplicationVersion())
+                if(appUpdate.shouldCheckForNewApplicationVersion())
                 {
-                    await appUpdate.loadVersionData()
+                    await appUpdate.loadVersionDataAndCheckForUpdate()
                     settingsModel.setLastUpdateCheckDate()
                 }
             }            
@@ -53,7 +53,7 @@ struct ApplicationView: View
                 // Load settings
                 appModel.ourAppClosing(settingsModel.closeOurApp)
                 appModel.finderAppClosing(settingsModel.closeFinder)
-                appUpdate.appIsCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
+                appUpdate.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
                 
                 // Start monitoring for app changes
                 appModel.registerObservers()
@@ -70,7 +70,7 @@ struct ApplicationView: View
             }
             .onChange(of: settingsModel.checkForUpdates)
             {
-                newValue in appUpdate.appIsCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
+                newValue in appUpdate.isAppCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
             }
             
             HStack()
@@ -99,11 +99,13 @@ struct ApplicationView_Previews: PreviewProvider
                 .preferredColorScheme(.dark)
                 .environment(\.locale, .init(identifier: "en"))
                 .environmentObject(SettingsModel())
+                .environmentObject(AppUpdateModel())
             
             ApplicationView()
                 .preferredColorScheme(.light)
                 .environment(\.locale, .init(identifier: "bg"))
                 .environmentObject(SettingsModel())
+                .environmentObject(AppUpdateModel())
         }
     }
 }

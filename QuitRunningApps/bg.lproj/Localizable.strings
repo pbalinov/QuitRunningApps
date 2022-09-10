@@ -13,3 +13,5 @@
 "settings-finder" = "Затвори macOS Finder също.";
 "menu-updates" = "Провери за нова версия";
 "update-new-version" = "Налична е нова версия!";
+"update-no-new-version" = "Няма налична нова версия.";
+"update-version-failed" = "Проверката за нова версия е неуспешна!";

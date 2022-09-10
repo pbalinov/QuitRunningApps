@@ -13,3 +13,5 @@
 "settings-finder" = "Quit macOS Finder app also.";
 "menu-updates" = "Check for Updates";
 "update-new-version" = "New version is available!";
+"update-no-new-version" = "There is no new version available.";
+"update-version-failed" = "Failed to check for new version!";
