@@ -30,7 +30,7 @@ struct SettingsView: View {
                 
                 Text("")
                 
-                Text("Updates")
+                Text("settings-updates")
                     .font(.headline)
                 
                 Toggle(isOn: $settingsModel.checkForUpdates) {
@@ -47,7 +47,17 @@ struct SettingsView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        SettingsView()
-            .environmentObject(SettingsViewModel())
+        Group {
+            SettingsView()
+                .preferredColorScheme(.dark)
+                .environment(\.locale, .init(identifier: "en"))
+                .environmentObject(SettingsViewModel())
+            
+            SettingsView()
+                .preferredColorScheme(.light)
+                .environment(\.locale, .init(identifier: "bg"))
+                .environmentObject(SettingsViewModel())
+            
+        }
     }
 }

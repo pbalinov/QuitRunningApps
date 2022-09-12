@@ -15,3 +15,4 @@
 "update-new-version" = "Налична е нова версия!";
 "update-no-new-version" = "Няма налична нова версия.";
 "update-version-failed" = "Проверката за нова версия е неуспешна!";
+"settings-updates" = "Обновления:";
