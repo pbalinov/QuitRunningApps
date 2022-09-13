@@ -72,6 +72,7 @@
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1BC9FCA528CFA83000CDD457 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1BE7C1F128CCEFB5005BB45D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1BE7C1F328CCEFD8005BB45D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 				1B0A9F8828C667210044F991 /* Installation Package */,
 				1B0A9F8328C6665F0044F991 /* External Resources */,
 				1B789EC128BE18E500956971 /* README.md */,
+				1BC9FCA528CFA83000CDD457 /* Changes.rtf */,
 				1B86900E28AABD8000A3BB13 /* QuitRunningAppsTests */,
 				1B86901828AABD8000A3BB13 /* QuitRunningAppsUITests */,
 				1B868FFB28AABD7F00A3BB13 /* Products */,

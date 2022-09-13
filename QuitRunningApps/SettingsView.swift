@@ -34,7 +34,7 @@ struct SettingsView: View {
                     .font(.headline)
                 
                 Toggle(isOn: $settingsModel.checkForUpdates) {
-                    Text("Check for updates weekly.")
+                    Text("settings-weekly-updates")
                 }
             }
             .padding(.all)

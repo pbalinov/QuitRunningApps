@@ -9,10 +9,11 @@
 "help-user-guide" = "Ръководство";
 "help-web-page" = "Web страница";
 "settings-general" = "Основни:";
-"settings-closeapp" = "Затвори приложението след останалите.";
-"settings-finder" = "Затвори macOS Finder също.";
+"settings-closeapp" = "Затвори приложението след останалите";
+"settings-finder" = "Затвори macOS Finder също";
 "menu-updates" = "Провери за нова версия";
 "update-new-version" = "Налична е нова версия!";
 "update-no-new-version" = "Няма налична нова версия.";
 "update-version-failed" = "Проверката за нова версия е неуспешна!";
 "settings-updates" = "Обновления:";
+"settings-weekly-updates" = "Проверявай седмично за обновления";
