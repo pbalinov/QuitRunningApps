@@ -9,11 +9,14 @@
 "help-user-guide" = "User Guide";
 "help-web-page" = "Web Page";
 "settings-general" = "General:";
-"settings-closeapp" = "Quit this app after all others";
-"settings-finder" = "Quit macOS Finder app also";
+"settings-closeapp" = "Quit this app after all others.";
+"settings-finder" = "Quit macOS Finder app also.";
 "menu-updates" = "Check for Updates";
 "update-new-version" = "New version is available!";
 "update-no-new-version" = "There is no new version available.";
 "update-version-failed" = "Failed to check for new version!";
 "settings-updates" = "Updates:";
-"settings-weekly-updates" = "Check for updates weekly";
+"settings-weekly-updates" = "Check for updates weekly.";
+"settings-never-close" = "Never Quit:";
+"file-none" = "<None>";
+"file-select" = "...";

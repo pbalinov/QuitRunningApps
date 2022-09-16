@@ -19,8 +19,14 @@ struct Constants {
         static let appVersion = URL(string: "https://quitrunningapps.noavis-dev.eu/app-updates/versions.json")!
     }
     
-    struct Window {
+    struct MainWindow {
         // Application window dimensions
+        static let width = CGFloat(400)
+        static let height = CGFloat(400)
+    }
+    
+    struct SettingsWindow {
+        // Settings window dimensions
         static let width = CGFloat(400)
         static let height = CGFloat(400)
     }
@@ -41,5 +47,16 @@ struct Constants {
         static let ourApp = "com.pbalinov.QuitRunningApps"
         static let finderApp = "com.apple.finder"
         static let xcodeApp = "com.apple.dt.Xcode"
+    }
+    
+    struct Divider {
+        // Divider modifiers
+        static let width = CGFloat(200)
+        static let height = CGFloat(20)
+    }
+    
+    struct File {
+        // File chooser
+        static let none = NSLocalizedString("file-none", comment: "")
     }
 }

@@ -14,6 +14,9 @@ class SettingsViewModel: ObservableObject {
     @AppStorage("closeFinder") var closeFinder = false
     @AppStorage("checkForUpdates") var checkForUpdates = false
     @AppStorage("lastUpdateCheckDate") private var lastUpdateCheckDate: Date = Date.distantPast
+    @AppStorage("firstFileToNeverQuit") var firstFileToNeverQuit = ""
+    @AppStorage("secondFileToNeverQuit") var secondFileToNeverQuit = ""
+    @AppStorage("thirdFileToNeverQuit") var thirdFileToNeverQuit = ""
     
     func setLastUpdateCheckDate(_ date: Date) {
         lastUpdateCheckDate = date
@@ -22,5 +25,4 @@ class SettingsViewModel: ObservableObject {
     func getLastUpdateCheckDate() -> Date {
         return lastUpdateCheckDate
     }
-    
 }

@@ -28,6 +28,7 @@
 		1BE7C1FB28CCF0D1005BB45D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FA28CCF0D1005BB45D /* Version.swift */; };
 		1BE7C1FE28CCF39D005BB45D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FD28CCF39D005BB45D /* WebService.swift */; };
 		1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BF01C2128C8FBFD00AD9805 /* Credits.html */; };
+		1BF1FE4928D2414E005D85C4 /* FileChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1FE4828D2414E005D85C4 /* FileChooser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		1BE7C1FA28CCF0D1005BB45D /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		1BE7C1FD28CCF39D005BB45D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		1BF01C2128C8FBFD00AD9805 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		1BF1FE4828D2414E005D85C4 /* FileChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileChooser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				1BE7C1FD28CCF39D005BB45D /* WebService.swift */,
+				1BF1FE4828D2414E005D85C4 /* FileChooser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -322,7 +325,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					1B868FF928AABD7F00A3BB13 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE7C1F428CCEFD8005BB45D /* Calendar.swift in Sources */,
+				1BF1FE4928D2414E005D85C4 /* FileChooser.swift in Sources */,
 				1BE7C1F628CCF008005BB45D /* Bundle.swift in Sources */,
 				1BE7C1FE28CCF39D005BB45D /* WebService.swift in Sources */,
 				1B24E61C28B28007004C0B71 /* ApplicationViewModel.swift in Sources */,
@@ -487,6 +491,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -548,6 +553,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -575,9 +581,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -604,9 +612,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuitRunningApps/QuitRunningApps.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -633,6 +643,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -652,6 +663,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -670,6 +682,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -687,6 +700,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;

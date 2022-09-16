@@ -11,30 +11,68 @@ struct SettingsView: View {
     
     var body: some View {
         
-        HStack {
+        HStack(alignment: .top) {
             
             Image("Settings")
+                .padding(.vertical)
         
             VStack(alignment: .leading) {
                 
-                Text("settings-general")
-                    .font(.headline)
-                                
-                Toggle(isOn: $settingsModel.closeOurApp) {
-                    Text("settings-closeapp")
+                VStack(alignment: .leading) {
+                    Text("settings-general")
+                        .font(.headline)
+                    
+                    Toggle(isOn: $settingsModel.closeOurApp) {
+                        Text("settings-closeapp")
+                    }
+                    
+                    Toggle(isOn: $settingsModel.closeFinder) {
+                        Text("settings-finder")
+                    }
                 }
                 
-                Toggle(isOn: $settingsModel.closeFinder) {
-                    Text("settings-finder")
+                Divider()
+                    .frame(width: Constants.Divider.width, height: Constants.Divider.height)
+                
+                VStack(alignment: .leading) {
+                    Text("settings-updates")
+                        .font(.headline)
+                    
+                    Toggle(isOn: $settingsModel.checkForUpdates) {
+                        Text("settings-weekly-updates")
+                    }
                 }
                 
-                Text("")
+                Divider()
+                    .frame(width: Constants.Divider.width, height: Constants.Divider.height)
                 
-                Text("settings-updates")
-                    .font(.headline)
-                
-                Toggle(isOn: $settingsModel.checkForUpdates) {
-                    Text("settings-weekly-updates")
+                VStack(alignment: .leading) {
+                    Text("settings-never-close")
+                        .font(.headline)
+                    
+                    HStack {
+                        Button("file-select") {
+                            settingsModel.firstFileToNeverQuit = FileChooser().showFileChooserPanel()
+                        }
+                        Text(settingsModel.firstFileToNeverQuit)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Button("file-select") {
+                            settingsModel.secondFileToNeverQuit = FileChooser().showFileChooserPanel()
+                        }
+                        Text(settingsModel.secondFileToNeverQuit)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Button("file-select") {
+                            settingsModel.thirdFileToNeverQuit = FileChooser().showFileChooserPanel()
+                        }
+                        Text(settingsModel.thirdFileToNeverQuit)
+                        Spacer()
+                    }
                 }
             }
             .padding(.all)
