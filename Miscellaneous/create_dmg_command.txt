@@ -1,4 +1,8 @@
-Source: https://github.com/create-dmg/create-dmg
+Source:
+https://github.com/create-dmg/create-dmg
+
+Create "source_folder" and drag the .app file there.
+Open terminal and run command bellow.
 
 create-dmg \
   --volname "QuitRunningApps Installer" \

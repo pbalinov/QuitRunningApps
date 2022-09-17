@@ -47,6 +47,7 @@
 		1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitRunningApps.entitlements; sourceTree = "<group>"; };
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		1BB4557C28D640A800BDFBF2 /* commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = commands.txt; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BC9FCA528CFA83000CDD457 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -81,36 +82,21 @@
 			path = "External Resources";
 			sourceTree = "<group>";
 		};
-		1B0A9F8828C667210044F991 /* Installation Package */ = {
+		1B13007228CA438400B0DD75 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A9F8A28C667940044F991 /* source_folder */,
+				1BB4557C28D640A800BDFBF2 /* commands.txt */,
 				1B0A9F8928C667940044F991 /* create_dmg_command.txt */,
-			);
-			path = "Installation Package";
-			sourceTree = "<group>";
-		};
-		1B0A9F8A28C667940044F991 /* source_folder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = source_folder;
-			sourceTree = "<group>";
-		};
-		1B13007228CA438400B0DD75 /* App Updates */ = {
-			isa = PBXGroup;
-			children = (
 				1B13006E28CA437F00B0DD75 /* versions.json */,
 			);
-			path = "App Updates";
+			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
 		1B868FF128AABD7F00A3BB13 = {
 			isa = PBXGroup;
 			children = (
 				1B868FFC28AABD7F00A3BB13 /* QuitRunningApps */,
-				1B13007228CA438400B0DD75 /* App Updates */,
-				1B0A9F8828C667210044F991 /* Installation Package */,
+				1B13007228CA438400B0DD75 /* Miscellaneous */,
 				1B0A9F8328C6665F0044F991 /* External Resources */,
 				1B789EC128BE18E500956971 /* README.md */,
 				1BC9FCA528CFA83000CDD457 /* Changes.rtf */,
