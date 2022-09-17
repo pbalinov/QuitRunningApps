@@ -10,6 +10,7 @@ struct ApplicationView: View {
     @StateObject private var appViewModel = ApplicationViewModel()
     @EnvironmentObject var appUpdateModel: AppUpdateViewModel
     @EnvironmentObject var settingsModel: SettingsViewModel
+    @State private var onInitialLoad = true
     
     var body: some View {
         
@@ -30,20 +31,57 @@ struct ApplicationView: View {
                 // Load settings
                 appViewModel.shouldCloseOurApp(settingsModel.closeOurApp)
                 appViewModel.shouldCloseFinderApp(settingsModel.closeFinder)
+                appViewModel.shouldNeverQuitFirstApp(settingsModel.firstAppToNeverQuitBundle)
+                appViewModel.shouldNeverQuitSecondApp(settingsModel.secondAppToNeverQuitBundle)
+                appViewModel.shouldNeverQuitThirdApp(settingsModel.thirdAppToNeverQuitBundle)
                 
                 // Start monitoring for app changes
                 appViewModel.registerObservers()
             }
             // Set settings changes in view models
             .onChange(of: settingsModel.closeOurApp) {
-                newValue in appViewModel.shouldCloseOurApp(newValue)
+                _ in appViewModel.shouldCloseOurApp(settingsModel.closeOurApp)
             }
             .onChange(of: settingsModel.closeFinder) {
-                newValue in appViewModel.shouldCloseFinderApp(newValue)
+                _ in appViewModel.shouldCloseFinderApp(settingsModel.closeFinder)
+            }
+            .onChange(of: settingsModel.firstAppToNeverQuitBundle) {
+                _ in appViewModel.shouldNeverQuitFirstApp(settingsModel.firstAppToNeverQuitBundle)
+            }
+            .onChange(of: settingsModel.secondAppToNeverQuitBundle) {
+                _ in appViewModel.shouldNeverQuitSecondApp(settingsModel.secondAppToNeverQuitBundle)
+            }
+            .onChange(of: settingsModel.thirdAppToNeverQuitBundle) {
+                _ in appViewModel.shouldNeverQuitThirdApp(settingsModel.thirdAppToNeverQuitBundle)
             }
             .task(id: settingsModel.closeFinder) {
+                if(!onInitialLoad) {
+                    // Load running applications
+                    appViewModel.applications = appViewModel.loadRunningApplications()
+                }
+            }
+            .task(id: settingsModel.firstAppToNeverQuitBundle) {
+                if(!onInitialLoad) {
+                    // Load running applications
+                    appViewModel.applications = appViewModel.loadRunningApplications()
+                }
+            }
+            .task(id: settingsModel.secondAppToNeverQuitBundle) {
+                if(!onInitialLoad) {
+                    // Load running applications
+                    appViewModel.applications = appViewModel.loadRunningApplications()
+                }
+            }
+            .task(id: settingsModel.thirdAppToNeverQuitBundle) {
+                if(!onInitialLoad) {
+                    // Load running applications
+                    appViewModel.applications = appViewModel.loadRunningApplications()
+                }
+            }
+            .task {
                 // Load running applications
                 appViewModel.applications = appViewModel.loadRunningApplications()
+                onInitialLoad = false
             }
             
             HStack()
@@ -70,7 +108,7 @@ struct ApplicationView: View {
             appUpdateModel.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
         }
         .onChange(of: settingsModel.checkForUpdates) {
-            newValue in appUpdateModel.isAppCheckingForUpdates(newValue, settingsModel.getLastUpdateCheckDate())
+            _ in appUpdateModel.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
         }
     }
     
@@ -80,19 +118,9 @@ struct ApplicationView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        Group {
-            ApplicationView()
-                .preferredColorScheme(.dark)
-                .environment(\.locale, .init(identifier: "en"))
-                .environmentObject(SettingsViewModel())
-                .environmentObject(AppUpdateViewModel())
-            
-            ApplicationView()
-                .preferredColorScheme(.light)
-                .environment(\.locale, .init(identifier: "bg"))
-                .environmentObject(SettingsViewModel())
-                .environmentObject(AppUpdateViewModel())
-        }
+        ApplicationView()
+            .environmentObject(SettingsViewModel())
+            .environmentObject(AppUpdateViewModel())
     }
     
 }

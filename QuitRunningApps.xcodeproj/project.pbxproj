@@ -28,7 +28,7 @@
 		1BE7C1FB28CCF0D1005BB45D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FA28CCF0D1005BB45D /* Version.swift */; };
 		1BE7C1FE28CCF39D005BB45D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FD28CCF39D005BB45D /* WebService.swift */; };
 		1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BF01C2128C8FBFD00AD9805 /* Credits.html */; };
-		1BF1FE4928D2414E005D85C4 /* FileChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1FE4828D2414E005D85C4 /* FileChooser.swift */; };
+		1BF1FE4928D2414E005D85C4 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1FE4828D2414E005D85C4 /* FileBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +82,7 @@
 		1BE7C1FA28CCF0D1005BB45D /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		1BE7C1FD28CCF39D005BB45D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		1BF01C2128C8FBFD00AD9805 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
-		1BF1FE4828D2414E005D85C4 /* FileChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileChooser.swift; sourceTree = "<group>"; };
+		1BF1FE4828D2414E005D85C4 /* FileBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				1BE7C1FD28CCF39D005BB45D /* WebService.swift */,
-				1BF1FE4828D2414E005D85C4 /* FileChooser.swift */,
+				1BF1FE4828D2414E005D85C4 /* FileBrowser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -395,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE7C1F428CCEFD8005BB45D /* Calendar.swift in Sources */,
-				1BF1FE4928D2414E005D85C4 /* FileChooser.swift in Sources */,
+				1BF1FE4928D2414E005D85C4 /* FileBrowser.swift in Sources */,
 				1BE7C1F628CCF008005BB45D /* Bundle.swift in Sources */,
 				1BE7C1FE28CCF39D005BB45D /* WebService.swift in Sources */,
 				1B24E61C28B28007004C0B71 /* ApplicationViewModel.swift in Sources */,

@@ -25,7 +25,11 @@ class ApplicationViewModel: ObservableObject {
     private var appsBeingClosed: Int
     private var appsToClose: Int
     // Filter per app bundle identifier
-    private var appsToFilter: Set<String>
+    private var bundleAppsToFilter: Set<String>
+    // Apps to never quit
+    private var firstAppToNeverQuitBundle: String
+    private var secondAppToNeverQuitBundle: String
+    private var thirdAppToNeverQuitBundle: String
     
     init() {
         self.applications = []
@@ -38,13 +42,16 @@ class ApplicationViewModel: ObservableObject {
         self.appsBeingClosed = 0
         self.appsToClose = 0
 #if DEBUG
-        appsToFilter = [Constants.Bundles.ourApp, Constants.Bundles.xcodeApp]
+        bundleAppsToFilter = [Constants.Bundles.ourApp, Constants.Bundles.xcodeApp]
 #else
-        appsToFilter = [Constants.Bundles.ourApp]
+        bundleAppsToFilter = [Constants.Bundles.ourApp]
 #endif
+        self.firstAppToNeverQuitBundle = ""
+        self.secondAppToNeverQuitBundle = ""
+        self.thirdAppToNeverQuitBundle = ""
     }
         
-    func allowAppInList(_ app: NSRunningApplication) -> Bool {
+    private func allowAppInList(_ app: NSRunningApplication) -> Bool {
         
         // The application is an ordinary app that appears
         // in the Dock and may have a user interface.
@@ -72,13 +79,13 @@ class ApplicationViewModel: ObservableObject {
         
         // Check if the application belong to the list of apps to be filtered
         // Filter per app bundle identifier
-        let foundInFilter = appsToFilter.contains(app.bundleIdentifier!)
+        let foundInFilter = bundleAppsToFilter.contains(app.bundleIdentifier!)
 
         // Allow in list if not found in filter
         return !foundInFilter
     }
     
-    func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool {
+    private func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool {
         
         // Filter only apps that are valid for the list
         
@@ -129,7 +136,7 @@ class ApplicationViewModel: ObservableObject {
         ]
     }
     
-    func filterAppsToClose(_ sourceListOfApps: [Application], _ filter: Set<Application>) -> [Application] {
+    private func filterAppsToCloseBySelection(_ sourceListOfApps: [Application], _ filter: Set<Application>) -> [Application] {
         
         // Selected apps from the list will not be closed
         
@@ -160,7 +167,7 @@ class ApplicationViewModel: ObservableObject {
         
         // Create a local copy of the list to process
         // Filter the list and remove the selected items from the list
-        let allAppsToClose = filterAppsToClose(self.applications, self.selection)
+        let allAppsToClose = filterAppsToCloseBySelection(self.applications, self.selection)
         
         // How many apps we informed to close
         appsBeingClosed = 0
@@ -209,10 +216,10 @@ class ApplicationViewModel: ObservableObject {
         
         if(!closeFinderApp) {
             // Do not close Finder - add it to the filter
-            appsToFilter.update(with: Constants.Bundles.finderApp)
+            bundleAppsToFilter.update(with: Constants.Bundles.finderApp)
         } else {
             // Close Finder - remove it from the filter
-            appsToFilter.remove(Constants.Bundles.finderApp)
+            bundleAppsToFilter.remove(Constants.Bundles.finderApp)
         }
         
         self.closeFinderApp = closeFinderApp
@@ -286,4 +293,47 @@ class ApplicationViewModel: ObservableObject {
         
         return applications
     }
+    
+    private func shouldNeverQuitSelectedApp(_ appToNeverQuitBundleNew: String, _ appToNeverQuitBundleOld: String) -> String {
+        
+        // Update the list of apps to not quit
+        
+        // Remove the old value from the filter
+        if let index = bundleAppsToFilter.firstIndex(of: appToNeverQuitBundleOld) {
+            bundleAppsToFilter.remove(at: index)
+        }
+        
+        if(validateString(appToNeverQuitBundleNew)) {
+#if DEBUG
+        print("Do not quit list updated with bundle Id: \(appToNeverQuitBundleNew).")
+#endif
+            // Update the list and add the new value
+            bundleAppsToFilter.update(with: appToNeverQuitBundleNew)
+        } else {
+#if DEBUG
+        print("Do not quit list removed bundle Id: \(appToNeverQuitBundleOld).")
+#endif
+        }
+        
+        return appToNeverQuitBundleNew
+    }
+    
+    func shouldNeverQuitFirstApp(_ appToNeverQuitBundle: String) {
+        
+        // First app changed. Update the list of apps to not quit.
+        self.firstAppToNeverQuitBundle = shouldNeverQuitSelectedApp(appToNeverQuitBundle, self.firstAppToNeverQuitBundle)
+    }
+    
+    func shouldNeverQuitSecondApp(_ appToNeverQuitBundle: String) {
+        
+        // Second app changed. Update the list of apps to not quit.
+        self.secondAppToNeverQuitBundle = shouldNeverQuitSelectedApp(appToNeverQuitBundle, self.secondAppToNeverQuitBundle)
+    }
+    
+    func shouldNeverQuitThirdApp(_ appToNeverQuitBundle: String) {
+        
+        // Third app changed. Update the list of apps to not quit.
+        self.thirdAppToNeverQuitBundle = shouldNeverQuitSelectedApp(appToNeverQuitBundle, self.thirdAppToNeverQuitBundle)
+    }
+    
 }

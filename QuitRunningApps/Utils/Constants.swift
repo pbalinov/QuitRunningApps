@@ -27,8 +27,8 @@ struct Constants {
     
     struct SettingsWindow {
         // Settings window dimensions
-        static let width = CGFloat(400)
-        static let height = CGFloat(400)
+        static let width = CGFloat(380)
+        static let height = CGFloat(380)
     }
     
     struct List {
