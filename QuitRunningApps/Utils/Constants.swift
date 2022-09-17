@@ -27,8 +27,8 @@ struct Constants {
     
     struct SettingsWindow {
         // Settings window dimensions
-        static let width = CGFloat(380)
-        static let height = CGFloat(380)
+        static let width = CGFloat(360)
+        static let height = CGFloat(360)
     }
     
     struct List {
@@ -59,4 +59,5 @@ struct Constants {
         // File chooser
         static let none = NSLocalizedString("file-none", comment: "")
     }
+    
 }

@@ -6,12 +6,11 @@
 import Foundation
 import Cocoa
 
-// Application struct
-// Holds list of apps and their properties
-// Shown on main screen and syanmically updated by
-// ApplicationModel
-
 struct Application: Identifiable, Hashable {
+    
+    // Holds list of apps and their properties
+    // Shown on main screen and dyanmically updated by
+    // ApplicationModel
     
     let id: Int32           // Process ID
     let appName: String     // Localized App Name
@@ -24,4 +23,5 @@ struct Application: Identifiable, Hashable {
         self.appIcon = app.icon ?? NSImage(imageLiteralResourceName: "App")
         self.appBundle = app.bundleIdentifier ?? ""
     }
+    
 }

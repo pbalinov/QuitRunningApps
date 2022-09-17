@@ -5,9 +5,10 @@
 
 import Foundation
 
-// Get the application version and build
-// from the bundle
 extension Bundle {
+    
+    // Get the application version and
+    // build number from the bundle
     
     var releaseVersionNumber: String? {
         return infoDictionary?["CFBundleShortVersionString"] as? String
@@ -16,4 +17,5 @@ extension Bundle {
     var buildVersionNumber: String? {
         return infoDictionary?["CFBundleVersion"] as? String
     }
+    
 }

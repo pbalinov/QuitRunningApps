@@ -23,6 +23,7 @@ class ApplicationViewModel: ObservableObject {
     private var isRefreshRunning: Bool
     // How many apps we closed
     private var appsBeingClosed: Int
+    private var appsFailedToClose: Int
     private var appsToClose: Int
     // Filter per app bundle identifier
     private var bundleAppsToFilter: Set<String>
@@ -40,6 +41,7 @@ class ApplicationViewModel: ObservableObject {
         self.isClosingRunning = false
         self.isRefreshRunning = false
         self.appsBeingClosed = 0
+        self.appsFailedToClose = 0
         self.appsToClose = 0
 #if DEBUG
         bundleAppsToFilter = [Constants.Bundles.ourApp, Constants.Bundles.xcodeApp]
@@ -64,15 +66,14 @@ class ApplicationViewModel: ObservableObject {
             return false
         }
         
-        // Check the app name
         if(!validateString(app.localizedName)) {
-            // Name is empty
+            // The app name is empty
             // Do not allow the app in list
             return false
         }
         
         if(!validateString(app.bundleIdentifier)) {
-            // Bundle is empty
+            // App bundle Id is empty
             // Do not allow the app in list
             return false
         }
@@ -88,10 +89,10 @@ class ApplicationViewModel: ObservableObject {
     private func validateObserverNotification(_ change: NSKeyValueObservedChange<[NSRunningApplication]>) -> Bool {
         
         // Filter only apps that are valid for the list
-        
-        // Refresh applications only when the closing
-        // or refresh is not running
+                
         if(self.isClosingRunning || self.isRefreshRunning) {
+            // Refresh applications only when the closing
+            // or refresh is not running
             return false
         }
         
@@ -122,13 +123,14 @@ class ApplicationViewModel: ObservableObject {
     }
     
     func registerObservers() {
+        
         // Monitor for changes in the running applications
+        
         self.observers =
         [
             // New values handle launched apps and old values closed
             NSWorkspace.shared.observe(\.runningApplications, options: [.new, .old]) {
-                (model, change) in
-                if(self.validateObserverNotification(change)) {
+                (model, change) in if(self.validateObserverNotification(change)) {
                     // Change is valid - reload the applications
                     self.applications = self.loadRunningApplications()
                 }
@@ -162,7 +164,9 @@ class ApplicationViewModel: ObservableObject {
     
     func closeRunningApplications() {
         
-        // Starting to close the applications
+        // Close all running applications that are not selected
+        // and do not belong to the "never quit" set of apps
+        
         isClosingRunning = true
         
         // Create a local copy of the list to process
@@ -171,6 +175,7 @@ class ApplicationViewModel: ObservableObject {
         
         // How many apps we informed to close
         appsBeingClosed = 0
+        appsFailedToClose = 0
         appsToClose = allAppsToClose.count;
                 
         // Close the list of running applications
@@ -190,7 +195,8 @@ class ApplicationViewModel: ObservableObject {
                 print("Inform \(appFromList.appName) to close was successful.")
 #endif
             } else {
-                // Failed to close it
+                // Failed to close the app
+                appsFailedToClose += 1
 #if DEBUG
                 print("Inform \(appFromList.appName) to close failed.")
 #endif
@@ -256,7 +262,7 @@ class ApplicationViewModel: ObservableObject {
             return
         }
         
-        // and all apps are informed to be closed
+        // All apps are informed to be closed
         // and we actually closed at least one app
 #if DEBUG
         print("Closing our own application also.")
@@ -266,7 +272,10 @@ class ApplicationViewModel: ObservableObject {
     
     func loadRunningApplications() -> [Application] {
         
-        // List of app to load
+        // Load all running applications that
+        // comply with the rules and populate the
+        // list on the main screen
+        
         // Start with empty list
         var applications: [Application] = []
         
@@ -296,7 +305,7 @@ class ApplicationViewModel: ObservableObject {
     
     private func shouldNeverQuitSelectedApp(_ appToNeverQuitBundleNew: String, _ appToNeverQuitBundleOld: String) -> String {
         
-        // Update the list of apps to not quit
+        // Update the set of "never quit" apps
         
         // Remove the old value from the filter
         if let index = bundleAppsToFilter.firstIndex(of: appToNeverQuitBundleOld) {
@@ -304,11 +313,11 @@ class ApplicationViewModel: ObservableObject {
         }
         
         if(validateString(appToNeverQuitBundleNew)) {
-#if DEBUG
-        print("Do not quit list updated with bundle Id: \(appToNeverQuitBundleNew).")
-#endif
             // Update the list and add the new value
             bundleAppsToFilter.update(with: appToNeverQuitBundleNew)
+#if DEBUG
+            print("Do not quit list updated with bundle Id: \(appToNeverQuitBundleNew).")
+#endif
         } else {
 #if DEBUG
         print("Do not quit list removed bundle Id: \(appToNeverQuitBundleOld).")

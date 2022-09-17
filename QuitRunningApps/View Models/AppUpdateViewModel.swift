@@ -13,7 +13,7 @@ class AppUpdateViewModel: ObservableObject {
     // Setting for update checks
     private var checkForUpdate: Bool
     private var lastUpdateCheckDate: Date
-    // Application version information JSON data
+    // Application version information data
     private var versions: [Version]
     
     init() {
@@ -23,9 +23,10 @@ class AppUpdateViewModel: ObservableObject {
         self.versions = [Version] ()
     }
     
-    // Check if the update settings are enabled
-    // and compare last checked date with the current date
     func shouldCheckForNewApplicationVersion() -> Bool {
+        
+        // Check if the update settings are enabled
+        // and compare last checked date with the current date
         
         // Check is globaly enabled
         if(!checkForUpdate) {
@@ -95,9 +96,10 @@ class AppUpdateViewModel: ObservableObject {
 #endif
     }
     
-    // Compare app bundle version and build against
-    // the version information in the JSON file
-    func compareVersionData(_ versions: [Version]) -> Bool {
+    private func compareVersionData(_ versions: [Version]) -> Bool {
+        
+        // Compare app bundle version and build against
+        // the version information
         
         if(versions.count == 0) {
             // No data in JSON
@@ -125,7 +127,6 @@ class AppUpdateViewModel: ObservableObject {
         }
         
         // Check the first available record in results array
-        
         if(appVersion < versions[0].version) {
             // Current app version is lower
             // Update available

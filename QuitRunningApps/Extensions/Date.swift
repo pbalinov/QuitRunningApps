@@ -5,10 +5,10 @@
 
 import Foundation
 
-// Supports date saving in user defaults
-// Used in SettingsModel
 extension Date: RawRepresentable
 {
+    // Supports date saving in user defaults
+    
     public var rawValue: String {
         self.timeIntervalSinceReferenceDate.description
     }
@@ -16,4 +16,5 @@ extension Date: RawRepresentable
     public init?(rawValue: String) {
         self = Date(timeIntervalSinceReferenceDate: Double(rawValue) ?? 0.0)
     }
+    
 }

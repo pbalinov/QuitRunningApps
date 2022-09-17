@@ -7,16 +7,16 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    // Close the application after last (only) window is closed
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        // Close the application after last (only) window is closed
         return true
     }
     
-    // Workaround for the window minimize and restore issue
     func applicationWillBecomeActive(_ notification: Notification) {
+        // Workaround for the window minimize and restore issue
         (notification.object as? NSApplication)?.windows.first?.makeKeyAndOrderFront(self)
     }
-    
+
 }
 
 @main
@@ -60,12 +60,14 @@ struct QuitRunningApps: App {
             }
             CommandGroup(replacing: .help) {
                 Button(action: {
+                    // Open the application user guide
                     openURL(Constants.URLs.userGuide)
                 }) {
                     Text("help-user-guide")
                 }
                 
                 Button(action: {
+                    // // Open the application web site
                     openURL(Constants.URLs.webSite)
                 }) {
                     Text("help-web-page")

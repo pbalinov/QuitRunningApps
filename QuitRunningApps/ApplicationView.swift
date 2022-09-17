@@ -28,17 +28,14 @@ struct ApplicationView: View {
             }
             .border(Constants.List.borderColor, width: Constants.List.borderWidth)
             .onAppear() {
-                // Load settings
                 appViewModel.shouldCloseOurApp(settingsModel.closeOurApp)
                 appViewModel.shouldCloseFinderApp(settingsModel.closeFinder)
                 appViewModel.shouldNeverQuitFirstApp(settingsModel.firstAppToNeverQuitBundle)
                 appViewModel.shouldNeverQuitSecondApp(settingsModel.secondAppToNeverQuitBundle)
                 appViewModel.shouldNeverQuitThirdApp(settingsModel.thirdAppToNeverQuitBundle)
                 
-                // Start monitoring for app changes
                 appViewModel.registerObservers()
             }
-            // Set settings changes in view models
             .onChange(of: settingsModel.closeOurApp) {
                 _ in appViewModel.shouldCloseOurApp(settingsModel.closeOurApp)
             }
@@ -56,30 +53,25 @@ struct ApplicationView: View {
             }
             .task(id: settingsModel.closeFinder) {
                 if(!onInitialLoad) {
-                    // Load running applications
                     appViewModel.applications = appViewModel.loadRunningApplications()
                 }
             }
             .task(id: settingsModel.firstAppToNeverQuitBundle) {
                 if(!onInitialLoad) {
-                    // Load running applications
                     appViewModel.applications = appViewModel.loadRunningApplications()
                 }
             }
             .task(id: settingsModel.secondAppToNeverQuitBundle) {
                 if(!onInitialLoad) {
-                    // Load running applications
                     appViewModel.applications = appViewModel.loadRunningApplications()
                 }
             }
             .task(id: settingsModel.thirdAppToNeverQuitBundle) {
                 if(!onInitialLoad) {
-                    // Load running applications
                     appViewModel.applications = appViewModel.loadRunningApplications()
                 }
             }
             .task {
-                // Load running applications
                 appViewModel.applications = appViewModel.loadRunningApplications()
                 onInitialLoad = false
             }
@@ -97,14 +89,12 @@ struct ApplicationView: View {
         }
         .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
         .task {
-            // Check for update
             if(appUpdateModel.shouldCheckForNewApplicationVersion()) {
                 await appUpdateModel.loadVersionDataAndCheckForUpdate()
                 settingsModel.setLastUpdateCheckDate(Date.now)
             }
         }
         .onAppear() {
-            // Load settings
             appUpdateModel.isAppCheckingForUpdates(settingsModel.checkForUpdates, settingsModel.getLastUpdateCheckDate())
         }
         .onChange(of: settingsModel.checkForUpdates) {
