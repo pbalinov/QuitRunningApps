@@ -45,27 +45,27 @@ class SettingsViewModel: ObservableObject {
     }
     
     func selectFirstApplicationToNeverQuit() {
-        var result = (file: "", bundle: "")
-        result = selectApplicationToNeverQuit(firstAppToNeverQuit)
-        self.firstAppToNeverQuit = result.file
-        self.firstAppToNeverQuitBundle = result.bundle
+        
+        let result = selectApplicationToNeverQuit(firstAppToNeverQuit)
+        self.firstAppToNeverQuit = result.fileName
+        self.firstAppToNeverQuitBundle = result.bundleId        
     }
     
     func selectSecondApplicationToNeverQuit() {
-        var result = (file: "", bundle: "")
-        result = selectApplicationToNeverQuit(secondAppToNeverQuit)
-        self.secondAppToNeverQuit = result.file
-        self.secondAppToNeverQuitBundle = result.bundle
+        
+        let result = selectApplicationToNeverQuit(secondAppToNeverQuit)
+        self.secondAppToNeverQuit = result.fileName
+        self.secondAppToNeverQuitBundle = result.bundleId
     }
     
     func selectThirdApplicationToNeverQuit() {
-        var result = (file: "", bundle: "")
-        result = selectApplicationToNeverQuit(thirdAppToNeverQuit)
-        self.thirdAppToNeverQuit = result.file
-        self.thirdAppToNeverQuitBundle = result.bundle
+        
+        let result = selectApplicationToNeverQuit(thirdAppToNeverQuit)
+        self.thirdAppToNeverQuit = result.fileName
+        self.thirdAppToNeverQuitBundle = result.bundleId
     }
     
-    private func selectApplicationToNeverQuit(_ currentSelection: String) -> (String, String) {
+    private func selectApplicationToNeverQuit(_ currentSelection: String) -> (fileName: String, bundleId: String) {
         
         // Browse for application or delete
         // Return the application name and bundle identifier
@@ -75,13 +75,11 @@ class SettingsViewModel: ObservableObject {
             return (Constants.File.none, "")
         }
         
-        var result = (file: "", bundle: "")
-        
         // Browse for application
-        result = FileBrowser().showFileBrowserPanel()
+        let result = FileBrowser().showFileBrowserPanel()
         
         // Check if already selected
-        if(validateSelectedApplication(result.file)) {
+        if(validateSelectedApplication(result.fileName)) {
             // Application already selected
             return (Constants.File.none, "")
         }

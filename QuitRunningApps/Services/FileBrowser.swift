@@ -8,7 +8,7 @@ import SwiftUI
 
 class FileBrowser {
     
-    func showFileBrowserPanel() -> (String, String) {
+    func showFileBrowserPanel() -> (fileName: String, bundleId: String) {
         
         // Open file choose dialog
         // Allow only applications to be selected
