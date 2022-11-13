@@ -20,7 +20,7 @@ class AppUpdateViewModel: ObservableObject {
         self.status = ""
         self.checkForUpdate = false
         self.lastUpdateCheckDate = Date.distantPast
-        self.versions = [Version] ()
+        self.versions = [Version]()
     }
     
     func shouldCheckForNewApplicationVersion() -> Bool {
@@ -40,7 +40,7 @@ class AppUpdateViewModel: ObservableObject {
         // to last update check date
         /*
         var dayComponent = DateComponents()
-        dayComponent.day = { -2 * appUpdatesPeriod }()
+        dayComponent.day = { -2 * Constants.Update.periodBetweenChecks }()
         lastUpdateCheckDate = cal.date(byAdding: dayComponent, to: lastUpdateCheckDate)!
         */
 #endif
@@ -75,7 +75,8 @@ class AppUpdateViewModel: ObservableObject {
         // Compare results against current app version
         if(compareVersionData(versions)) {
             // Update is available
-            checkResult = NSLocalizedString("update-new-version", comment: "")
+            let updateAvailable = NSLocalizedString("update-new-version", comment: "")
+            checkResult = "[\(updateAvailable)](\(Constants.URLs.downloadsPage))"
         } else {
             // No new version
             checkResult = NSLocalizedString("update-no-new-version", comment: "")

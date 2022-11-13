@@ -17,7 +17,6 @@ struct ApplicationView: View {
         VStack {
             Text("text-list-running-apps")
                 .font(.headline)
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             List(appViewModel.applications, id: \.self, selection: $appViewModel.selection) {
                 application in HStack {
@@ -78,16 +77,16 @@ struct ApplicationView: View {
             
             HStack()
             {
-                Text(appUpdateModel.status)
+                Text(.init(appUpdateModel.status))
                 Spacer()
                 Button("button-quit", action: {
                     appViewModel.closeRunningApplications()
                 })
                 .buttonStyle(.borderedProminent)
-                .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
             }
+            .padding(.top, Constants.MainWindow.padding)
         }
-        .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
+        .padding()
         .task {
             if(appUpdateModel.shouldCheckForNewApplicationVersion()) {
                 await appUpdateModel.loadVersionDataAndCheckForUpdate()

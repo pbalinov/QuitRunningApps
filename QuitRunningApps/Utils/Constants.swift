@@ -17,12 +17,16 @@ struct Constants {
 
         // JSON File with the latest app version
         static let appVersion = URL(string: "https://quitrunningapps.noavis-dev.eu/app-updates/versions.json")!
+        
+        // Downloads page
+        static let downloadsPage = URL(string: "https://quitrunningapps.noavis-dev.eu/download/")!
     }
     
     struct MainWindow {
         // Application window dimensions
         static let width = CGFloat(400)
         static let height = CGFloat(400)
+        static let padding = CGFloat(8)
     }
     
     struct SettingsWindow {

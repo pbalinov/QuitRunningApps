@@ -320,7 +320,9 @@ class ApplicationViewModel: ObservableObject {
 #endif
         } else {
 #if DEBUG
-        print("Do not quit list removed bundle Id: \(appToNeverQuitBundleOld).")
+            if(validateString(appToNeverQuitBundleOld)) {
+                print("Do not quit list removed bundle Id: \(appToNeverQuitBundleOld).")
+            }
 #endif
         }
         
