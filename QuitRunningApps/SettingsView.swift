@@ -81,7 +81,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .padding(.leading)
+            .padding(.leading, Constants.MainWindow.padding)
         }
         .padding(.all)
     }

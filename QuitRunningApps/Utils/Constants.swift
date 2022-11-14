@@ -56,7 +56,7 @@ struct Constants {
     struct Divider {
         // Divider modifiers
         static let width = CGFloat(200)
-        static let height = CGFloat(20)
+        static let height = CGFloat(16)
     }
     
     struct File {
