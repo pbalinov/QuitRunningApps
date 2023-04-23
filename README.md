@@ -9,6 +9,6 @@ An Apple Automator script can be created for this purpose, but it never worked w
 This triggered the creation of this small application. It follows SwiftUI concepts and aims to be lightweight and fast – start it, quit all running apps and have a good rest!
 
 
-Web page: https://quitrunningapps.noavis-dev.eu
+Web page: https://quitrunningapps.infinityfreeapp.com/
 
 Created by Plamen Balinov.
