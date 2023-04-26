@@ -5,6 +5,13 @@
 
 import Foundation
 
+enum NewVersions {
+    
+    case errorChecking
+    case newVersionAvailable
+    case noNewVersion
+}
+
 @MainActor
 class AppUpdateViewModel: ObservableObject {
     
@@ -73,11 +80,15 @@ class AppUpdateViewModel: ObservableObject {
         }
         
         // Compare results against current app version
-        if(compareVersionData(versions)) {
+        switch(compareVersionData(versions)) {
+        case NewVersions.errorChecking:
+            // Update check failed. Versions array is empty.
+            checkResult = NSLocalizedString("update-version-failed", comment: "")
+        case NewVersions.newVersionAvailable:
             // Update is available
             let updateAvailable = NSLocalizedString("update-new-version", comment: "")
             checkResult = "[\(updateAvailable)](\(Constants.URLs.downloadsPage))"
-        } else {
+        case NewVersions.noNewVersion:
             // No new version
             checkResult = NSLocalizedString("update-no-new-version", comment: "")
         }
@@ -97,50 +108,50 @@ class AppUpdateViewModel: ObservableObject {
 #endif
     }
     
-    private func compareVersionData(_ versions: [Version]) -> Bool {
+    private func compareVersionData(_ versions: [Version]) -> NewVersions {
         
         // Compare app bundle version and build against
         // the version information
         
         if(versions.count == 0) {
             // No data in JSON
-            return false
+            return NewVersions.errorChecking
         }
         
         guard let appVersionFromBundle = Bundle.main.releaseVersionNumber else {
             // Failed to get the version
-            return false
+            return NewVersions.noNewVersion
         }
         
         guard let appBuildFromBundle = Bundle.main.buildVersionNumber else {
             // Failed to get the build version
-            return false
+            return NewVersions.noNewVersion
         }
         
         guard let appVersion = Decimal(string: appVersionFromBundle) else {
             // Failed to get the version
-            return false
+            return NewVersions.noNewVersion
         }
         
         guard let appBuild = Int(appBuildFromBundle) else {
             // Failed to get the build version
-            return false
+            return NewVersions.noNewVersion
         }
         
         // Check the first available record in results array
         if(appVersion < versions[0].version) {
             // Current app version is lower
             // Update available
-            return true
+            return NewVersions.newVersionAvailable
         }
 
         if(appBuild < versions[0].build) {
             // Current app build is lower
             // Update available
-            return true
+            return NewVersions.newVersionAvailable
         }
         
-        return false
+        return NewVersions.noNewVersion
     }
     
 }

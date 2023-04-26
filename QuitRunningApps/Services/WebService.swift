@@ -6,6 +6,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    
     case invalidResponse
 }
 
@@ -19,6 +20,11 @@ class WebService {
         var versions: [Version] = []
         
         let (data, response) = try await URLSession.shared.data(from: url)
+
+#if DEBUG
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+#endif
         
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.invalidResponse
