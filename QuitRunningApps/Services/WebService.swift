@@ -23,7 +23,7 @@ class WebService {
 
 #if DEBUG
         let str = String(decoding: data, as: UTF8.self)
-        print(str)
+        print("The web service returned:\n\(str)")
 #endif
         
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {

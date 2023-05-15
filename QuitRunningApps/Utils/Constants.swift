@@ -16,7 +16,7 @@ struct Constants {
         static let userGuide = URL(string: "https://quitrunningapps.infinityfreeapp.com/user-guide/")!
 
         // JSON File with the latest app version
-        static let appVersion = URL(string: "https://noavis-dev.eu/app-updates/versions.json")!
+        static let appVersion = URL(string: "https://noavis.com/app-updates/versions.json")!
         
         // Downloads page
         static let downloadsPage = URL(string: "https://quitrunningapps.infinityfreeapp.com/download/")!
