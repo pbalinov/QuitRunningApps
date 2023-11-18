@@ -17,6 +17,9 @@
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
+		1BDEC6172B08B1EE00C14231 /* App.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6142B08B1EE00C14231 /* App.curve */; };
+		1BDEC6182B08B1EE00C14231 /* AppIcon.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6152B08B1EE00C14231 /* AppIcon.curve */; };
+		1BDEC6192B08B1EE00C14231 /* Settings.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6162B08B1EE00C14231 /* Settings.curve */; };
 		1BE51F9A28C3362F001167D5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */; };
 		1BE7C1F228CCEFB5005BB45D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1F128CCEFB5005BB45D /* Date.swift */; };
 		1BE7C1F428CCEFD8005BB45D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1F328CCEFD8005BB45D /* Calendar.swift */; };
@@ -29,9 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B0A9F8428C6668D0044F991 /* Settings.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.vectornator; sourceTree = "<group>"; };
-		1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.vectornator; sourceTree = "<group>"; };
-		1B0A9F8728C6668D0044F991 /* App.vectornator */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.vectornator; sourceTree = "<group>"; };
 		1B0A9F8928C667940044F991 /* create_dmg_command.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = create_dmg_command.txt; sourceTree = "<group>"; };
 		1B13006E28CA437F00B0DD75 /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
 		1B13007328CA444B00B0DD75 /* AppUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateViewModel.swift; sourceTree = "<group>"; };
@@ -50,6 +50,9 @@
 		1BB4557C28D640A800BDFBF2 /* commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = commands.txt; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BC9FCA528CFA83000CDD457 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
+		1BDEC6142B08B1EE00C14231 /* App.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.curve; sourceTree = "<group>"; };
+		1BDEC6152B08B1EE00C14231 /* AppIcon.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.curve; sourceTree = "<group>"; };
+		1BDEC6162B08B1EE00C14231 /* Settings.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.curve; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1BE7C1F128CCEFB5005BB45D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1BE7C1F328CCEFD8005BB45D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
@@ -75,9 +78,9 @@
 		1B0A9F8328C6665F0044F991 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A9F8728C6668D0044F991 /* App.vectornator */,
-				1B0A9F8628C6668D0044F991 /* AppIcon.vectornator */,
-				1B0A9F8428C6668D0044F991 /* Settings.vectornator */,
+				1BDEC6142B08B1EE00C14231 /* App.curve */,
+				1BDEC6152B08B1EE00C14231 /* AppIcon.curve */,
+				1BDEC6162B08B1EE00C14231 /* Settings.curve */,
 			);
 			path = "External Resources";
 			sourceTree = "<group>";
@@ -247,6 +250,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
+				1BDEC6172B08B1EE00C14231 /* App.curve in Resources */,
+				1BDEC6192B08B1EE00C14231 /* Settings.curve in Resources */,
+				1BDEC6182B08B1EE00C14231 /* AppIcon.curve in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 				1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */,
