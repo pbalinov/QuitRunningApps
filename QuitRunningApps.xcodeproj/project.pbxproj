@@ -14,6 +14,9 @@
 		1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */; };
 		1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900128AABD8000A3BB13 /* Assets.xcassets */; };
 		1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */; };
+		1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88E92B8F5F970090B6BA /* Settings.svg */; };
+		1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EA2B8F5F970090B6BA /* App.svg */; };
+		1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */; };
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
@@ -45,6 +48,9 @@
 		1B86900128AABD8000A3BB13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitRunningApps.entitlements; sourceTree = "<group>"; };
+		1B8A88E92B8F5F970090B6BA /* Settings.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Settings.svg; sourceTree = "<group>"; };
+		1B8A88EA2B8F5F970090B6BA /* App.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = App.svg; sourceTree = "<group>"; };
+		1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB4557C28D640A800BDFBF2 /* commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = commands.txt; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 		1B0A9F8328C6665F0044F991 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B8A88EA2B8F5F970090B6BA /* App.svg */,
+				1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */,
+				1B8A88E92B8F5F970090B6BA /* Settings.svg */,
 				1BDEC6142B08B1EE00C14231 /* App.curve */,
 				1BDEC6152B08B1EE00C14231 /* AppIcon.curve */,
 				1BDEC6162B08B1EE00C14231 /* Settings.curve */,
@@ -218,7 +227,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					1B868FF928AABD7F00A3BB13 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -252,8 +261,11 @@
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1BDEC6172B08B1EE00C14231 /* App.curve in Resources */,
 				1BDEC6192B08B1EE00C14231 /* Settings.curve in Resources */,
+				1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */,
 				1BDEC6182B08B1EE00C14231 /* AppIcon.curve in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
+				1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */,
+				1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 				1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */,
 			);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 100 100" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="App" vectornator:layerName="App">
+<path d="M90 62.0889C90 70.0889 90 74.0889 88.6667 78.4444C86.9778 83.1556 83.2444 86.8889 78.5333 88.5778C74.1778 90 70.0889 90 62.0889 90L37.9111 90C29.9111 90 25.9111 90 21.5556 88.6667C16.8444 86.9778 13.1111 83.2445 11.4222 78.5333C10 74.0889 10 70.0889 10 62.0889L10 37.9111C10 29.9111 10 25.9111 11.3333 21.5556C13.1111 16.7556 16.7556 13.1111 21.5556 11.3333C25.8222 10 29.8222 10 37.9111 10L62.0889 10C70.0889 10 74.0889 10 78.4444 11.3333C83.1556 13.1111 86.8889 16.7556 88.5778 21.5556C90 25.8222 90 29.8222 90 37.9111L90 62.0889Z" fill="#4185e3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+<g opacity="1">
+<g opacity="1">
+<path d="M27 68C27 69.1046 27.8954 70 29 70L71 70C72.1046 70 73 69.1046 73 68L73 37L27 37L27 68Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+<path d="M27 39L27 32C27 30.8954 27.8954 30 29 30L71 30C72.1046 30 73 30.8954 73 32L73 39L27 39Z" fill="#dae3e6" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+</g>
+<path d="M30 34.5C30 33.6716 30.6716 33 31.5 33C32.3284 33 33 33.6716 33 34.5C33 35.3284 32.3284 36 31.5 36C30.6716 36 30 35.3284 30 34.5Z" fill="#ff5f57" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<path d="M35 34.5C35 33.6716 35.6716 33 36.5 33C37.3284 33 38 33.6716 38 34.5C38 35.3284 37.3284 36 36.5 36C35.6716 36 35 35.3284 35 34.5Z" fill="#ffbb30" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<path d="M40 34.5C40 33.6716 40.6716 33 41.5 33C42.3284 33 43 33.6716 43 34.5C43 35.3284 42.3284 36 41.5 36C40.6716 36 40 35.3284 40 34.5Z" fill="#28c840" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+</g>
+</g>
+</svg>
