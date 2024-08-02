@@ -10,16 +10,16 @@ struct Constants {
     
     struct URLs {
         // Web Site address
-        static let webSite = URL(string: "https://quitrunningapps.infinityfreeapp.com/")!
+        static let webSite = URL(string: "https://github.com/pbalinov/QuitRunningApps/")!
 
         // User Guide
-        static let userGuide = URL(string: "https://quitrunningapps.infinityfreeapp.com/user-guide/")!
+        static let userGuide = URL(string: "https://github.com/pbalinov/QuitRunningApps/wiki/User-Guide/")!
 
         // JSON File with the latest app version
         static let appVersion = URL(string: "https://api.npoint.io/bfd6c134f6ae0d2f2d7b")!
         
         // Downloads page
-        static let downloadsPage = URL(string: "https://quitrunningapps.infinityfreeapp.com/download/")!
+        static let downloadsPage = URL(string: "https://github.com/pbalinov/QuitRunningApps/releases/")!
     }
     
     struct MainWindow {
