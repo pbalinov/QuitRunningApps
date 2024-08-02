@@ -20,9 +20,6 @@
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
-		1BDEC6172B08B1EE00C14231 /* App.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6142B08B1EE00C14231 /* App.curve */; };
-		1BDEC6182B08B1EE00C14231 /* AppIcon.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6152B08B1EE00C14231 /* AppIcon.curve */; };
-		1BDEC6192B08B1EE00C14231 /* Settings.curve in Resources */ = {isa = PBXBuildFile; fileRef = 1BDEC6162B08B1EE00C14231 /* Settings.curve */; };
 		1BE51F9A28C3362F001167D5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */; };
 		1BE7C1F228CCEFB5005BB45D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1F128CCEFB5005BB45D /* Date.swift */; };
 		1BE7C1F428CCEFD8005BB45D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1F328CCEFD8005BB45D /* Calendar.swift */; };
@@ -30,6 +27,8 @@
 		1BE7C1F928CCF040005BB45D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1F828CCF040005BB45D /* Application.swift */; };
 		1BE7C1FB28CCF0D1005BB45D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FA28CCF0D1005BB45D /* Version.swift */; };
 		1BE7C1FE28CCF39D005BB45D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7C1FD28CCF39D005BB45D /* WebService.swift */; };
+		1BECD00C2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BECD00A2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png */; };
+		1BECD00D2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BECD00B2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png */; };
 		1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BF01C2128C8FBFD00AD9805 /* Credits.html */; };
 		1BF1FE4928D2414E005D85C4 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1FE4828D2414E005D85C4 /* FileBrowser.swift */; };
 /* End PBXBuildFile section */
@@ -56,9 +55,6 @@
 		1BB4557C28D640A800BDFBF2 /* commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = commands.txt; sourceTree = "<group>"; };
 		1BB5136F28C268DA00A11AD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1BC9FCA528CFA83000CDD457 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
-		1BDEC6142B08B1EE00C14231 /* App.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = App.curve; sourceTree = "<group>"; };
-		1BDEC6152B08B1EE00C14231 /* AppIcon.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.curve; sourceTree = "<group>"; };
-		1BDEC6162B08B1EE00C14231 /* Settings.curve */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.curve; sourceTree = "<group>"; };
 		1BE51F9928C3362F001167D5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1BE7C1F128CCEFB5005BB45D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1BE7C1F328CCEFD8005BB45D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
@@ -66,6 +62,8 @@
 		1BE7C1F828CCF040005BB45D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		1BE7C1FA28CCF0D1005BB45D /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		1BE7C1FD28CCF39D005BB45D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		1BECD00A2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QuitRunningApps Social Preview.png"; sourceTree = "<group>"; };
+		1BECD00B2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QuitRunningApps Screenshot.png"; sourceTree = "<group>"; };
 		1BF01C2128C8FBFD00AD9805 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		1BF1FE4828D2414E005D85C4 /* FileBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,12 +82,10 @@
 		1B0A9F8328C6665F0044F991 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BECD0092C5CDDD0001EC6A1 /* Screenshots */,
 				1B8A88EA2B8F5F970090B6BA /* App.svg */,
 				1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */,
 				1B8A88E92B8F5F970090B6BA /* Settings.svg */,
-				1BDEC6142B08B1EE00C14231 /* App.curve */,
-				1BDEC6152B08B1EE00C14231 /* AppIcon.curve */,
-				1BDEC6162B08B1EE00C14231 /* Settings.curve */,
 			);
 			path = "External Resources";
 			sourceTree = "<group>";
@@ -199,6 +195,15 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		1BECD0092C5CDDD0001EC6A1 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				1BECD00B2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png */,
+				1BECD00A2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,12 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
-				1BDEC6172B08B1EE00C14231 /* App.curve in Resources */,
-				1BDEC6192B08B1EE00C14231 /* Settings.curve in Resources */,
 				1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */,
-				1BDEC6182B08B1EE00C14231 /* AppIcon.curve in Resources */,
+				1BECD00C2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
 				1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */,
+				1BECD00D2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png in Resources */,
 				1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 				1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */,
