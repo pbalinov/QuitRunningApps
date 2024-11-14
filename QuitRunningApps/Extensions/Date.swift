@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension Date: RawRepresentable
+extension Date: @retroactive RawRepresentable
 {
     // Supports date saving in user defaults
     
