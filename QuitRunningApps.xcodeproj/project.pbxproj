@@ -18,9 +18,9 @@
 		1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */; };
 		1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900128AABD8000A3BB13 /* Assets.xcassets */; };
 		1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */; };
-		1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88E92B8F5F970090B6BA /* Settings.svg */; };
-		1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EA2B8F5F970090B6BA /* App.svg */; };
-		1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */; };
+		1B8A88EC2B8F5F970090B6BA /* Settings_.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88E92B8F5F970090B6BA /* Settings_.svg */; };
+		1B8A88ED2B8F5F970090B6BA /* App_.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EA2B8F5F970090B6BA /* App_.svg */; };
+		1B8A88EE2B8F5F970090B6BA /* AppIcon_.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A88EB2B8F5F970090B6BA /* AppIcon_.svg */; };
 		1BACAFD728C13B8D003F889D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD628C13B8D003F889D /* Constants.swift */; };
 		1BACAFD928C13CFE003F889D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BACAFD828C13CFE003F889D /* Functions.swift */; };
 		1BB5137028C268DA00A11AD4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5136F28C268DA00A11AD4 /* SettingsView.swift */; };
@@ -61,9 +61,9 @@
 		1B86900128AABD8000A3BB13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B86900428AABD8000A3BB13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitRunningApps.entitlements; sourceTree = "<group>"; };
-		1B8A88E92B8F5F970090B6BA /* Settings.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Settings.svg; sourceTree = "<group>"; };
-		1B8A88EA2B8F5F970090B6BA /* App.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = App.svg; sourceTree = "<group>"; };
-		1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
+		1B8A88E92B8F5F970090B6BA /* Settings_.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Settings_.svg; sourceTree = "<group>"; };
+		1B8A88EA2B8F5F970090B6BA /* App_.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = App_.svg; sourceTree = "<group>"; };
+		1B8A88EB2B8F5F970090B6BA /* AppIcon_.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AppIcon_.svg; sourceTree = "<group>"; };
 		1BACAFD628C13B8D003F889D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BACAFD828C13CFE003F889D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1BB4557C28D640A800BDFBF2 /* commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = commands.txt; sourceTree = "<group>"; };
@@ -132,9 +132,9 @@
 		1B28673A2E7A9D3E0045EB62 /* Before_Tahoe */ = {
 			isa = PBXGroup;
 			children = (
-				1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */,
-				1B8A88E92B8F5F970090B6BA /* Settings.svg */,
-				1B8A88EA2B8F5F970090B6BA /* App.svg */,
+				1B8A88EB2B8F5F970090B6BA /* AppIcon_.svg */,
+				1B8A88E92B8F5F970090B6BA /* Settings_.svg */,
+				1B8A88EA2B8F5F970090B6BA /* App_.svg */,
 			);
 			path = Before_Tahoe;
 			sourceTree = "<group>";
@@ -312,15 +312,15 @@
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1BECD0122C5CE56B001EC6A1 /* Closing Word.pxd in Resources */,
 				1B2867342E7A97B10045EB62 /* AppIcon.icon in Resources */,
-				1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */,
+				1B8A88EC2B8F5F970090B6BA /* Settings_.svg in Resources */,
 				1BECD00C2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png in Resources */,
 				1BECD0172C5CE713001EC6A1 /* QuitRunningApps Preferences.png in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
 				1B2867372E7A9AEF0045EB62 /* Settings.svg in Resources */,
-				1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */,
+				1B8A88ED2B8F5F970090B6BA /* App_.svg in Resources */,
 				1BECD00D2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png in Resources */,
 				1BECD00F2C5CE086001EC6A1 /* QuitRunningApps Screenshot.pxd in Resources */,
-				1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */,
+				1B8A88EE2B8F5F970090B6BA /* AppIcon_.svg in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
 				1B2867392E7A9BD40045EB62 /* Settings.icon in Resources */,
 				1BECD0132C5CE56B001EC6A1 /* Closing Word.png in Resources */,
@@ -514,7 +514,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -549,7 +549,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;

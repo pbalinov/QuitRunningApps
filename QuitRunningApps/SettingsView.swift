@@ -21,6 +21,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("settings-general")
                         .font(.headline)
+                        .padding(.bottom, Constants.SettingsWindow.padding)
                     
                     Toggle(isOn: $settingsModel.closeOurApp) {
                         Text("settings-closeapp")
@@ -37,6 +38,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("settings-updates")
                         .font(.headline)
+                        .padding(.bottom, Constants.SettingsWindow.padding)
                     
                     Toggle(isOn: $settingsModel.checkForUpdates) {
                         Text("settings-weekly-updates")
@@ -49,6 +51,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("settings-never-close")
                         .font(.headline)
+                        .padding(.bottom, Constants.SettingsWindow.padding)
                     
                     HStack {
                         Button {
@@ -59,6 +62,8 @@ struct SettingsView: View {
                         Text(settingsModel.firstAppToNeverQuit)
                         Spacer()
                     }
+                    .padding(.bottom, Constants.SettingsWindow.paddingHStack)
+                    
                     
                     HStack {
                         Button {
@@ -69,6 +74,7 @@ struct SettingsView: View {
                         Text(settingsModel.secondAppToNeverQuit)
                         Spacer()
                     }
+                    .padding(.bottom, Constants.SettingsWindow.paddingHStack)
                     
                     HStack {
                         Button {
@@ -79,6 +85,7 @@ struct SettingsView: View {
                         Text(settingsModel.thirdAppToNeverQuit)
                         Spacer()
                     }
+                    .padding(.bottom, Constants.SettingsWindow.paddingHStack)
                 }
             }
             .padding(.leading, Constants.MainWindow.padding)

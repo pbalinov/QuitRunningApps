@@ -33,6 +33,8 @@ struct Constants {
         // Settings window dimensions
         static let width = CGFloat(360)
         static let height = CGFloat(360)
+        static let padding = CGFloat(4)
+        static let paddingHStack = CGFloat(2)
     }
     
     struct List {
