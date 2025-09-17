@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 90 90" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Settings" vectornator:layerName="Settings">
+<path d="M0 45C0 20.1472 20.1472 0 45 0C69.8528 0 90 20.1472 90 45C90 69.8528 69.8528 90 45 90C20.1472 90 0 69.8528 0 45Z" fill="#4185e3" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<g opacity="1">
+<g opacity="1">
+<path d="M18 64C18 65.1046 18.8954 66 20 66L66 66C67.1046 66 68 65.1046 68 64L68 29L18 29L18 64Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+<path d="M18 30L18 22C18 20.8954 18.8954 20 20 20L66 20C67.1046 20 68 20.8954 68 22L68 30L18 30Z" fill="#dae3e6" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+<path d="M21 25C21 23.8954 21.8954 23 23 23C24.1046 23 25 23.8954 25 25C25 26.1046 24.1046 27 23 27C21.8954 27 21 26.1046 21 25Z" fill="#ff5f57" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<path d="M27 25C27 23.8954 27.8954 23 29 23C30.1046 23 31 23.8954 31 25C31 26.1046 30.1046 27 29 27C27.8954 27 27 26.1046 27 25Z" fill="#ffbb30" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<path d="M33 25C33 23.8954 33.8954 23 35 23C36.1046 23 37 23.8954 37 25C37 26.1046 36.1046 27 35 27C33.8954 27 33 26.1046 33 25Z" fill="#28c840" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+</g>
+<path d="M49 61C49 54.3726 54.3726 49 61 49C67.6274 49 73 54.3726 73 61C73 67.6274 67.6274 73 61 73C54.3726 73 49 67.6274 49 61Z" fill="#5e5e5e" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="circle"/>
+<path d="M69 62.1035L69 59.8965L67.1024 59.264C66.9673 58.7883 66.7788 58.3354 66.5426 57.9123L67.4371 56.1234L65.8766 54.5629L64.0876 55.4574C63.6646 55.2212 63.2117 55.0327 62.736 54.8976L62.1035 53L59.8965 53L59.264 54.8976C58.7883 55.0327 58.3354 55.2212 57.9123 55.4574L56.1234 54.5629L54.5629 56.1234L55.4574 57.9123C55.2212 58.3354 55.0327 58.7883 54.8976 59.264L53 59.8965L53 62.1035L54.8976 62.736C55.0327 63.2117 55.2212 63.6646 55.4574 64.0876L54.5629 65.8766L56.1234 67.4371L57.9123 66.5426C58.3354 66.7788 58.7883 66.9673 59.264 67.1024L59.8965 69L62.1035 69L62.736 67.1024C63.2117 66.9673 63.6646 66.7788 64.0876 66.5426L65.8766 67.4371L67.4371 65.8766L66.5426 64.0876C66.7788 63.6646 66.9673 63.2117 67.1024 62.736L69 62.1035ZM61 64.0208C59.3316 64.0208 57.9792 62.6684 57.9792 61C57.9792 59.3316 59.3316 57.9792 61 57.9792C62.6684 57.9792 64.0208 59.3316 64.0208 61C64.0208 62.6684 62.6684 64.0208 61 64.0208Z" fill="#e3f3ff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+</g>
+</g>
+</svg>

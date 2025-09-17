@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1B13007428CA444B00B0DD75 /* AppUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B13007328CA444B00B0DD75 /* AppUpdateViewModel.swift */; };
 		1B24E61C28B28007004C0B71 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E61B28B28007004C0B71 /* ApplicationViewModel.swift */; };
+		1B2867322E7A968D0045EB62 /* AppIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2867312E7A968D0045EB62 /* AppIcon.svg */; };
+		1B2867342E7A97B10045EB62 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1B2867332E7A97B10045EB62 /* AppIcon.icon */; };
+		1B2867372E7A9AEF0045EB62 /* Settings.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2867362E7A9AEF0045EB62 /* Settings.svg */; };
+		1B2867392E7A9BD40045EB62 /* Settings.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1B2867382E7A9BD40045EB62 /* Settings.icon */; };
 		1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B3731BC28B267E3009BEC55 /* Localizable.strings */; };
 		1B868FFE28AABD7F00A3BB13 /* QuitRunningApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFD28AABD7F00A3BB13 /* QuitRunningApps.swift */; };
 		1B86900028AABD7F00A3BB13 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */; };
@@ -44,6 +48,10 @@
 		1B13006E28CA437F00B0DD75 /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
 		1B13007328CA444B00B0DD75 /* AppUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateViewModel.swift; sourceTree = "<group>"; };
 		1B24E61B28B28007004C0B71 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
+		1B2867312E7A968D0045EB62 /* AppIcon.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AppIcon.svg; sourceTree = "<group>"; };
+		1B2867332E7A97B10045EB62 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		1B2867362E7A9AEF0045EB62 /* Settings.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Settings.svg; sourceTree = "<group>"; };
+		1B2867382E7A9BD40045EB62 /* Settings.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Settings.icon; sourceTree = "<group>"; };
 		1B3731BB28B267E3009BEC55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B3731C028B26C69009BEC55 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B789EC128BE18E500956971 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = README.md; sourceTree = "<group>"; };
@@ -94,10 +102,10 @@
 		1B0A9F8328C6665F0044F991 /* External Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B28673A2E7A9D3E0045EB62 /* Before_Tahoe */,
+				1B2867362E7A9AEF0045EB62 /* Settings.svg */,
+				1B2867312E7A968D0045EB62 /* AppIcon.svg */,
 				1BECD0092C5CDDD0001EC6A1 /* Screenshots */,
-				1B8A88EA2B8F5F970090B6BA /* App.svg */,
-				1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */,
-				1B8A88E92B8F5F970090B6BA /* Settings.svg */,
 			);
 			path = "External Resources";
 			sourceTree = "<group>";
@@ -110,6 +118,25 @@
 				1B13006E28CA437F00B0DD75 /* versions.json */,
 			);
 			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		1B2867352E7A99F80045EB62 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1B2867332E7A97B10045EB62 /* AppIcon.icon */,
+				1B2867382E7A9BD40045EB62 /* Settings.icon */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1B28673A2E7A9D3E0045EB62 /* Before_Tahoe */ = {
+			isa = PBXGroup;
+			children = (
+				1B8A88EB2B8F5F970090B6BA /* AppIcon.svg */,
+				1B8A88E92B8F5F970090B6BA /* Settings.svg */,
+				1B8A88EA2B8F5F970090B6BA /* App.svg */,
+			);
+			path = Before_Tahoe;
 			sourceTree = "<group>";
 		};
 		1B868FF128AABD7F00A3BB13 = {
@@ -144,6 +171,7 @@
 				1B868FFF28AABD7F00A3BB13 /* ApplicationView.swift */,
 				1BB5136F28C268DA00A11AD4 /* SettingsView.swift */,
 				1B86900128AABD8000A3BB13 /* Assets.xcassets */,
+				1B2867352E7A99F80045EB62 /* Assets */,
 				1B3731BC28B267E3009BEC55 /* Localizable.strings */,
 				1BF01C2128C8FBFD00AD9805 /* Credits.html */,
 				1B86900628AABD8000A3BB13 /* QuitRunningApps.entitlements */,
@@ -250,7 +278,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					1B868FF928AABD7F00A3BB13 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -283,16 +311,20 @@
 			files = (
 				1B86900528AABD8000A3BB13 /* Preview Assets.xcassets in Resources */,
 				1BECD0122C5CE56B001EC6A1 /* Closing Word.pxd in Resources */,
+				1B2867342E7A97B10045EB62 /* AppIcon.icon in Resources */,
 				1B8A88EC2B8F5F970090B6BA /* Settings.svg in Resources */,
 				1BECD00C2C5CDDEB001EC6A1 /* QuitRunningApps Social Preview.png in Resources */,
 				1BECD0172C5CE713001EC6A1 /* QuitRunningApps Preferences.png in Resources */,
 				1B3731BA28B267E3009BEC55 /* Localizable.strings in Resources */,
+				1B2867372E7A9AEF0045EB62 /* Settings.svg in Resources */,
 				1B8A88ED2B8F5F970090B6BA /* App.svg in Resources */,
 				1BECD00D2C5CDDEB001EC6A1 /* QuitRunningApps Screenshot.png in Resources */,
 				1BECD00F2C5CE086001EC6A1 /* QuitRunningApps Screenshot.pxd in Resources */,
 				1B8A88EE2B8F5F970090B6BA /* AppIcon.svg in Resources */,
 				1B86900228AABD8000A3BB13 /* Assets.xcassets in Resources */,
+				1B2867392E7A9BD40045EB62 /* Settings.icon in Resources */,
 				1BECD0132C5CE56B001EC6A1 /* Closing Word.png in Resources */,
+				1B2867322E7A968D0045EB62 /* AppIcon.svg in Resources */,
 				1BECD0192C5CEBF5001EC6A1 /* Unidentified Developer.png in Resources */,
 				1BF01C2228C8FBFD00AD9805 /* Credits.html in Resources */,
 				1BECD0162C5CE713001EC6A1 /* QuitRunningApps Preferences.pxd in Resources */,
@@ -401,6 +433,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -461,6 +494,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -480,8 +514,10 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = QuitRunningApps;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -513,8 +549,10 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuitRunningApps/Preview Content\"";
 				DEVELOPMENT_TEAM = PA4ZVVNYSC;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = QuitRunningApps;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
